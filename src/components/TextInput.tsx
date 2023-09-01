@@ -1,19 +1,26 @@
-"use client"
-import React, { ChangeEvent, ReactElement, SetStateAction, useEffect, useRef, useState } from "react";
-import styles from "./textinput.module.css";
-import { EyeOn, EyeOff } from "@/assets/Eye";
+'use client';
+import React, {
+  ChangeEvent,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import styles from './textinput.module.css';
+import { EyeOn, EyeOff } from '@/assets/Eye';
+import { InputTypes } from '@/interfaces/user.interface';
 
-interface InputProps {
-    value: Record<string, string>,
-    setValue: React.Dispatch<SetStateAction<Record<string, string>>>,
-    name: string,
-    placeholder?: string,
-    inputType?: "text" | "email" | "password",
-    required?: boolean,
-    tooltip?: string,
-    pattern?: string,
-    autocomplete?: boolean
-}
+type InputProps = {
+  value: Record<string, string>;
+  setValue: React.Dispatch<SetStateAction<Record<string, string>>>;
+  name: string;
+  placeholder?: string;
+  inputType?: InputTypes;
+  required?: boolean;
+  tooltip?: string;
+  pattern?: string;
+  autocomplete?: boolean;
+};
 
 /**
  * Component for an HTMl text input. Style it as per your need once and get a uniform input design over your app
@@ -34,31 +41,37 @@ function Input({
   value,
   setValue,
   name,
-  placeholder = "",
-  inputType = "text",
+  placeholder = '',
+  inputType = InputTypes.TEXT,
   required = false,
   pattern,
   tooltip,
   autocomplete = false,
 }: InputProps) {
   const ref = useRef<HTMLInputElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(
+    inputType == 'password' ? false : true
+  );
 
   useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+
     if (isVisible) {
-      ref.current!.type = "text";
+      ref.current.type = 'text';
     } else {
-      ref.current!.type = "password";
+      ref.current.type = 'password';
     }
   }, [isVisible]);
 
   const displayInvalid = (e: any) => {
-    if (!tooltip) {
+    if (!tooltip || !ref.current) {
       return;
     }
 
-    if (!ref.current!.validity.valid) {
-      ref.current!.setCustomValidity(tooltip);
+    if (!ref.current.validity.valid) {
+      ref.current.setCustomValidity(tooltip);
     }
   };
 
@@ -70,9 +83,9 @@ function Input({
 
   if (
     inputType &&
-    inputType !== "text" &&
-    inputType !== "password" &&
-    inputType !== "email"
+    inputType !== 'text' &&
+    inputType !== 'password' &&
+    inputType !== 'email'
   ) {
     return null;
   }
@@ -81,6 +94,7 @@ function Input({
     <div className={styles.input_div}>
       <input
         name={name}
+        value={{ ...value }[name]}
         type={inputType}
         ref={ref}
         placeholder={placeholder}
@@ -88,16 +102,16 @@ function Input({
         pattern={pattern}
         required={required}
         title={tooltip}
-        autoComplete={autocomplete ? "on" : "off"}
+        autoComplete={autocomplete ? 'on' : 'off'}
         onInvalid={displayInvalid}
         onChange={handleChange}
       />
-      {inputType === "password" ? (
+      {inputType === 'password' ? (
         isVisible ? (
           <EyeOn
             height={20}
             width={20}
-            fill={"#FFF"}
+            fill={'#FFF'}
             className={styles.eye_button}
             onClick={() => {
               setIsVisible(!isVisible);
@@ -107,7 +121,7 @@ function Input({
           <EyeOff
             height={20}
             width={20}
-            fill={"#FFF"}
+            fill={'#FFF'}
             className={styles.eye_button}
             onClick={() => {
               setIsVisible(!isVisible);
