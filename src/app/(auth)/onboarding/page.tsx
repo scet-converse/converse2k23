@@ -14,7 +14,7 @@ export default async function Page() {
   if (userInfo?.onboarded) redirect('/');
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center px-7 py-8">
       <OnboardForm id={user.id} email={user.emailAddresses[0].emailAddress} />
     </main>
   );
