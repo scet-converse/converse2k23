@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.23.3",
+    "@clerk/themes": "^1.7.5",
+    "@prisma/client": "^5.2.0",
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
@@ -23,6 +26,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "prisma": "^5.2.0"
   }
 }
