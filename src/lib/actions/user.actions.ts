@@ -1,4 +1,5 @@
-import { User } from '@prisma/client';
+'use server'
+
 import prisma from '../prisma';
 
 export async function getUserById(id: string) {
@@ -18,7 +19,16 @@ export async function createUser({
   college,
   branch,
   year,
-}: User) {
+}: {
+  id: string;
+  email: string;
+  name: string;
+  mobile: number;
+  enroll: string;
+  college: string;
+  branch: string;
+  year: number;
+}) {
   return await prisma.user.create({
     data: {
       id,

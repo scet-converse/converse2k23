@@ -18,8 +18,8 @@ model User {
   name      String
   role      Role     @default(USER)
   enroll    String   @unique
-  mobile    String
-  year      Int      @default(1)
+  mobile    Int
+  year      Int
   branch    String
   college   String
   onboarded Boolean  @default(false)
