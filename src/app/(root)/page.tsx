@@ -4,6 +4,8 @@ import { getUserById } from '@/lib/actions/user.actions';
 import { User } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Modal from '@/components/ui/Modal';
+import OnboardForm from '@/components/OnboardForm';
 
 export default async function Home() {
   const user = await currentUser();
@@ -11,7 +13,8 @@ export default async function Home() {
   if (user) {
     const userInfo: User | null = await getUserById(user.id);
 
-    if (!userInfo?.onboarded) redirect('/onboarding');
+    // if (!userInfo?.onboarded) redirect('/');
+    // TODO: Open popup
   }
 
   return (
@@ -21,6 +24,10 @@ export default async function Home() {
       ) : (
         <Link href="/sign-in">Sign In</Link>
       )}
+
+      <Modal>
+        <OnboardForm id="" email="" />
+      </Modal>
     </main>
   );
 }

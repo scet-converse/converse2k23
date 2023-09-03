@@ -41,7 +41,7 @@ const OnboardForm = (props: { id: string; email: string }) => {
   };
 
   return (
-    <div className="flex flex-col gap-8 bg-[#19191a] py-12 px-8 rounded-2xl w-[25rem] max-w-[calc(100vw - 5rem)]">
+    <div className="flex flex-col gap-8">
       <div>
         <Image src={Logo} alt="converse logo" width={48} height={48} />
       </div>
