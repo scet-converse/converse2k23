@@ -1,8 +1,6 @@
 import { UserButton, currentUser } from '@clerk/nextjs';
-import Image from 'next/image';
 import { getUserById } from '@/lib/actions/user.actions';
 import { User } from '@prisma/client';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Modal from '@/components/ui/Modal';
 import OnboardForm from '@/components/OnboardForm';

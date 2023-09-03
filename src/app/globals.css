@@ -30,3 +30,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.modal::-webkit-scrollbar-track {
+  border-radius: 16px;
+}
+
+.modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background-color: #3d3d3d;
+}
