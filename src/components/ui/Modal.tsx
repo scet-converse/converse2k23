@@ -1,11 +1,19 @@
 'use client';
 
 import React, { FC, ReactElement, PropsWithChildren, useState } from 'react';
+import { useModal } from '@/contexts/modal';
 
-const ModalComponent: FC<PropsWithChildren> = ({ children }): ReactElement => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+interface ModalProps extends PropsWithChildren {
+  open: boolean;
+}
 
-  return isOpen ? (
+const ModalComponent: FC<ModalProps> = ({ open, children }): ReactElement => {
+  const { isOnboardOpen, setIsOnboardOpen } = useModal();
+  setIsOnboardOpen(open);
+
+  // console.log(isOnboardOpen);
+
+  return isOnboardOpen ? (
     <div
       id="defaultModal"
       tabIndex={-1}
@@ -16,7 +24,7 @@ const ModalComponent: FC<PropsWithChildren> = ({ children }): ReactElement => {
         className="fixed top-0 left-0 right-0 bottom-0 z-10 h-screen w-screen overflow-x-hidden overflow-y-hidden md:inset-0 bg-opacity-20 backdrop-blur-sm rounded drop-shadow-sm hover:cursor-pointer"
         data-modal-hide="defaultModal"
         onClick={(e) => {
-          setIsOpen(false);
+          setIsOnboardOpen(false);
         }}
       />
 
