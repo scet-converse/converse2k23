@@ -1,17 +1,13 @@
 'use client';
 
 import React, { FC, ReactElement, PropsWithChildren } from 'react';
-import { useModal } from '@/contexts/modal';
 
 interface ModalProps extends PropsWithChildren {
   open: boolean;
 }
 
 const ModalComponent: FC<ModalProps> = ({ open, children }): ReactElement => {
-  const { isOnboardOpen, setIsOnboardOpen } = useModal();
-  setIsOnboardOpen(open);
-
-  return isOnboardOpen ? (
+  return open ? (
     <div
       id="defaultModal"
       tabIndex={-1}

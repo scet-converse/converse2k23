@@ -11,14 +11,12 @@ import departments from '@/lib/data/departments';
 import { createUser } from '@/lib/actions/user.actions';
 import { useRouter } from 'next/navigation';
 import Spinner from './ui/Spinner';
-import { useModal } from '@/contexts/modal';
 
 const OnboardForm = (props: { id: string; email: string }) => {
   type UserSchemaType = z.infer<typeof userSchema>;
   const { id, email } = props;
   const router = useRouter();
   const [loading, setLoading] = React.useState(false);
-  const { setIsOnboardOpen } = useModal();
 
   const {
     register,
@@ -36,11 +34,9 @@ const OnboardForm = (props: { id: string; email: string }) => {
       await createUser({ ...data, id, email });
 
       setLoading(false);
-      setIsOnboardOpen(false);
       router.refresh();
     } catch (error) {
       setLoading(false);
-      setIsOnboardOpen(false);
       router.refresh();
     }
   };
