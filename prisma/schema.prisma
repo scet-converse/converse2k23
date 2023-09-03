@@ -18,7 +18,7 @@ model User {
   name      String
   role      Role     @default(USER)
   enroll    String   @unique
-  mobile    Int
+  mobile    BigInt
   year      Int
   branch    String
   college   String
