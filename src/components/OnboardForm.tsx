@@ -10,6 +10,7 @@ import * as z from 'zod';
 import departments from '@/lib/data/departments';
 import { createUser } from '@/lib/actions/user.actions';
 import { useRouter } from 'next/navigation';
+import Spinner from './ui/Spinner';
 
 const OnboardForm = (props: { id: string; email: string }) => {
   type UserSchemaType = z.infer<typeof userSchema>;
@@ -158,7 +159,7 @@ const OnboardForm = (props: { id: string; email: string }) => {
             type="submit"
             disabled={loading || isSubmitting || Object.keys(errors).length > 0}
           >
-            {loading ? 'Loading...' : 'Submit'}
+            {loading ? <Spinner /> : 'Submit'}
           </button>
         </form>
       </div>
@@ -174,6 +175,6 @@ const styles = {
     'border border-[#ffffff29] rounded-md p-2 bg-transparent text-[0.8125rem] px-4 py-[0.625rem] outline-none',
   option: 'bg-[#19191a]',
   button:
-    'py-[0.625rem] px-5 cursor-pointer bg-[var(--accent)] rounded-md p-2 text-[0.6875rem] font-semibold min-h-[2.25rem] tracking-[0.5px] hover:bg-[var(--accentDark)]',
+    'py-[0.625rem] px-5 cursor-pointer bg-[var(--accent)] rounded-md p-2 text-[0.6875rem] font-semibold min-h-[2.25rem] tracking-[0.5px] hover:bg-[var(--accentDark)] uppercase',
   hint: 'text-[rgba(255, 255, 255, 0.65)] text-[0.8125rem] font-normal mt-[0.5rem] text-red-800 block',
 };
