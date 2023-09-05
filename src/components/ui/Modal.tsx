@@ -19,7 +19,7 @@ const ModalComponent: FC<ModalProps> = ({ open, children }): ReactElement => {
         data-modal-hide="defaultModal"
       />
 
-      <div className="absolute top-1/2 left-1/2 z-20 translate-x-[-50%] translate-y-[-50%] bg-[#19191a] py-2 rounded-2xl w-[25rem] max-w-[calc(100vw - 5rem)] h-4/5 md:h-3/5">
+      <div className="absolute top-1/2 left-1/2 z-20 translate-x-[-50%] translate-y-[-50%] bg-[#19191a] py-2 rounded-2xl w-[25rem] max-w-[calc(100vw-0.75rem)] h-4/5 md:h-3/5">
         <div className="modal flex flex-col py-12 px-8 w-full h-full rounded-2xl overflow-auto">
           {children}
         </div>
