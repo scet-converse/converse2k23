@@ -3,22 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
   --accentLightest: hsla(227, 87%, 59%, 0.3);
   --accentLighter: hsla(227, 87%, 50%, 0.3);
   --accent: #103fef;
   --accentDark: #0d33bf;
   --accentDarker: #0a268f;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
 }
 
 body {
@@ -29,4 +21,23 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.modal::-webkit-scrollbar-track {
+  border-radius: 16px;
+}
+
+.modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background-color: #3d3d3d;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal::-webkit-scrollbar {
+    width: 8px;
+  }
 }

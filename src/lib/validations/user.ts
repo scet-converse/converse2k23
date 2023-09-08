@@ -10,14 +10,16 @@ export const userSchema = zod.object({
       message: 'Name must be at most 32 characters long',
     }),
 
-  mobile: zod.coerce
-    .number()
-    .min(1000000000, {
-      message: 'Mobile number must be 10 digits long',
-    })
-    .max(9999999999, {
-      message: 'Mobile number must be 10 digits long',
-    }),
+  mobile: zod.string().refine((value) => /^\d{10}$/.test(value), {
+    message: 'Mobile number should have 10 digits',
+  }),
+
+  // .min(10, {
+  //   message: 'Mobile number must be 10 digits long',
+  // })
+  // .max(10, {
+  //   message: 'Mobile number must be 10 digits long',
+  // }),
 
   enroll: zod.string().min(12, {
     message: 'Enrollment number must be at least 12 characters long',

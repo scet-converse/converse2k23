@@ -34,14 +34,15 @@ const OnboardForm = (props: { id: string; email: string }) => {
       await createUser({ ...data, id, email });
 
       setLoading(false);
-      router.push('/');
+      router.refresh();
     } catch (error) {
       setLoading(false);
+      router.refresh();
     }
   };
 
   return (
-    <div className="flex flex-col gap-8 bg-[#19191a] py-12 px-8 rounded-2xl w-[25rem] max-w-[calc(100vw - 5rem)]">
+    <div className="flex flex-col gap-8">
       <div>
         <Image src={Logo} alt="converse logo" width={48} height={48} />
       </div>
@@ -72,7 +73,7 @@ const OnboardForm = (props: { id: string; email: string }) => {
             <label className={styles.label}>Mobile Number</label>
             <input
               className={styles.input}
-              type="number"
+              type="text"
               {...register('mobile')}
             />
             {errors.mobile && (

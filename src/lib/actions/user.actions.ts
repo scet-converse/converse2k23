@@ -1,4 +1,4 @@
-'use server'
+'use server';
 
 import prisma from '../prisma';
 
@@ -23,7 +23,7 @@ export async function createUser({
   id: string;
   email: string;
   name: string;
-  mobile: number;
+  mobile: string;
   enroll: string;
   college: string;
   branch: string;
