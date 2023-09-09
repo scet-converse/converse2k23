@@ -4,6 +4,7 @@ import { User } from '@prisma/client';
 import Link from 'next/link';
 import Modal from '@/components/ui/Modal';
 import OnboardForm from '@/components/OnboardForm';
+import PersonCard from '@/components/PersonCard';
 
 export default async function Home() {
   const user = await currentUser();
@@ -32,6 +33,12 @@ export default async function Home() {
       ) : (
         <Link href="/sign-in">Sign In</Link>
       )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <PersonCard />
+        <PersonCard />
+        <PersonCard />
+        <PersonCard />
+      </div>
     </main>
   );
 }
