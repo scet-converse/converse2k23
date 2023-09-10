@@ -16,7 +16,7 @@ const config: Config = {
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
-        green: 'var(--green)',
+        tertiary: 'var(--tertiary)',
       },
     },
   },

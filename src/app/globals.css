@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --background-start-rgb: 11, 11, 11;
+  --background-end-rgb: 11, 11, 11;
   --accentLightest: hsla(227, 87%, 59%, 0.3);
   --accentLighter: hsla(227, 87%, 50%, 0.3);
   --accent: #103fef;
@@ -13,7 +13,7 @@
   --accentDarker: #0a268f;
   --primary: #c416c4;
   --secondary: #8f75d7;
-  --green: #6ba93e;
+  --tertiary: #6ba93e;
 }
 
 body {
@@ -43,4 +43,12 @@ body {
   .modal::-webkit-scrollbar {
     width: 8px;
   }
+}
+
+.converse {
+  text-shadow:
+    /* 0px 0px 0px #026ee2, */
+    -0px 0px 0px #e2e202,
+    -4px 4px 0px #de8e0c,
+    -8px 8px 0px #e20202;
 }

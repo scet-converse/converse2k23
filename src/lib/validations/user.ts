@@ -21,8 +21,8 @@ export const userSchema = zod.object({
   //   message: 'Mobile number must be 10 digits long',
   // }),
 
-  enroll: zod.string().min(12, {
-    message: 'Enrollment number must be at least 12 characters long',
+  enroll: zod.string().nonempty({
+    message: 'Enrollment number is required',
   }),
 
   college: zod.string().min(3, {

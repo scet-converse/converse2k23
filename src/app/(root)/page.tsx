@@ -1,9 +1,9 @@
-import { UserButton, currentUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs';
 import { getUserById } from '@/lib/actions/user.actions';
 import { User } from '@prisma/client';
-import Link from 'next/link';
 import Modal from '@/components/ui/Modal';
 import OnboardForm from '@/components/OnboardForm';
+import Hero from '@/components/Hero';
 
 export default async function Home() {
   const user = await currentUser();
@@ -17,21 +17,16 @@ export default async function Home() {
   }
 
   return (
-    <main className="min-h-screen p-7">
-      {user ? (
-        <>
-          <UserButton afterSignOutUrl="/" />
-
-          <Modal open={!isOnboard}>
-            <OnboardForm
-              id={user.id}
-              email={user.emailAddresses[0].emailAddress}
-            />
-          </Modal>
-        </>
-      ) : (
-        <Link href="/sign-in">Sign In</Link>
+    <main className="min-h-screen">
+      {user && (
+        <Modal open={!isOnboard}>
+          <OnboardForm
+            id={user.id}
+            email={user.emailAddresses[0].emailAddress}
+          />
+        </Modal>
       )}
+      <Hero />
     </main>
   );
 }

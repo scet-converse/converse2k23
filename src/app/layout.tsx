@@ -1,10 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ['latin'] });
+const pixel = localFont({ src: '../assets/fonts/PixeloidSans.ttf' });
 
 export const metadata: Metadata = {
   title: 'Converse',
@@ -23,7 +23,7 @@ export default function MainLayout({
       }}
     >
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={pixel.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
