@@ -1,10 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { Press_Start_2P } from 'next/font/google';
 import { AiOutlineInstagram, AiOutlineGithub } from 'react-icons/ai';
-
-const digital = Press_Start_2P({ weight: '400', subsets: ['latin'] });
 
 function PersonCard({
   name = 'Bhagya Patel',
@@ -22,9 +19,7 @@ function PersonCard({
   github?: string;
 }) {
   return (
-    <div
-      className={`flex flex-col w-[90%] m-auto aspect-square bg-pink-500 p-10 ${digital.className}`}
-    >
+    <div className="flex flex-col w-[90%] m-auto aspect-square bg-pink-500 p-10">
       <div className="w-full h-1/2 relative flex justify-center">
         <Image
           src={image ? image : '/8bit_profile_placeholder.png'}
