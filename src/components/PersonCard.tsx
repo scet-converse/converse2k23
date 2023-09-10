@@ -4,15 +4,15 @@ import Image from 'next/image';
 import { AiOutlineInstagram, AiOutlineGithub } from 'react-icons/ai';
 
 function PersonCard({
-  name = 'Bhagya Patel',
-  position = 'Developer',
+  name,
+  position,
   team,
   image,
   instagram,
   github,
 }: {
-  name?: string;
-  position?: string;
+  name: string;
+  position: string;
   team?: string;
   image?: string;
   instagram?: string;
