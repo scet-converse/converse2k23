@@ -1,14 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const Marquee = () => {
+type PropType = { sentences: string[] };
+
+const Marquee = ({ sentences }: PropType) => {
   return (
-    <div className="marquee">
-  <div>
-    <span>++++ this is a running text aka marquee using html &amp; css + text length is limited to the width</span>
-    <span>++++ this is a running text aka marquee using html &amp; css + text length is limited to the width</span>
-  </div>
-</div>
-  )
-}
+    <div
+      className={`text-md md:text-2xl text-[#FE00D4] h-[3.5vw] overflow-hidden relative`}
+    >
+      <div className="block w-[200%] absolute overflow-hidden animate-[marquee_12s_linear_infinite]">
+        {sentences &&
+          sentences.map((sentence, index) => (
+            <span className="float w-1/2" key={index}>
+              {sentence}
+            </span>
+          ))}
+      </div>
+    </div>
+  );
+};
 
-export default Marquee
+export default Marquee;

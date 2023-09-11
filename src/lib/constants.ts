@@ -5,3 +5,9 @@ export const FEST_YEAR = '2023';
 export const FEST_NOT_STARTED_TEXT = 'Are you ready ?';
 export const FEST_STARTED_TEXT = 'Enjoy the festival !';
 export const FEST_ENDED_TEXT = 'See you next year !';
+
+
+export const WELCOME_TEXT = 'HELLO STUDENTS WELCOME TO CONVERSE !'
+export const DATE_TEXT = 'HELLO STUDENTS WELCOME TO CONVERSE !'
+export const EVENT_TEXT = 'HELLO STUDENTS WELCOME TO CONVERSE !';
+export const NAME_TEXT = 'HELLO STUDENTS WELCOME TO CONVERSE !';
