@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { FEST_NAME, FEST_YEAR } from '@/lib/constants';
-import Link from 'next/link';
-import Coin from '@/assets/icons/coin.png';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import { FEST_NAME, FEST_YEAR } from "@/lib/constants";
+import Link from "next/link";
+import Coin from "@/assets/icons/coin.png";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const [active, setActive] = React.useState(0);
@@ -13,39 +13,39 @@ const Hero = () => {
 
   React.useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp') {
+      if (e.key === "ArrowUp") {
         setActive((prev) => (prev === 0 ? 3 : prev - 1));
-      } else if (e.key === 'ArrowDown') {
+      } else if (e.key === "ArrowDown") {
         setActive((prev) => (prev === 3 ? 0 : prev + 1));
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
 
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, []);
 
   React.useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === "Enter") {
         router.push(routes[active].path);
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
 
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, [active]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen md:p-16 p-8 max-w-[1200px] mx-auto my-0">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-1200 mx-auto my-0">
       <h1 className="text-6xl md:text-8xl font-bold italic text-transparent uppercase converse">
         {FEST_NAME}
       </h1>
       <h2
         className="text-4xl md:text-6xl font-bold mt-2 uppercase"
         style={{
-          WebkitTextStroke: '0.1px #bebebe',
+          WebkitTextStroke: "0.1px #bebebe",
         }}
       >
         year {FEST_YEAR}
@@ -82,7 +82,7 @@ const Hero = () => {
                       href={route.path}
                       className="uppercase text-base md:text-xl lg:text-2xl"
                     >
-                      select <span className="text-2xl">&lowast;</span> from{' '}
+                      select <span className="text-2xl">&lowast;</span> from{" "}
                       {route.name}
                     </Link>
                   </div>
@@ -108,19 +108,19 @@ export default Hero;
 
 const routes = [
   {
-    name: 'about',
-    path: '/about',
+    name: "about",
+    path: "/about",
   },
   {
-    name: 'events',
-    path: '/events',
+    name: "events",
+    path: "/events",
   },
   {
-    name: 'sponsors',
-    path: '/sponsors',
+    name: "sponsors",
+    path: "/sponsors",
   },
   {
-    name: 'teams',
-    path: '/teams',
+    name: "teams",
+    path: "/teams",
   },
 ];
