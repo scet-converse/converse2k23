@@ -14,8 +14,10 @@ const Hero = () => {
   React.useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowUp') {
+        e.preventDefault();
         setActive((prev) => (prev === 0 ? 3 : prev - 1));
       } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
         setActive((prev) => (prev === 3 ? 0 : prev + 1));
       }
     };
@@ -38,7 +40,7 @@ const Hero = () => {
   }, [active]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen md:p-16 p-8 max-w-[1200px] mx-auto my-0">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-1200 mx-auto my-0 p-4">
       <h1 className="text-6xl md:text-8xl font-bold italic text-transparent uppercase converse">
         {FEST_NAME}
       </h1>

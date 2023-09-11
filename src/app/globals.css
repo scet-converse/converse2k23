@@ -14,6 +14,7 @@
   --primary: #c416c4;
   --secondary: #8f75d7;
   --tertiary: #6ba93e;
+  --max-width: 1200px;
 }
 
 body {

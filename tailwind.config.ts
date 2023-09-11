@@ -18,6 +18,9 @@ const config: Config = {
         secondary: 'var(--secondary)',
         tertiary: 'var(--tertiary)',
       },
+      maxWidth: {
+        '1200': 'var(--max-width)',
+      },
     },
   },
   plugins: [],
