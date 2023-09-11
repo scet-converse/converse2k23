@@ -1,10 +1,9 @@
-import { currentUser } from '@clerk/nextjs';
-import { getUserById } from '@/lib/actions/user.actions';
-import { User } from '@prisma/client';
-import Modal from '@/components/ui/Modal';
-import OnboardForm from '@/components/OnboardForm';
-import Hero from '@/components/Hero';
-import Marquee from '@/components/Marquee';
+import { currentUser } from "@clerk/nextjs";
+import { getUserById } from "@/lib/actions/user.actions";
+import { User } from "@prisma/client";
+import Modal from "@/components/ui/Modal";
+import OnboardForm from "@/components/OnboardForm";
+import Hero from "@/components/Hero";
 
 export default async function Home() {
   const user = await currentUser();
@@ -28,7 +27,6 @@ export default async function Home() {
         </Modal>
       )}
       <Hero />
-      <Marquee/>
     </main>
   );
 }
