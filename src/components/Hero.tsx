@@ -5,6 +5,7 @@ import { FEST_NAME, FEST_YEAR } from '@/lib/constants';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Tv from '@/components/Tv'
 
 const Hero = () => {
   const [active, setActive] = React.useState(0);
@@ -99,7 +100,9 @@ const Hero = () => {
 
             {/* Right Section */}
 
-            <div className="hidden md:col-span-6 md:block col-span-12"></div>
+            <div className="hidden md:col-span-6 md:block col-span-12 ">
+              <Tv/>
+            </div>
           </div>
         </div>
 
