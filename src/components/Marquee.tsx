@@ -1,20 +1,37 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 type PropType = { sentences: string[] };
 
+const marqueeVariants = {
+  animate: {
+    x: ['100%', '-100%'],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: 'loop',
+        duration: 10,
+        ease: 'linear',
+      },
+    },
+  },
+};
+
 const Marquee = ({ sentences }: PropType) => {
   return (
-    <div
-      className={`text-md md:text-2xl text-[#FE00D4] h-[3.5vw] overflow-hidden relative`}
-    >
-      <div className="block w-[100%] absolute overflow-hidden animate-[marquee_12s_linear_infinite]">
+    <div className="relative w-screen max-w-full h-auto overflow-hidden">
+      <motion.div
+        className="whitespace-nowrap flex items-center justify-start gap-4"
+        variants={marqueeVariants}
+        animate="animate"
+      >
         {sentences &&
           sentences.map((sentence, index) => (
-            <span className="float w-1/2" key={index}>
+            <h1 className="md:text-lg" key={index}>
               {sentence}
-            </span>
+            </h1>
           ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
