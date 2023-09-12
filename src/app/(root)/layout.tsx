@@ -2,7 +2,7 @@ import '../globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
-const pixel = localFont({ src: '../assets/fonts/PixeloidSans.ttf' });
+const pixel = localFont({ src: '../../../public/fonts/PixeloidSans.ttf' });
 
 export const metadata: Metadata = {
   title: 'Converse',
