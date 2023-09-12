@@ -82,6 +82,7 @@ const Hero = () => {
                           alt="coin"
                           fill
                           objectFit="contain"
+                          unoptimized
                         />
                       )}
                     </div>
