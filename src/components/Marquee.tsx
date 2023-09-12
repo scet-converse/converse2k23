@@ -4,18 +4,12 @@ type PropType = { sentences: string[] };
 
 const Marquee = ({ sentences }: PropType) => {
   return (
-    <div
-      className={`text-md md:text-2xl text-[#FE00D4] h-[3.5vw] overflow-hidden relative`}
-    >
-      <div className="block w-[100%] absolute overflow-hidden animate-[marquee_12s_linear_infinite]">
-        {sentences &&
-          sentences.map((sentence, index) => (
-            <span className="float w-1/2" key={index}>
-              {sentence}
-            </span>
-          ))}
-      </div>
-    </div>
+    <div id="marquee" className='whitespace-nowrap overflow-x-auto overflow-y-hidden'>
+    <h1 className='text-2xl inline-block mr-[30px]'>HELLO STUDENTS WELCOME TO <span className='px-[12px] py-2 bg-[#FE00D4] rounded-[15px] text-slate-950'>CONVERSE</span> !</h1>
+    <h1 className='text-2xl inline-block mr-[30px]'>HELLO STUDENTS WELCOME TO <span className='px-[12px] py-2 bg-[#FE00D4] rounded-[15px] text-slate-950'>CONVERSE</span> !</h1>
+    <h1 className='text-2xl inline-block mr-[30px]'>HELLO STUDENTS WELCOME TO <span className='px-[12px] py-2 bg-[#FE00D4] rounded-[15px] text-slate-950'>CONVERSE</span> !</h1>
+
+</div>
   );
 };
 

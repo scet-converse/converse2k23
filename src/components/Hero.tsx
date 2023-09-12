@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Tv from '@/components/Tv'
+import Marquee from './Marquee';
 
 const Hero = () => {
   const [active, setActive] = React.useState(0);
@@ -108,7 +109,9 @@ const Hero = () => {
 
         {/* Bottom Section */}
 
-        <div className="w-full py-6 px-8 border-t-2 border-white"></div>
+        <div className="w-full py-6 px-8 border-t-2 border-white">
+          <Marquee sentences={['welcome to scet CONVERSE']}/>
+        </div>
       </div>
     </div>
   );
