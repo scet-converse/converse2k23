@@ -15,7 +15,7 @@
   --secondary: #8f75d7;
   --tertiary: #6ba93e;
   --max-width: 1200px;
-  --pixel-bg: lightblue;
+  --pixel-bg: rgb(63, 206, 127);
   /* ↑ Inner background color */
 
   --pixel-border: black;
