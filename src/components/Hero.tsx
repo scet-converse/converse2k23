@@ -3,7 +3,6 @@
 import React from 'react';
 import { FEST_NAME, FEST_YEAR } from '@/lib/constants';
 import Link from 'next/link';
-import Coin from '@/assets/icons/coin.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -14,8 +13,10 @@ const Hero = () => {
   React.useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowUp') {
+        e.preventDefault();
         setActive((prev) => (prev === 0 ? 3 : prev - 1));
       } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
         setActive((prev) => (prev === 3 ? 0 : prev + 1));
       }
     };
@@ -38,7 +39,7 @@ const Hero = () => {
   }, [active]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen md:p-16 p-8 max-w-[1200px] mx-auto my-0">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-1200 mx-auto my-0 p-4">
       <h1 className="text-6xl md:text-8xl font-bold italic text-transparent uppercase converse">
         {FEST_NAME}
       </h1>
@@ -74,10 +75,17 @@ const Hero = () => {
                     key={index}
                     onMouseEnter={() => setActive(index)}
                   >
-                    <div className="md:h-7 md:w-7 w-6 h-6">
-                      {active === index && <Image src={Coin} alt="coin" />}
+                    <div className="md:h-7 md:w-7 w-6 h-6 relative flex justify-center">
+                      {active === index && (
+                        <Image
+                          src={'/icons/coin.png'}
+                          alt="coin"
+                          fill
+                          objectFit="contain"
+                          unoptimized
+                        />
+                      )}
                     </div>
-
                     <Link
                       href={route.path}
                       className="uppercase text-base md:text-xl lg:text-2xl"
