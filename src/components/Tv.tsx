@@ -13,8 +13,8 @@ const Tv = () => {
           Click Here to register!
         </div>
       </div> */}
-      <Link href='/events'>
-      <Image src={tvImage} height={400} width={400} alt="tv" />
+      <Link href="/events">
+        <Image src={tvImage} height={400} width={400} alt="tv" />
       </Link>
     </div>
   );

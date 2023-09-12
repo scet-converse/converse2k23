@@ -4,6 +4,7 @@ import { User } from '@prisma/client';
 import Modal from '@/components/ui/Modal';
 import OnboardForm from '@/components/OnboardForm';
 import Hero from '@/components/Hero';
+import TvTimer from '@/components/TvTimer';
 
 export default async function Home() {
   const user = await currentUser();
@@ -27,6 +28,7 @@ export default async function Home() {
         </Modal>
       )}
       <Hero />
+      <TvTimer/>
     </main>
   );
 }
