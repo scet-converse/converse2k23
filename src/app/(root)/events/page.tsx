@@ -10,7 +10,7 @@ const Events = async () => {
     <>
       <div className="grid grid-cols-12 w-full  max-w-1200 mx-auto my-0 p-4">
         {data.map((event) => (
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 ">
+          <div className="grid justify-center col-span-12 md:col-span-6 lg:col-span-4 ">
             <EventCard
               title={event.eventName}
               imgSrc={event.imgSrc}
