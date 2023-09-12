@@ -1,5 +1,8 @@
 import '../globals.css';
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+
+const pixel = localFont({ src: '../assets/fonts/PixeloidSans.ttf' });
 
 export const metadata: Metadata = {
   title: 'Converse',
@@ -13,7 +16,7 @@ export default function AuthLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={pixel.className}>{children}</body>
     </html>
   );
 }
