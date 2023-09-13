@@ -2,6 +2,7 @@ export default [
   {
     eventId: '1',
     eventName: 'PY-IT',
+    description: 'This is a description of the event',
     imgSrc: '/eventspic.png',
     poster: '',
     category: 'tech',
@@ -37,6 +38,7 @@ export default [
   {
     eventId: '2',
     eventName: 'LOGO-HUNT',
+    description: 'This is a description of the event',
     imgSrc: '/eventspic.png',
     poster: '',
     category: 'tech',
@@ -72,6 +74,7 @@ export default [
   {
     eventId: '3',
     eventName: 'HII',
+    description: 'This is a description of the event',
     imgSrc: '/eventspic.png',
     poster: '',
     category: 'tech',
@@ -107,6 +110,7 @@ export default [
   {
     eventId: '4',
     eventName: 'BYEE',
+    description: 'This is a description of the event',
     imgSrc: '/eventspic.png',
     poster: '',
     category: 'tech',

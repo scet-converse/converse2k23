@@ -43,22 +43,23 @@ const SingleEventPage = ({
           />
         </div>
 
-        <div className="mt-4 w-full">
-          <button
-            onClick={handleRegistration}
-            className="pixel-border px-4 w-full"
-          >
-            Participate
-          </button>
-        </div>
+        <button
+          type="button"
+          className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
+          onClick={handleRegistration}
+        >
+          Participate
+        </button>
       </div>
 
       <div className="md:col-span-7 md:mt-0 mt-4 col-span-12 w-full h-full">
-        <h1 className="text-4xl text-[#e2e202] font-bold">{event.eventName}</h1>
+        <h1 className="md:text-4xl text-2xl text-[#e2e202] font-bold">
+          {event.eventName}
+        </h1>
 
         <div className="mt-6" />
 
-        <h3 className="text-2xl text-[#de8e0c]">Description</h3>
+        <h3 className="md:text-2xl text-lg text-[#de8e0c]">Description</h3>
 
         <div className="mt-2" />
 
@@ -70,32 +71,35 @@ const SingleEventPage = ({
 
         <div className="mt-4" />
 
-        <h3 className="text-2xl text-[#de8e0c]">Faculty Coordinators</h3>
+        <h3 className="md:text-2xl text-lg text-[#de8e0c]">
+          Faculty Coordinators
+        </h3>
 
         {event.facultyCoordinators.map((coordinator, index) => (
-          <div className="mt-2 flex" key={index}>
-            <p>{coordinator.name}</p>
-          </div>
-        ))}
-
-        <div className="mt-4" />
-
-        <h3 className="text-2xl text-[#de8e0c]">Event Heads</h3>
-
-        {event.eventHeads.map((head, index) => (
-          <p className="mt-2" key={index}>
-            {head.name} - {head.number}
+          <p key={index} className="md:text-base text-sm mt-2">
+            {coordinator.name}
           </p>
         ))}
 
         <div className="mt-4" />
 
-        <h3 className="text-2xl text-[#de8e0c]">Event Volunteers</h3>
+        <h3 className="md:text-2xl text-lg text-[#de8e0c]">Event Heads</h3>
+
+        {event.eventHeads.map((head, index) => (
+          <p key={index} className="md:text-base text-sm mt-2">
+            {head.name}&nbsp;-&nbsp;
+            <a href={`tel:${head.number}`}>{head.number}</a>
+          </p>
+        ))}
+
+        <div className="mt-4" />
+
+        <h3 className="md:text-2xl text-lg text-[#de8e0c]">Event Volunteers</h3>
 
         {event.eventVolunteers.map((volunteer, index) => (
-          <p className="mt-2 flex" key={index}>
-            {volunteer.name} -<a href=""></a>
-            {volunteer.number}
+          <p key={index} className="md:text-base text-sm mt-2">
+            {volunteer.name}&nbsp;-&nbsp;
+            <a href={`tel:${volunteer.number}`}>{volunteer.number}</a>
           </p>
         ))}
       </div>
