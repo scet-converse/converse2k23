@@ -3,6 +3,8 @@ import React, { use } from "react";
 import Image from "next/image";
 import { generateTicket } from "@/lib/actions/ticket.actions";
 import Link from "next/link";
+import {useRouter} from 'next/navigation'
+
 type PropType = {
   title: string;
   imgSrc: string;
@@ -12,6 +14,8 @@ type PropType = {
 };
 
 const EventCard = ({ imgSrc, title, userId, eventId, eventName }: PropType) => {
+  const router = useRouter()
+
   const handleRegistration = async () => {
     console.log("hello i am here");
     console.log(userId);
@@ -19,6 +23,8 @@ const EventCard = ({ imgSrc, title, userId, eventId, eventName }: PropType) => {
       if (userId) {
         const res = await generateTicket({ userId, eventId });
         console.log(res);
+      } else {
+        router.push('/sign-in')
       }
     } catch (err) {}
   };

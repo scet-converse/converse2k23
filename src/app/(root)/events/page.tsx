@@ -1,11 +1,12 @@
-import EventCard from "@/components/EventCard";
-import React from "react";
+import EventCard from '@/components/EventCard';
+import React from 'react';
 
-import { data } from "@/lib/data/eventData";
-import { currentUser } from "@clerk/nextjs";
+import { data } from '@/lib/data/eventData';
+import { currentUser } from '@clerk/nextjs';
 
 const Events = async () => {
   const user = await currentUser();
+
   return (
     <>
       <div className="grid grid-cols-12 w-full  max-w-1200 mx-auto my-0 p-4">
