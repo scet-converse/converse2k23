@@ -4,6 +4,9 @@ const nextConfig = {
     serverActions: true,
     serverComponentsExternalPackages: ['prisma', '@prisma/client'],
   },
+  images: {
+    domains: ['converse2k22.vercel.app'],
+  },
 };
 
 module.exports = nextConfig;

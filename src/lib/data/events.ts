@@ -6,7 +6,7 @@ export default [
     poster: '',
     category: 'tech',
 
-    facultyCoordinator: [
+    facultyCoordinators: [
       {
         id: '1',
         name: 'xyz',
@@ -41,7 +41,7 @@ export default [
     poster: '',
     category: 'tech',
 
-    facultyCoordinator: [
+    facultyCoordinators: [
       {
         id: '1',
         name: 'xyz',
@@ -76,7 +76,7 @@ export default [
     poster: '',
     category: 'tech',
 
-    facultyCoordinator: [
+    facultyCoordinators: [
       {
         id: '1',
         name: 'xyz',
@@ -111,7 +111,7 @@ export default [
     poster: '',
     category: 'tech',
 
-    facultyCoordinator: [
+    facultyCoordinators: [
       {
         id: '1',
         name: 'xyz',
