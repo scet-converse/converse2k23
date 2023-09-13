@@ -1,7 +1,7 @@
 import EventCard from '@/components/EventCard';
 import React from 'react';
 
-import { data } from '@/lib/data/eventData';
+import events from '@/lib/data/events';
 import { currentUser } from '@clerk/nextjs';
 
 const Events = async () => {
@@ -10,14 +10,12 @@ const Events = async () => {
   return (
     <>
       <div className="grid grid-cols-12 w-full  max-w-1200 mx-auto my-0 p-4">
-        {data.map((event) => (
+        {events.map((event, index) => (
           <div className="grid justify-center col-span-12 md:col-span-6 lg:col-span-4 ">
             <EventCard
-              title={event.eventName}
-              imgSrc={event.imgSrc}
-              userId={user?.id}
-              eventId={event.eventId}
-              eventName={event.eventName}
+              key={index}
+              userId={user ? user.id : null}
+              event={event}
             />
           </div>
         ))}
