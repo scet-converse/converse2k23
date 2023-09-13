@@ -33,7 +33,6 @@ model Ticket {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   eventId   String
-  eventName String
 
   @@unique([userId, eventId])
 }

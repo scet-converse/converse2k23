@@ -17,7 +17,7 @@ const EventCard = ({ imgSrc, title, userId, eventId, eventName }: PropType) => {
     console.log(userId);
     try {
       if (userId) {
-        const res = await generateTicket({ userId, eventId, eventName });
+        const res = await generateTicket({ userId, eventId });
         console.log(res);
       }
     } catch (err) {}
