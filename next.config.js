@@ -4,6 +4,9 @@ const nextConfig = {
     serverActions: true,
     serverComponentsExternalPackages: ['prisma', '@prisma/client'],
   },
+  images: {
+    domains: ['steamuserimages-a.akamaihd.net'],
+  },
 };
 
 module.exports = nextConfig;

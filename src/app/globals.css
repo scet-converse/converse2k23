@@ -11,9 +11,10 @@
   --accent: #103fef;
   --accentDark: #0d33bf;
   --accentDarker: #0a268f;
-  --primary: #c416c4;
-  --secondary: #8f75d7;
-  --tertiary: #6ba93e;
+  /* --primary: #f936f9; */
+  --primary: #de8e0c;
+  --secondary: #e2e202;
+  --tertiary: rgb(74 222 128);
   --max-width: 1200px;
 }
 
