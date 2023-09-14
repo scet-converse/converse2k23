@@ -3,7 +3,7 @@ import teams from '@/lib/data/teams';
 import Link from 'next/link';
 import PersonCard from '@/components/PersonCard';
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   return teams;
