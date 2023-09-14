@@ -4,7 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 import localFont from 'next/font/local';
 
-const pixel = localFont({ src: '../assets/fonts/PixeloidSans.ttf' });
+const pixel = localFont({ src: '../../public/fonts/PixeloidSans.ttf' });
 
 export const metadata: Metadata = {
   title: 'Converse',

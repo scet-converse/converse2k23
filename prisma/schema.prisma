@@ -26,27 +26,12 @@ model User {
   tickets   Ticket[]
 }
 
-model Event {
-  id          String   @id @default(cuid()) @map("_id")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  name        String
-  date        DateTime
-  venue       String
-  description String
-  poster      String
-  type        String
-  team        String
-  tickets     Ticket[]
-}
-
 model Ticket {
   id        String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id])
   userId    String
-  event     Event    @relation(fields: [eventId], references: [id])
   eventId   String
 
   @@unique([userId, eventId])
@@ -56,3 +41,17 @@ enum Role {
   ADMIN
   USER
 }
+
+// model Event {
+//   id          String   @id @default(cuid()) @map("_id")
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+//   name        String
+//   date        DateTime
+//   venue       String
+//   description String
+//   poster      String
+//   type        String
+//   team        String
+//   tickets     Ticket[]
+// }

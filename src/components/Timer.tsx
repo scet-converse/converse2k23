@@ -9,7 +9,7 @@ import {
 } from '@/lib/constants';
 
 const digital = localFont({
-  src: '../assets/fonts/digital-7 (mono).ttf',
+  src: '../../public/fonts/digital-7 (mono).ttf',
 });
 
 const Timer = ({ startDate, endDate }: { startDate: Date; endDate: Date }) => {

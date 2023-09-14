@@ -11,9 +11,24 @@
   --accent: #103fef;
   --accentDark: #0d33bf;
   --accentDarker: #0a268f;
-  --primary: #c416c4;
-  --secondary: #8f75d7;
-  --tertiary: #6ba93e;
+  /* --primary: #f936f9; */
+  --primary: #de8e0c;
+  --secondary: #e2e202;
+  --tertiary: rgb(74 222 128);
+  --max-width: 1200px;
+  --pixel-bg: rgb(63, 206, 127);
+  /* ↑ Inner background color */
+
+  --pixel-border: black;
+  /* ↑ Inner border color */
+
+  --pixel-border-2: white;
+  /* ↑ Middle border color */
+
+  --pixel-border-3: var(--pixel-border);
+  /* ↑ Outer border color */
+
+  --pixel: 0.125rem;
 }
 
 body {
@@ -69,12 +84,127 @@ body {
   }
 }
 
-/* keyframe */
-@keyframes marquee {
-  0% {
-    left: 100%;
-  }
+:hover.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
   100% {
-    left: -100%;
+    transform: translateY(0);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateY(-3%);
+    animation-timing-function: linear;
+  }
+}
+
+.pixel-border {
+  background: var(--pixel-bg);
+  box-shadow:
+		
+	/* Inner Background Color */
+    0 calc(var(--pixel) * -3) 0 calc(var(--pixel) * -1) var(--pixel-bg),
+    0 calc(var(--pixel) * 3) 0 calc(var(--pixel) * -1) var(--pixel-bg),
+    0 calc(var(--pixel) * -6) 0 calc(var(--pixel) * -2) var(--pixel-bg),
+    0 calc(var(--pixel) * 6) 0 calc(var(--pixel) * -2) var(--pixel-bg),
+    0 calc(var(--pixel) * -9) 0 calc(var(--pixel) * -4) var(--pixel-bg),
+    0 calc(var(--pixel) * 9) 0 calc(var(--pixel) * -4) var(--pixel-bg),
+    0 calc(var(--pixel) * -12) 0 calc(var(--pixel) * -6) var(--pixel-bg),
+    0 calc(var(--pixel) * 12) 0 calc(var(--pixel) * -6) var(--pixel-bg),
+    /* Pixel Border Layer 1 */ calc(var(--pixel) * -1) 0 0 0 var(--pixel-border),
+    var(--pixel) 0 0 0 var(--pixel-border),
+    0 calc(var(--pixel) * -2) 0 0 var(--pixel-border),
+    0 calc(var(--pixel) * 2) 0 0 var(--pixel-border),
+    0 calc(var(--pixel) * -5) 0 calc(var(--pixel) * -1) var(--pixel-border),
+    0 calc(var(--pixel) * 5) 0 calc(var(--pixel) * -1) var(--pixel-border),
+    0 calc(var(--pixel) * -7) 0 calc(var(--pixel) * -2) var(--pixel-border),
+    0 calc(var(--pixel) * 7) 0 calc(var(--pixel) * -2) var(--pixel-border),
+    0 calc(var(--pixel) * -10) 0 calc(var(--pixel) * -4) var(--pixel-border),
+    0 calc(var(--pixel) * 10) 0 calc(var(--pixel) * -4) var(--pixel-border),
+    0 calc(var(--pixel) * -13) 0 calc(var(--pixel) * -6) var(--pixel-border),
+    0 calc(var(--pixel) * 13) 0 calc(var(--pixel) * -6) var(--pixel-border),
+    /* Pixel Border Layer 2 */ calc(var(--pixel) * -2) 0 0 0
+      var(--pixel-border-2),
+    calc(var(--pixel) * 2) 0 0 0 var(--pixel-border-2),
+    0 calc(var(--pixel) * -1) 0 var(--pixel) var(--pixel-border-2),
+    0 var(--pixel) 0 var(--pixel) var(--pixel-border-2),
+    0 calc(var(--pixel) * -4) 0 0 var(--pixel-border-2),
+    0 calc(var(--pixel) * 4) 0 0 var(--pixel-border-2),
+    0 calc(var(--pixel) * -6) 0 calc(var(--pixel) * -1) var(--pixel-border-2),
+    0 calc(var(--pixel) * 6) 0 calc(var(--pixel) * -1) var(--pixel-border-2),
+    0 calc(var(--pixel) * -8) 0 calc(var(--pixel) * -2) var(--pixel-border-2),
+    0 calc(var(--pixel) * 8) 0 calc(var(--pixel) * -2) var(--pixel-border-2),
+    0 calc(var(--pixel) * -11) 0 calc(var(--pixel) * -4) var(--pixel-border-2),
+    0 calc(var(--pixel) * 11) 0 calc(var(--pixel) * -4) var(--pixel-border-2),
+    0 calc(var(--pixel) * -14) 0 calc(var(--pixel) * -6) var(--pixel-border-2),
+    0 calc(var(--pixel) * 14) 0 calc(var(--pixel) * -6) var(--pixel-border-2),
+    /* Border Layer 3: --pixel-border-3 */ calc(var(--pixel) * -3) 0 0 0
+      var(--pixel-border-3),
+    calc(var(--pixel) * 3) 0 0 0 var(--pixel-border-3),
+    0 0 0 calc(var(--pixel) * 2) var(--pixel-border-3),
+    0 calc(var(--pixel) * -3) 0 var(--pixel) var(--pixel-border-3),
+    0 calc(var(--pixel) * 3) 0 var(--pixel) var(--pixel-border-3),
+    0 calc(var(--pixel) * -5) 0 0 var(--pixel-border-3),
+    0 calc(var(--pixel) * 5) 0 0 var(--pixel-border-3),
+    0 calc(var(--pixel) * -7) 0 calc(var(--pixel) * -1) var(--pixel-border-3),
+    0 calc(var(--pixel) * 7) 0 calc(var(--pixel) * -1) var(--pixel-border-3),
+    0 calc(var(--pixel) * -9) 0 calc(var(--pixel) * -2) var(--pixel-border-3),
+    0 calc(var(--pixel) * 9) 0 calc(var(--pixel) * -2) var(--pixel-border-3),
+    0 calc(var(--pixel) * -12) 0 calc(var(--pixel) * -4) var(--pixel-border-3),
+    0 calc(var(--pixel) * 12) 0 calc(var(--pixel) * -4) var(--pixel-border-3),
+    0 calc(var(--pixel) * -15) 0 calc(var(--pixel) * -6) var(--pixel-border-3),
+    0 calc(var(--pixel) * 15) 0 calc(var(--pixel) * -6) var(--pixel-border-3);
+}
+
+.PixellButton {
+  min-width: 150px;
+  height: 50px;
+
+  background-color: rgb(90, 208, 90);
+
+  border-top: 1px rgb(90, 208, 90);
+  border-left: 1px rgb(90, 208, 90);
+
+  border-color: rgb(56, 180, 7);
+  border-right: 4px solid darkgreen;
+  border-bottom: 6px solid darkgreen;
+
+  box-shadow:
+    -3px 0 0 0 white,
+    3px 0 0 0 white,
+    0 -3px 0 0 white,
+    0 3px 0 0 white;
+}
+
+.PixellButton:hover {
+  background-color: rgb(75, 195, 75);
+
+  border-top: 1px rgb(90, 208, 90);
+  border-left: 1px rgb(90, 208, 90);
+
+  border-color: rgb(56, 180, 7);
+  border-right: 6px solid darkgreen;
+  border-bottom: 8px solid darkgreen;
+}
+
+.PixellButton:active {
+  background-color: rgb(75, 195, 75);
+  transform: translateY(3px);
+  border-right: 4px solid darkgreen;
+  border-bottom: 5px solid darkgreen;
+}
+
+@media only screen and (max-width: 850px) {
+  .PixellButton {
+    background-color: rgb(90, 208, 90);
+
+    border-top: 1px rgb(90, 208, 90);
+    border-left: 1px rgb(90, 208, 90);
+
+    border-color: rgb(56, 180, 7);
+    border-right: 6px solid darkgreen;
+    border-bottom: 8px solid darkgreen;
   }
 }
