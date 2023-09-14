@@ -3,14 +3,16 @@ import teams from '@/lib/data/teams';
 import Link from 'next/link';
 import PersonCard from '@/components/PersonCard';
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return teams;
+  return teams.map((t) => {
+    return { team: t.slug };
+  });
 }
 
-export default async function Team({ params }: { params: { slug: string } }) {
-  const team = teams.find((t) => t.slug === params.slug);
+export default async function Team({ params }: { params: { team: string } }) {
+  const team = teams.find((t) => t.slug === params.team);
   const people = team?.people;
 
   return (

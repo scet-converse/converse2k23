@@ -23,7 +23,9 @@ const Footer = () => {
           <div className={styles.column}>
             <h1 className={styles.designations}>{FACULTY_DESIGNATION}</h1>
             {FACULTY_COORDINATORS.map((coordinator) => (
-              <p className="mt-1">{coordinator}</p>
+              <p key={coordinator} className="mt-1">
+                {coordinator}
+              </p>
             ))}
           </div>
 
@@ -32,14 +34,18 @@ const Footer = () => {
               {STUDENT_COORDINATOR_DESIGNATION}
             </h1>
             {STUDENT_COORDINATORS.map((coordinator) => (
-              <p className="mt-1">{coordinator.name}</p>
+              <p key={coordinator.name} className="mt-1">
+                {coordinator.name}
+              </p>
             ))}
           </div>
 
           <div className={styles.column}>
             <h1 className={styles.designations}>{WEB_DESIGNATION}</h1>
             {WEB_COORDINATORS.map((coordinator) => (
-              <p className="mt-1">{coordinator}</p>
+              <p key={coordinator} className="mt-1">
+                {coordinator}
+              </p>
             ))}
           </div>
         </div>
