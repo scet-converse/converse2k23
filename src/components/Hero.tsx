@@ -46,7 +46,7 @@ const Hero = () => {
   }, [active]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-1200 mx-auto my-0 px-4 py-6">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
       <h1 className="text-6xl md:text-8xl font-bold italic text-transparent uppercase converse">
         {FEST_NAME}
       </h1>
