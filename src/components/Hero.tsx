@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Marquee from './Marquee';
 import Timer from './Timer';
+import Tv from './Tv';
 
 const Hero = () => {
   const [active, setActive] = React.useState(0);
@@ -111,18 +112,9 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="md:col-span-6 col-span-12 relative rounded-md md:h-full min-h-48 flex items-center justify-center px-8 py-6">
-          <div
-            className="absolute inset-0 bg-black rounded-md w-full h-full -z-10"
-            style={{
-              backgroundImage: `url('https://steamuserimages-a.akamaihd.net/ugc/802114790894531555/045F7A07B4272EF961134A63045A60BCB9A4CEC3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')`,
-              backgroundSize: 'cover',
-              backdropFilter: 'blur(10px)', // Adjust the blur intensity as needed
-              opacity: '0.4', // Adjust the opacity as needed
-            }}
-          ></div>
-
+        <div className="md:col-span-6 col-span-12 relative rounded-md md:h-[130%] min-h-48 flex items-start justify-center ">
           <Timer startDate={FEST_START_AT} endDate={FEST_END_AT} />
+          <Tv/>
         </div>
       </div>
     </div>
