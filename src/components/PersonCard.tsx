@@ -12,24 +12,24 @@ function PersonCard({
   github,
 }: {
   name: string;
-  position: string;
+  position?: string;
   team?: string;
   image?: string;
   instagram?: string;
   github?: string;
 }) {
   return (
-    <div className="flex flex-col w-[90%] m-auto aspect-square bg-pink-500 p-10">
+    <div className="flex flex-col w-full h-full md:w-[90%] md:h-[90%] m-auto aspect-square bg-pink-500 p-10">
       <div className="w-full h-1/2 relative flex justify-center">
         <Image
-          src={image ? image : '/8bit_profile_placeholder.png'}
+          src={image ? image : '/8bit_placeholder.png'}
           alt="Picture"
           fill
           objectFit="contain"
         />
       </div>
-      <div className="flex flex-col items-center justify-between flex-1 text-center mt-10">
-        <div className="flex-1 flex flex-col justify-center">
+      <div className="flex flex-col items-center justify-between flex-1 text-center">
+        <div className="flex-1 flex flex-col justify-center py-4">
           <p className="text-2xl text-yellow-300">{name}</p>
           <p className="text-lg mt-2">{position}</p>
         </div>
