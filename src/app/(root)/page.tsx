@@ -7,26 +7,26 @@ import Hero from '@/components/Hero';
 import TvTimer from '@/components/TvTimer';
 
 export default async function Home() {
-  const user = await currentUser();
-  let isOnboard = false;
-  let userInfo: User | null = null;
+  // const user = await currentUser();
+  // let isOnboard = false;
+  // let userInfo: User | null = null;
 
-  if (user) {
-    userInfo = await getUserById(user.id);
+  // if (user) {
+  //   userInfo = await getUserById(user.id);
 
-    if (userInfo && userInfo?.onboarded) isOnboard = true;
-  }
+  //   if (userInfo && userInfo?.onboarded) isOnboard = true;
+  // }
 
   return (
     <main className="min-h-screen">
-      {user && (
+      {/* {user && (
         <Modal open={!isOnboard}>
           <OnboardForm
             id={user.id}
             email={user.emailAddresses[0].emailAddress}
           />
         </Modal>
-      )}
+      )} */}
       <Hero />
       <TvTimer/>
     </main>

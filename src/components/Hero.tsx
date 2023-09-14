@@ -66,7 +66,7 @@ const Hero = () => {
                 <div className="md:h-7 md:w-7 w-6 h-6" />
 
                 <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-green-400 col-span-10 uppercase">
-                  Explore the fest
+                  {/* Explore the fest */}
                 </h3>
               </div>
 
