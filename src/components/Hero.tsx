@@ -108,7 +108,7 @@ const Hero = () => {
           {/* Bottom Section */}
 
           <div className="w-full py-4 px-8 border-t-2 border-white">
-            <Marquee sentences={['Welcome to the 2023 edition of Converse!']} />
+            <Marquee/>
           </div>
         </div>
 
