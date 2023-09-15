@@ -1,8 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
-import events from '@/lib/data/events';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import events from "@/lib/data/events";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
+import {
+  generateTicket,
+  ticketAlreadyGenerated,
+} from "@/lib/actions/ticket.actions";
+import { errorToast, successToast } from "@/components/ui/Toast";
+import { ToastContainer } from "react-toastify";
 
 const SingleEventPage = ({
   params,
@@ -12,21 +19,35 @@ const SingleEventPage = ({
   };
 }) => {
   const router = useRouter();
-
+  const user = useUser();
+  const userId = user.user?.id;
+  console.log(userId);
   const event = events.find((event) => event.eventId === params.slug);
 
   if (!event) {
-    router.push('/events');
+    router.push("/events");
     return null;
   }
 
   const handleRegistration = async () => {
+    console.log("hello");
     try {
-      // if (!userId) {
-      //   router.push('/sign-in');
-      // } else {
-      //   const res = await generateTicket({ userId, eventId: event.eventId });
-      // }
+      if (!userId) {
+        router.push("/sign-in");
+      } else {
+        let ticketCheck = await ticketAlreadyGenerated({
+          userId,
+          eventId: event.eventId,
+        });
+        if (ticketCheck) {
+          errorToast("you have already registered for this event");
+        } else {
+          const res = await generateTicket({ userId, eventId: event.eventId });
+          if (res.status) {
+            successToast("event registeraton successfull");
+          }
+        }
+      }
     } catch (err) {}
   };
 
@@ -36,7 +57,7 @@ const SingleEventPage = ({
         <div className="mb-4">
           <img
             src={
-              'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
+              "https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png"
             }
             alt="event poster"
             className="rounded-sm"
@@ -103,6 +124,7 @@ const SingleEventPage = ({
           </p>
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 };
