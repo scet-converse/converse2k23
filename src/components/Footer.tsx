@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-4 text-sm md:text-base">
           © Converse 2023 - All Rights Reserved
         </div>
       </div>
