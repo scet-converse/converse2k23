@@ -5,7 +5,7 @@ export default [
     description: 'This is a description of the event',
     imgSrc: '/eventspic.png',
     poster: '',
-    category: 'tech',
+    category: 'Tech event',
 
     facultyCoordinators: [
       {
@@ -39,9 +39,9 @@ export default [
     eventId: '2',
     eventName: 'LOGO-HUNT',
     description: 'This is a description of the event',
-    imgSrc: '/eventspic.png',
+    imgSrc: '/chrome.png',
     poster: '',
-    category: 'tech',
+    category: 'Tech event',
 
     facultyCoordinators: [
       {
@@ -75,9 +75,9 @@ export default [
     eventId: '3',
     eventName: 'HII',
     description: 'This is a description of the event',
-    imgSrc: '/eventspic.png',
+    imgSrc: '/mario.gif',
     poster: '',
-    category: 'tech',
+    category: 'Tech event',
 
     facultyCoordinators: [
       {
@@ -113,7 +113,7 @@ export default [
     description: 'This is a description of the event',
     imgSrc: '/eventspic.png',
     poster: '',
-    category: 'tech',
+    category: 'Tech event',
 
     facultyCoordinators: [
       {
