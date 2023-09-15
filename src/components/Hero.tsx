@@ -112,7 +112,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="md:col-span-6 col-span-12 relative rounded-md md:h-[130%] min-h-48 flex items-start justify-center ">
+        <div className="md:col-span-6 col-span-12 relative rounded-md  min-h-48 flex  justify-center ">
           <Timer startDate={FEST_START_AT} endDate={FEST_END_AT} />
           <Tv/>
         </div>
