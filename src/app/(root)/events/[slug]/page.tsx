@@ -68,8 +68,8 @@ const SingleEventPage = ({
         <Link href="/">Home </Link> {'>'} <Link href="/events">Events </Link>{' '}
         {'>'} {event?.eventName}
       </h1>
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="w-full h-max md:sticky relative top-4 left-0 flex flex-col">
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="w-full h-max md:sticky relative top-10 left-0 flex flex-col pb-8">
           <div className="mb-4">
             <img
               src={

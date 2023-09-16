@@ -97,24 +97,6 @@ const EventCard = ({ userId, event }: PropType) => {
             </button>
           </div>
         </div>
-        {/* <div className="flex flex-row justify-evenly my-8">
-          <div className="min-w-[35%]">
-            <Link href={`events/${event.eventId}`}>
-              <button className="pixel-border px-4 text-white w-full">
-                View
-              </button>
-            </Link>
-          </div>
-          <div className="min-w-[35%]">
-            <button
-              onClick={handleRegistration}
-              className="pixel-border text-white px-4 w-full"
-            >
-              Participate
-            </button>
-          </div>
-        </div> */}
-        <div></div>
       </div>
     </motion.div>
   );
