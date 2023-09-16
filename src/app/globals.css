@@ -244,3 +244,26 @@ body {
     border-bottom: 8px solid darkgreen;
   }
 }
+
+
+
+#marquee::-webkit-scrollbar {
+  display: none;
+}
+
+#marquee h1 {
+  animation-timing-function: linear;
+  animation-name: scroll;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+
+  100% {
+      transform: translateX(calc(-100% - 34px));
+  }
+}
