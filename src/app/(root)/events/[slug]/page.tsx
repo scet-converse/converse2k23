@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import events from "@/lib/data/events";
-import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import events from '@/lib/data/events';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 import {
   generateTicket,
   ticketAlreadyGenerated,
-} from "@/lib/actions/ticket.actions";
-import { errorToast, successToast } from "@/components/ui/Toast";
-import { ToastContainer } from "react-toastify";
+} from '@/lib/actions/ticket.actions';
+import { errorToast, successToast } from '@/components/ui/Toast';
+import { ToastContainer } from 'react-toastify';
 
 const SingleEventPage = ({
   params,
@@ -25,26 +26,26 @@ const SingleEventPage = ({
   const event = events.find((event) => event.eventId === params.slug);
 
   if (!event) {
-    router.push("/events");
+    router.push('/events');
     return null;
   }
 
   const handleRegistration = async () => {
-    console.log("hello");
+    console.log('hello');
     try {
       if (!userId) {
-        router.push("/sign-in");
+        router.push('/sign-in');
       } else {
         let ticketCheck = await ticketAlreadyGenerated({
           userId,
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast("you have already registered for this event");
+          errorToast('you have already registered for this event');
         } else {
           const res = await generateTicket({ userId, eventId: event.eventId });
           if (res.status) {
-            successToast("event registeraton successfull");
+            successToast('event registeraton successfull');
           }
         }
       }
@@ -57,7 +58,7 @@ const SingleEventPage = ({
         <div className="mb-4">
           <img
             src={
-              "https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png"
+              'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
             }
             alt="event poster"
             className="rounded-sm"
@@ -84,11 +85,7 @@ const SingleEventPage = ({
 
         <div className="mt-2" />
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
-          placeat aspernatur laudantium vero, asperiores adipisci molestiae
-          nesciunt modi dicta labore.
-        </p>
+        <ReactMarkdown>{event.description}</ReactMarkdown>
 
         <div className="mt-4" />
 
