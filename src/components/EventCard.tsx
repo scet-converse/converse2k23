@@ -1,20 +1,20 @@
-"use client";
-import React from "react";
-import Image from "next/image";
+'use client';
+import React from 'react';
+import Image from 'next/image';
 import {
   callNodeMailer,
   generateTicket,
   ticketAlreadyGenerated,
-} from "@/lib/actions/ticket.actions";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { successToast, errorToast } from "./ui/Toast";
-import { motion } from "framer-motion";
-import { getUserById } from "@/lib/actions/user.actions";
-import TicketGenerator from "./TicketGenerator";
+} from '@/lib/actions/ticket.actions';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { successToast, errorToast } from './ui/Toast';
+import { motion } from 'framer-motion';
+import { getUserById } from '@/lib/actions/user.actions';
+import TicketGenerator from './TicketGenerator';
 
 type PropType = {
-  userId: string;
+  userId: string | null;
   event: {
     eventId: string;
     eventName: string;
@@ -27,22 +27,22 @@ const EventCard = ({ userId, event }: PropType) => {
   const router = useRouter();
 
   const handleRegistration = async () => {
-    const userFromDB = await getUserById(userId);
-    const userMailId = userFromDB?.email;
     try {
       if (!userId) {
-        router.push("/sign-in");
+        router.push('/sign-in');
       } else {
+        const userFromDB = await getUserById(userId);
+        const userMailId = userFromDB?.email;
         let ticketCheck = await ticketAlreadyGenerated({
           userId,
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast("you have already registered for this event");
+          errorToast('you have already registered for this event');
         } else {
           const res = await generateTicket({ userId, eventId: event.eventId });
           if (res.status) {
-            successToast("event registeraton successfull");
+            successToast('event registeraton successfull');
 
             const mailSent = callNodeMailer({
               mailTo: userMailId,
@@ -50,7 +50,7 @@ const EventCard = ({ userId, event }: PropType) => {
               event,
             });
             if (mailSent) {
-              successToast("Check Your Mail");
+              successToast('Check Your Mail');
             }
           }
         }
@@ -67,14 +67,9 @@ const EventCard = ({ userId, event }: PropType) => {
       transition={{ duration: 2 }} // Animation duration
     >
       <div
-        className={`grid-cols-12  md:max-w-[18.5rem] lg:max-w-sm xl:w-[23rem] ${
-          event.eventId === "1" ||
-          event.eventId === "3" ||
-          event.eventId === "5" ||
-          event.eventId === "7"
-            ? "bg-[#BB86FC]"
-            : "bg-[#3700B3]"
-        }  text-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 hover:border-2 mt-4`}
+        className={`grid-cols-12 md:max-w-[18.5rem] lg:max-w-sm xl:w-[23rem] ${
+          Number(event.eventId) % 2 !== 0 ? 'bg-[#BB86FC]' : 'bg-[#3700B3]'
+        }  text-white rounded-lg shadow-lg py-4 md:p-4 w-full transition-transform transform hover:scale-105 hover:border-2 mt-4`}
       >
         <div className="col-span-12 px-2 pt-2 text-[#46cf31f] text-white">
           {event.category}
@@ -85,18 +80,40 @@ const EventCard = ({ userId, event }: PropType) => {
         <div className="grid justify-center items-center col-span-12 text-white text-[1.75rem]">
           {event.eventName}
         </div>
-        <div className="col-span-12 grid gap-8 grid-cols-12  justify-center mt-8 mb-8">
-          <div className="col-span-6 grid justify-end">
+        <div className="col-span-12 grid gap-8 grid-cols-12 items-center mt-8 mb-8">
+          <div className="col-span-6 w-4/5 mx-auto">
             <Link href={`events/${event.eventId}`}>
-              <button className="pixel-border px-4 text-white">View</button>
+              <button className="pixel-border px-4 text-white w-full">
+                View
+              </button>
             </Link>
           </div>
-          <div className="col-span-6 grid justify-start text-white">
-            <button onClick={handleRegistration} className="pixel-border px-4">
+          <div className="col-span-6 w-4/5 mx-auto">
+            <button
+              onClick={handleRegistration}
+              className="pixel-border text-white px-4 w-full"
+            >
               Participate
             </button>
           </div>
         </div>
+        {/* <div className="flex flex-row justify-evenly my-8">
+          <div className="min-w-[35%]">
+            <Link href={`events/${event.eventId}`}>
+              <button className="pixel-border px-4 text-white w-full">
+                View
+              </button>
+            </Link>
+          </div>
+          <div className="min-w-[35%]">
+            <button
+              onClick={handleRegistration}
+              className="pixel-border text-white px-4 w-full"
+            >
+              Participate
+            </button>
+          </div>
+        </div> */}
         <div></div>
       </div>
     </motion.div>

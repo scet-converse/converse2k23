@@ -18,7 +18,8 @@ export default async function Team({ params }: { params: { team: string } }) {
   return (
     <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
       <h1 className="text-3xl mb-8">
-        <Link href="/teams">Teams </Link> {'>'} {team?.title}
+        <Link href="/">Home </Link> {'>'} <Link href="/teams">Teams </Link>{' '}
+        {'>'} {team?.title}
       </h1>
       {people &&
         Object.keys(people).map((key) => {
