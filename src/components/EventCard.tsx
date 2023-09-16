@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import {
+  callNodeMailer,
   generateTicket,
   ticketAlreadyGenerated,
 } from "@/lib/actions/ticket.actions";
@@ -9,9 +10,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { successToast, errorToast } from "./ui/Toast";
 import { motion } from "framer-motion";
+import { getUserById } from "@/lib/actions/user.actions";
+import TicketGenerator from "./TicketGenerator";
 
 type PropType = {
-  userId: string | null;
+  userId: string;
   event: {
     eventId: string;
     eventName: string;
@@ -24,6 +27,8 @@ const EventCard = ({ userId, event }: PropType) => {
   const router = useRouter();
 
   const handleRegistration = async () => {
+    const userFromDB = await getUserById(userId);
+    const userMailId = userFromDB?.email;
     try {
       if (!userId) {
         router.push("/sign-in");
@@ -38,10 +43,21 @@ const EventCard = ({ userId, event }: PropType) => {
           const res = await generateTicket({ userId, eventId: event.eventId });
           if (res.status) {
             successToast("event registeraton successfull");
+
+            const mailSent = callNodeMailer({
+              mailTo: userMailId,
+              userName: userFromDB?.name,
+              event,
+            });
+            if (mailSent) {
+              successToast("Check Your Mail");
+            }
           }
         }
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
