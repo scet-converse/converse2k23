@@ -12,9 +12,10 @@ function NotFound() {
       <div className="w-full md:w-2/5 aspect-[3/2] relative mb-8">
         <Image src={'/loading.gif'} fill alt="not found" />
       </div>
-      <h1 className="text-3xl">Not found</h1>
+      <h1 className="text-3xl">Not found 👻</h1>
       <div
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault()
           router.back();
         }}
         className="text-black my-8 px-4 bg-yellow-400 rounded-full pixel-border cursor-pointer"
