@@ -1,17 +1,17 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
 import {
   callNodeMailer,
   generateTicket,
   ticketAlreadyGenerated,
-} from '@/lib/actions/ticket.actions';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { successToast, errorToast } from './ui/Toast';
-import { motion } from 'framer-motion';
-import { getUserById } from '@/lib/actions/user.actions';
-import TicketGenerator from './TicketGenerator';
+} from "@/lib/actions/ticket.actions";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { successToast, errorToast } from "./ui/Toast";
+import { motion } from "framer-motion";
+import { getUserById } from "@/lib/actions/user.actions";
+import Spinner from "@/components/ui/Spinner";
 
 type PropType = {
   userId: string | null;
@@ -25,12 +25,13 @@ type PropType = {
 
 const EventCard = ({ userId, event }: PropType) => {
   const router = useRouter();
-
+  const [isLoading, setLoading] = useState(false);
   const handleRegistration = async () => {
     try {
       if (!userId) {
-        router.push('/sign-in');
+        router.push("/sign-in");
       } else {
+        setLoading(true);
         const userFromDB = await getUserById(userId);
         const userMailId = userFromDB?.email;
         let ticketCheck = await ticketAlreadyGenerated({
@@ -38,11 +39,11 @@ const EventCard = ({ userId, event }: PropType) => {
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast('you have already registered for this event');
+          errorToast("you have already registered for this event");
         } else {
           const res = await generateTicket({ userId, eventId: event.eventId });
           if (res.status) {
-            successToast('event registeraton successfull');
+            successToast("event registeraton successfull");
 
             const mailSent = callNodeMailer({
               mailTo: userMailId,
@@ -50,10 +51,11 @@ const EventCard = ({ userId, event }: PropType) => {
               event,
             });
             if (mailSent) {
-              successToast('Check Your Mail');
+              successToast("Check Your Mail");
             }
           }
         }
+        setLoading(false);
       }
     } catch (err) {
       console.log(err);
@@ -68,7 +70,7 @@ const EventCard = ({ userId, event }: PropType) => {
     >
       <div
         className={`grid-cols-12 md:max-w-[18.5rem] lg:max-w-sm xl:w-[23rem] ${
-          Number(event.eventId) % 2 !== 0 ? 'bg-[#BB86FC]' : 'bg-[#3700B3]'
+          Number(event.eventId) % 2 !== 0 ? "bg-[#BB86FC]" : "bg-[#3700B3]"
         }  text-white rounded-lg shadow-lg py-4 md:p-4 w-full transition-transform transform hover:scale-105 hover:border-2 mt-4`}
       >
         <div className="col-span-12 px-2 pt-2 text-[#46cf31f] text-white">
@@ -93,7 +95,7 @@ const EventCard = ({ userId, event }: PropType) => {
               onClick={handleRegistration}
               className="pixel-border text-white px-4 w-full"
             >
-              Participate
+              {isLoading ? <Spinner /> : "Participate"}
             </button>
           </div>
         </div>
