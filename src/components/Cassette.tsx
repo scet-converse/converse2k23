@@ -15,9 +15,17 @@ function Cassette({
   isActive: boolean;
   handleHover: Function;
 }) {
+  const colors = [
+    'bg-[#F0F0F0]',
+    'bg-[#7091F5]',
+    'bg-[#F7D060]',
+    'bg-[#96C291]',
+    'bg-[#FF9B82]',
+    'bg-[#BC7AF9]',
+  ];
+  const bgColor = colors[(Number(image) - 1) % colors.length];
   const styles = {
-    body: `w-full aspect-[16/10] px-[5%] bg-[#F7D060] rounded-md relative \
-    flex flex-col-reverse items-center cursor-pointer ${
+    body: `w-full aspect-[16/10] px-[5%] ${bgColor} rounded-md relative flex flex-col-reverse items-center cursor-pointer ${
       isActive ? 'bounce' : ''
     }`,
     label: 'w-full h-[65%] mb-5 bg-orange-300 rounded-md relative',
