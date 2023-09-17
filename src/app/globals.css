@@ -16,7 +16,7 @@
   --secondary: #e2e202;
   --tertiary: rgb(74 222 128);
   --max-width: 1200px;
-  --pixel-bg: rgb(63, 206, 127);
+  --pixel-bg: #50c64c;
   /* ↑ Inner background color */
 
   --pixel-border: black;
@@ -66,6 +66,74 @@ body {
     -0px 0px 0px #e2e202,
     -4px 4px 0px #de8e0c,
     -8px 8px 0px #e20202;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateY(-3%);
+    animation-timing-function: linear;
+  }
+}
+
+@media (width > 765px) {
+  .bounce {
+    animation: bounce 1s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateY(-3%);
+    animation-timing-function: linear;
+  }
+}
+
+@media (width > 765px) {
+  .bounce {
+    animation: bounce 1s infinite;
+  }
+}
+
+:hover.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateY(-3%);
+    animation-timing-function: linear;
+  }
+}
+
+:hover.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateY(-3%);
+    animation-timing-function: linear;
+  }
 }
 
 .pixel-border {
@@ -174,5 +242,28 @@ body {
     border-color: rgb(56, 180, 7);
     border-right: 6px solid darkgreen;
     border-bottom: 8px solid darkgreen;
+  }
+}
+
+
+
+#marquee::-webkit-scrollbar {
+  display: none;
+}
+
+#marquee h1 {
+  animation-timing-function: linear;
+  animation-name: scroll;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+
+  100% {
+      transform: translateX(calc(-100% - 34px));
   }
 }

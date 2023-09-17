@@ -58,7 +58,7 @@ const Timer = ({ startDate, endDate }: { startDate: Date; endDate: Date }) => {
 
   return (
     <div className={digital.className}>
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col items-center justify-center h-full gap-6  lg:hidden">
         {/* Greetings */}
 
         <h4 className="text-tertiary md:text-3xl text-xl">
