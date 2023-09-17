@@ -14,6 +14,16 @@ type ticketProps = {
   };
 };
 
+export const howManyRegisteredForThis = async (eventId: string) => {
+  const count = await prisma.ticket.count({
+    where: {
+      eventId: eventId, // Replace with the event ID you receive from the frontend
+    },
+  });
+  console.log(count);
+  return count;
+};
+
 export const ticketAlreadyGenerated = async ({ userId, eventId }: PropType) => {
   const ticket = await prisma.ticket.findFirst({
     where: {

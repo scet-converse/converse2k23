@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   callNodeMailer,
   generateTicket,
+  howManyRegisteredForThis,
   ticketAlreadyGenerated,
 } from "@/lib/actions/ticket.actions";
 import Link from "next/link";
@@ -26,6 +27,15 @@ type PropType = {
 const EventCard = ({ userId, event }: PropType) => {
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
+  const [count, setCount] = useState(140);
+
+  useEffect(() => {
+    const gettingCount = async () => {
+      setCount(await howManyRegisteredForThis(event.eventId));
+    };
+    gettingCount();
+  });
+
   const handleRegistration = async () => {
     try {
       if (!userId) {
@@ -44,7 +54,6 @@ const EventCard = ({ userId, event }: PropType) => {
           const res = await generateTicket({ userId, eventId: event.eventId });
           if (res.status) {
             successToast("event registeraton successfull");
-
             const mailSent = callNodeMailer({
               mailTo: userMailId,
               userName: userFromDB?.name,
@@ -83,21 +92,34 @@ const EventCard = ({ userId, event }: PropType) => {
           {event.eventName}
         </div>
         <div className="col-span-12 grid gap-8 grid-cols-12 items-center mt-8 mb-8">
-          <div className="col-span-6 w-4/5 mx-auto">
+          <div
+            className={`${
+              count < 4
+                ? "col-span-6 w-4/5 mx-auto"
+                : "grid  ml-[1.95rem] col-span-11"
+            }`}
+          >
             <Link href={`events/${event.eventId}`}>
               <button className="pixel-border px-4 text-white w-full">
                 View
               </button>
             </Link>
           </div>
-          <div className="col-span-6 w-4/5 mx-auto">
-            <button
-              onClick={handleRegistration}
-              className="pixel-border text-white px-4 w-full"
-            >
-              {isLoading ? <Spinner /> : "Participate"}
-            </button>
-          </div>
+          {count < 4 && (
+            <div className="col-span-6 w-4/5 mx-auto">
+              <button
+                onClick={handleRegistration}
+                className="pixel-border text-white px-4 w-full"
+              >
+                {isLoading ? <Spinner /> : "Participate"}
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="col-span-12 grid justify-center text-[#ca432e] text-[1.25rem] mt-8 mb-8 ">
+          {count <= 140
+            ? `Only ${140 - count} tickets left.`
+            : "Sorry No tickets left"}
         </div>
       </div>
     </motion.div>
