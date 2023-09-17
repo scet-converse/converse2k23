@@ -1,20 +1,19 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import events from "@/lib/data/events";
-import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
-import ReactMarkdown from "react-markdown";
+import React, { useState } from 'react';
+import events from '@/lib/data/events';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
+import ReactMarkdown from 'react-markdown';
 
 import {
   generateTicket,
-  howManyRegisteredForThis,
   ticketAlreadyGenerated,
-} from "@/lib/actions/ticket.actions";
-import { errorToast, successToast } from "@/components/ui/Toast";
-import { ToastContainer } from "react-toastify";
-import Spinner from "@/components/ui/Spinner";
-import Link from "next/link";
+} from '@/lib/actions/ticket.actions';
+import { errorToast, successToast } from '@/components/ui/Toast';
+import { ToastContainer } from 'react-toastify';
+import Spinner from '@/components/ui/Spinner';
+import Link from 'next/link';
 
 const SingleEventPage = ({
   params,
@@ -27,26 +26,19 @@ const SingleEventPage = ({
   const user = useUser();
   const userId = user.user?.id;
   // console.log(userId);
-  const event: any = events.find((event) => event.eventId === params.slug);
+  const event = events.find((event) => event.eventId === params.slug);
   const [isLoading, setLoading] = useState(false);
-  const [count, setCount] = useState(140);
 
-  useEffect(() => {
-    const gettingCount = async () => {
-      setCount(await howManyRegisteredForThis(event.eventId));
-    };
-    gettingCount();
-  });
   if (!event) {
-    router.push("/events");
+    router.push('/events');
     return null;
   }
 
   const handleRegistration = async () => {
-    console.log("hello");
+    console.log('hello');
     try {
       if (!userId) {
-        router.push("/sign-in");
+        router.push('/sign-in');
       } else {
         setLoading(true);
         let ticketCheck = await ticketAlreadyGenerated({
@@ -55,14 +47,14 @@ const SingleEventPage = ({
         });
 
         if (ticketCheck) {
-          errorToast("you have already registered for this event");
+          errorToast('you have already registered for this event');
         } else {
           const res = await generateTicket({
             userId,
             eventId: event.eventId,
           });
           if (res.status) {
-            successToast("event registeraton successfull");
+            successToast('event registeraton successfull');
           }
         }
         setLoading(false);
@@ -73,33 +65,28 @@ const SingleEventPage = ({
   return (
     <div className="w-full min-h-[90vh] mx-auto mt-8">
       <h1 className="text-3xl mb-8">
-        <Link href="/">Home </Link> {">"} <Link href="/events">Events </Link>{" "}
-        {">"} {event?.eventName}
+        <Link href="/">Home </Link> {'>'} <Link href="/events">Events </Link>{' '}
+        {'>'} {event?.eventName}
       </h1>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div className="w-full h-max md:sticky relative top-10 left-0 flex flex-col pb-8">
           <div className="mb-4">
             <img
               src={
-                "https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png"
+                'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
               }
               alt="event poster"
               className="rounded-sm"
             />
           </div>
-          {count <= 140 ? (
-            <button
-              type="button"
-              className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
-              onClick={handleRegistration}
-            >
-              {isLoading ? <Spinner /> : "Participate"}
-            </button>
-          ) : (
-            <div className="text-[#ca432e] text-[1.3rem]">
-              Sorry No tickets left
-            </div>
-          )}
+
+          <button
+            type="button"
+            className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
+            onClick={handleRegistration}
+          >
+            {isLoading ? <Spinner /> : 'Participate'}
+          </button>
         </div>
 
         <div className="md:mt-0 md:col-span-2 mt-4 w-full h-full">
@@ -158,13 +145,3 @@ const SingleEventPage = ({
 };
 
 export default SingleEventPage;
-
-{
-  /* <button
-                type="button"
-                className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
-                onClick={handleRegistration}
-              >
-                {isLoading ? <Spinner /> : "Participate"}
-              </button> */
-}

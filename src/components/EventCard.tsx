@@ -94,9 +94,9 @@ const EventCard = ({ userId, event }: PropType) => {
         <div className="col-span-12 grid gap-8 grid-cols-12 items-center mt-8 mb-8">
           <div
             className={`${
-              count <= 140
+              count < 4
                 ? "col-span-6 w-4/5 mx-auto"
-                : "grid  ml-[1.95rem] col-span-10"
+                : "grid  ml-[1.95rem] col-span-11"
             }`}
           >
             <Link href={`events/${event.eventId}`}>
@@ -105,7 +105,7 @@ const EventCard = ({ userId, event }: PropType) => {
               </button>
             </Link>
           </div>
-          {count <= 140 && (
+          {count < 4 && (
             <div className="col-span-6 w-4/5 mx-auto">
               <button
                 onClick={handleRegistration}
