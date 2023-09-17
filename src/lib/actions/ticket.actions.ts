@@ -20,7 +20,6 @@ export const howManyRegisteredForThis = async (eventId: string) => {
       eventId: eventId, // Replace with the event ID you receive from the frontend
     },
   });
-  console.log(count);
   return count;
 };
 
