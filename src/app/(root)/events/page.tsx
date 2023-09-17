@@ -1,17 +1,18 @@
-import EventCard from "@/components/EventCard";
-import React from "react";
-import Image from "next/image";
-import events from "@/lib/data/events";
-import { currentUser } from "@clerk/nextjs";
-import { ToastContainer } from "react-toastify";
-import Link from "next/link";
+import EventCard from '@/components/EventCard';
+import React from 'react';
+import Image from 'next/image';
+import events from '@/lib/data/events';
+import { currentUser } from '@clerk/nextjs';
+import { ToastContainer } from 'react-toastify';
+import Link from 'next/link';
 
 const Events = async () => {
   const user = await currentUser();
+
   return (
     <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
       <h1 className="text-3xl mb-3">
-        <Link href="/">Home </Link> {">"} Events
+        <Link href="/">Home </Link> {'>'} Events
       </h1>
       <p>Register here for all the Awesome events</p>
 

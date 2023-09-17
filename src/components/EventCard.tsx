@@ -43,8 +43,7 @@ const EventCard = ({ userId, event }: PropType) => {
       } else {
         setLoading(true);
         const userFromDB = await getUserById(userId);
-        const userEnrollment: any = userFromDB?.enroll;
-        const userMail: any = userFromDB?.email;
+        const userMailId = userFromDB?.email;
         let ticketCheck = await ticketAlreadyGenerated({
           userId,
           eventId: event.eventId,
@@ -52,17 +51,11 @@ const EventCard = ({ userId, event }: PropType) => {
         if (ticketCheck) {
           errorToast("you have already registered for this event");
         } else {
-          const res = await generateTicket({
-            userId,
-            eventId: event.eventId,
-            eventName: event.eventName,
-            userMail,
-            userEnrollment,
-          });
+          const res = await generateTicket({ userId, eventId: event.eventId });
           if (res.status) {
             successToast("event registeraton successfull");
             const mailSent = callNodeMailer({
-              mailTo: userMail,
+              mailTo: userMailId,
               userName: userFromDB?.name,
               event,
             });
@@ -101,9 +94,9 @@ const EventCard = ({ userId, event }: PropType) => {
         <div className="col-span-12 grid gap-8 grid-cols-12 items-center mt-8 mb-8">
           <div
             className={`${
-              count <= 140 && event.category === "Tech event"
+              count <= 140
                 ? "col-span-6 w-4/5 mx-auto"
-                : "grid  ml-[1.95rem] col-span-11"
+                : "grid  ml-[1.95rem] col-span-10"
             }`}
           >
             <Link href={`events/${event.eventId}`}>
@@ -112,7 +105,7 @@ const EventCard = ({ userId, event }: PropType) => {
               </button>
             </Link>
           </div>
-          {count <= 140 && event.category === "Tech event" && (
+          {count <= 140 && (
             <div className="col-span-6 w-4/5 mx-auto">
               <button
                 onClick={handleRegistration}
@@ -123,13 +116,11 @@ const EventCard = ({ userId, event }: PropType) => {
             </div>
           )}
         </div>
-        {event.category === "Tech event" && (
-          <div className="col-span-12 grid justify-center text-[#ca432e] text-[1.25rem] mt-8 mb-4 ">
-            {count <= 140
-              ? `Only ${140 - count} tickets left.`
-              : "Sorry No tickets left"}
-          </div>
-        )}
+        <div className="col-span-12 grid justify-center text-[#ca432e] text-[1.25rem] mt-8 mb-8 ">
+          {count <= 140
+            ? `Only ${140 - count} tickets left.`
+            : "Sorry No tickets left"}
+        </div>
       </div>
     </motion.div>
   );
