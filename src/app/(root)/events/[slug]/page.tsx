@@ -5,6 +5,11 @@ import events from '@/lib/data/events';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 import ReactMarkdown from 'react-markdown';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+});
 
 import {
   generateTicket,
@@ -63,12 +68,12 @@ const SingleEventPage = ({
   };
 
   return (
-    <div className="w-full min-h-[90vh] mx-auto mt-8">
-      <h1 className="text-3xl mb-8">
+    <div className="w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
+      <h1 className="md:text-3xl mb-3 text-xl">
         <Link href="/">Home </Link> {'>'} <Link href="/events">Events </Link>{' '}
         {'>'} {event?.eventName}
       </h1>
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div className="w-full h-max md:sticky relative top-10 left-0 flex flex-col pb-8">
           <div className="mb-4">
             <img
@@ -100,7 +105,9 @@ const SingleEventPage = ({
 
           <div className="mt-2" />
 
-          <ReactMarkdown>{event.description}</ReactMarkdown>
+          <ReactMarkdown className={montserrat.className}>
+            {event.description}
+          </ReactMarkdown>
 
           <div className="mt-4" />
 
@@ -109,7 +116,10 @@ const SingleEventPage = ({
           </h3>
 
           {event.facultyCoordinators.map((coordinator, index) => (
-            <p key={index} className="md:text-base text-sm mt-2">
+            <p
+              key={index}
+              className={`${montserrat.className} md:text-base text-sm mt-2`}
+            >
               {coordinator.name}
             </p>
           ))}
@@ -119,7 +129,10 @@ const SingleEventPage = ({
           <h3 className="md:text-2xl text-lg text-[#de8e0c]">Event Heads</h3>
 
           {event.eventHeads.map((head, index) => (
-            <p key={index} className="md:text-base text-sm mt-2">
+            <p
+              key={index}
+              className={`${montserrat.className} md:text-base text-sm mt-2`}
+            >
               {head.name}&nbsp;-&nbsp;
               <a href={`tel:${head.number}`}>{head.number}</a>
             </p>
@@ -132,7 +145,10 @@ const SingleEventPage = ({
           </h3>
 
           {event.eventVolunteers.map((volunteer, index) => (
-            <p key={index} className="md:text-base text-sm mt-2">
+            <p
+              key={index}
+              className={`${montserrat.className} md:text-base text-sm mt-2`}
+            >
               {volunteer.name}
               {/* <a href={`tel:${volunteer.number}`}>{volunteer.number}</a> */}
             </p>

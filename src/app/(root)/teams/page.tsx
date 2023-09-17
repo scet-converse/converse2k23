@@ -38,13 +38,13 @@ function TeamsPage() {
   }, [active]);
 
   return (
-    <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
-      <h1 className="text-3xl mb-3">
+    <div className="flex flex-col w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
+      <h1 className="md:text-3xl mb-3 text-xl">
         <Link href="/">Home </Link> {'>'} Teams
       </h1>
       <p>Meet the faces behind converse</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-x-10 md:gap-y-10 py-10 flex-grow mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-x-10 md:gap-y-10 flex-grow mt-8 mb-4">
         {teams.map((team, index) => {
           return (
             <Cassette
