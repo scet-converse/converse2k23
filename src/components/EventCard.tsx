@@ -1,18 +1,18 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   callNodeMailer,
   generateTicket,
   howManyRegisteredForThis,
   ticketAlreadyGenerated,
-} from '@/lib/actions/ticket.actions';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { successToast, errorToast } from './ui/Toast';
-import { motion } from 'framer-motion';
-import { getUserById } from '@/lib/actions/user.actions';
-import Spinner from '@/components/ui/Spinner';
+} from "@/lib/actions/ticket.actions";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { successToast, errorToast } from "./ui/Toast";
+import { motion } from "framer-motion";
+import { getUserById } from "@/lib/actions/user.actions";
+import Spinner from "@/components/ui/Spinner";
 
 type PropType = {
   userId: string | null;
@@ -39,7 +39,7 @@ const EventCard = ({ userId, event }: PropType) => {
   const handleRegistration = async () => {
     try {
       if (!userId) {
-        router.push('/sign-in');
+        router.push("/sign-in");
       } else {
         setLoading(true);
         const userFromDB = await getUserById(userId);
@@ -50,7 +50,7 @@ const EventCard = ({ userId, event }: PropType) => {
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast('you have already registered for this event');
+          errorToast("you have already registered for this event");
         } else {
           const res = await generateTicket({
             userId,
@@ -60,14 +60,14 @@ const EventCard = ({ userId, event }: PropType) => {
             userEnrollment,
           });
           if (res.status) {
-            successToast('event registeraton successfull');
+            successToast("event registeraton successfull");
             const mailSent = callNodeMailer({
               mailTo: userMail,
               userName: userFromDB?.name,
               event,
             });
             if (mailSent) {
-              successToast('Check Your Mail');
+              successToast("Check Your Mail");
             }
           }
         }
@@ -86,7 +86,7 @@ const EventCard = ({ userId, event }: PropType) => {
     >
       <div
         className={`grid-cols-12 md:max-w-[18.5rem] lg:max-w-sm xl:w-[23rem] ${
-          Number(event.eventId) % 2 !== 0 ? 'bg-[#BB86FC]' : 'bg-[#3700B3]'
+          Number(event.eventId) % 2 !== 0 ? "bg-[#BB86FC]" : "bg-[#3700B3]"
         }  text-white rounded-lg shadow-lg py-4 md:p-4 w-full transition-transform transform hover:scale-105 hover:border-2 mt-4`}
       >
         <div className="col-span-12 px-2 pt-2 text-[#46cf31f] text-white">
@@ -101,9 +101,9 @@ const EventCard = ({ userId, event }: PropType) => {
         <div className="col-span-12 grid gap-8 grid-cols-12 items-center mt-8 mb-8">
           <div
             className={`${
-              count <= 140
-                ? 'col-span-6 w-4/5 mx-auto'
-                : 'grid  ml-[1.95rem] col-span-11'
+              count <= 140 && event.category === "Tech event"
+                ? "col-span-6 w-4/5 mx-auto"
+                : "grid  ml-[1.95rem] col-span-11"
             }`}
           >
             <Link href={`events/${event.eventId}`}>
@@ -112,22 +112,22 @@ const EventCard = ({ userId, event }: PropType) => {
               </button>
             </Link>
           </div>
-          {count <= 140 && event.category === 'Tech event' && (
+          {count <= 140 && event.category === "Tech event" && (
             <div className="col-span-6 w-4/5 mx-auto">
               <button
                 onClick={handleRegistration}
                 className="pixel-border text-white px-4 w-full"
               >
-                {isLoading ? <Spinner /> : 'Participate'}
+                {isLoading ? <Spinner /> : "Participate"}
               </button>
             </div>
           )}
         </div>
-        {event.category === 'Tech event' && (
+        {event.category === "Tech event" && (
           <div className="col-span-12 grid justify-center text-[#ca432e] text-[1.25rem] mt-8 mb-4 ">
             {count <= 140
               ? `Only ${140 - count} tickets left.`
-              : 'Sorry No tickets left'}
+              : "Sorry No tickets left"}
           </div>
         )}
       </div>

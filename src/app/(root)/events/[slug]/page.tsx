@@ -1,20 +1,22 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import events from '@/lib/data/events';
-import { useRouter } from 'next/navigation';
-import { useUser } from '@clerk/nextjs';
-import ReactMarkdown from 'react-markdown';
+import React, { useEffect, useState } from "react";
+import events from "@/lib/data/events";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
+import ReactMarkdown from "react-markdown";
 
 import {
+  callNodeMailer,
   generateTicket,
+  howManyRegisteredForThis,
   ticketAlreadyGenerated,
-} from '@/lib/actions/ticket.actions';
-import { errorToast, successToast } from '@/components/ui/Toast';
-import { ToastContainer } from 'react-toastify';
-import Spinner from '@/components/ui/Spinner';
-import Link from 'next/link';
-import { getUserById } from '@/lib/actions/user.actions';
+} from "@/lib/actions/ticket.actions";
+import { errorToast, successToast } from "@/components/ui/Toast";
+import { ToastContainer } from "react-toastify";
+import Spinner from "@/components/ui/Spinner";
+import Link from "next/link";
+import { getUserById } from "@/lib/actions/user.actions";
 
 const SingleEventPage = ({
   params,
@@ -26,77 +28,89 @@ const SingleEventPage = ({
   const router = useRouter();
   const user = useUser();
   const userId = user.user?.id;
-  const event = events.find((event) => event.eventId === params.slug);
+  const event: any = events.find((event) => event.eventId === params.slug);
   const [isLoading, setLoading] = useState(false);
+  const [count, setCount] = useState(140);
 
+  useEffect(() => {
+    const gettingCount = async () => {
+      setCount(await howManyRegisteredForThis(event.eventId));
+    };
+    gettingCount();
+  });
   if (!event) {
-    router.push('/events');
+    router.push("/events");
     return null;
   }
 
   const handleRegistration = async () => {
     try {
       if (!userId) {
-        router.push('/sign-in');
+        router.push("/sign-in");
       } else {
         setLoading(true);
+        const userFromDB = await getUserById(userId);
+        const userEnrollment: any = userFromDB?.enroll;
+        const userMail: any = userFromDB?.email;
         let ticketCheck = await ticketAlreadyGenerated({
           userId,
           eventId: event.eventId,
         });
-
         if (ticketCheck) {
-          errorToast('you have already registered for this event');
+          errorToast("you have already registered for this event");
         } else {
-          const userFromDB = await getUserById(userId);
-
-          if (!userFromDB) {
-            errorToast('User not found');
-            setLoading(false);
-            return;
-          }
-
           const res = await generateTicket({
             userId,
             eventId: event.eventId,
-            userMail: userFromDB.email,
             eventName: event.eventName,
-            userEnrollment: userFromDB.enroll,
+            userMail,
+            userEnrollment,
           });
           if (res.status) {
-            successToast('event registeraton successfull');
+            successToast("event registeraton successfull");
+            const mailSent = callNodeMailer({
+              mailTo: userMail,
+              userName: userFromDB?.name,
+              event,
+            });
+            if (mailSent) {
+              successToast("Check Your Mail");
+            }
           }
         }
         setLoading(false);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className="w-full min-h-[90vh] mx-auto mt-8">
       <h1 className="text-3xl mb-8">
-        <Link href="/">Home </Link> {'>'} <Link href="/events">Events </Link>{' '}
-        {'>'} {event?.eventName}
+        <Link href="/">Home </Link> {">"} <Link href="/events">Events </Link>{" "}
+        {">"} {event?.eventName}
       </h1>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div className="w-full h-max md:sticky relative top-10 left-0 flex flex-col pb-8">
           <div className="mb-4">
             <img
               src={
-                'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
+                "https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png"
               }
               alt="event poster"
               className="rounded-sm"
             />
           </div>
-
-          <button
-            type="button"
-            className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
-            onClick={handleRegistration}
-          >
-            {isLoading ? <Spinner /> : 'Participate'}
-          </button>
+          {count <= 140 && event.category === "Tech event" && (
+            <button
+              type="button"
+              className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
+              onClick={handleRegistration}
+            >
+              {isLoading ? <Spinner /> : "Participate"}
+            </button>
+          )}
         </div>
 
         <div className="md:mt-0 md:col-span-2 mt-4 w-full h-full">
