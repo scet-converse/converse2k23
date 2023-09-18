@@ -245,8 +245,6 @@ body {
   }
 }
 
-
-
 #marquee::-webkit-scrollbar {
   display: none;
 }
@@ -260,10 +258,10 @@ body {
 
 @keyframes scroll {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   100% {
-      transform: translateX(calc(-100% - 34px));
+    transform: translateX(calc(-100% - 34px));
   }
 }
