@@ -14,6 +14,7 @@ import { errorToast, successToast } from '@/components/ui/Toast';
 import { ToastContainer } from 'react-toastify';
 import Spinner from '@/components/ui/Spinner';
 import Link from 'next/link';
+import { getUserById } from '@/lib/actions/user.actions';
 
 const SingleEventPage = ({
   params,
@@ -25,7 +26,6 @@ const SingleEventPage = ({
   const router = useRouter();
   const user = useUser();
   const userId = user.user?.id;
-  // console.log(userId);
   const event = events.find((event) => event.eventId === params.slug);
   const [isLoading, setLoading] = useState(false);
 
@@ -35,7 +35,6 @@ const SingleEventPage = ({
   }
 
   const handleRegistration = async () => {
-    console.log('hello');
     try {
       if (!userId) {
         router.push('/sign-in');
@@ -49,9 +48,20 @@ const SingleEventPage = ({
         if (ticketCheck) {
           errorToast('you have already registered for this event');
         } else {
+          const userFromDB = await getUserById(userId);
+
+          if (!userFromDB) {
+            errorToast('User not found');
+            setLoading(false);
+            return;
+          }
+
           const res = await generateTicket({
             userId,
             eventId: event.eventId,
+            userMail: userFromDB.email,
+            eventName: event.eventName,
+            userEnrollment: userFromDB.enroll,
           });
           if (res.status) {
             successToast('event registeraton successfull');

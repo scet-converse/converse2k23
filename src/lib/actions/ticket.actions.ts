@@ -4,6 +4,9 @@ import nodeMailer from 'nodemailer';
 type PropType = {
   userId: string;
   eventId: string;
+  eventName: string;
+  userMail: string;
+  userEnrollment: string;
 };
 
 type ticketProps = {
@@ -20,11 +23,16 @@ export const howManyRegisteredForThis = async (eventId: string) => {
       eventId: eventId, // Replace with the event ID you receive from the frontend
     },
   });
-  console.log(count);
   return count;
 };
 
-export const ticketAlreadyGenerated = async ({ userId, eventId }: PropType) => {
+export const ticketAlreadyGenerated = async ({
+  userId,
+  eventId,
+}: {
+  userId: string;
+  eventId: string;
+}) => {
   const ticket = await prisma.ticket.findFirst({
     where: {
       AND: [
@@ -44,11 +52,20 @@ export const ticketAlreadyGenerated = async ({ userId, eventId }: PropType) => {
   return false;
 };
 
-export const generateTicket = async ({ userId, eventId }: PropType) => {
+export const generateTicket = async ({
+  userId,
+  eventId,
+  userMail,
+  eventName,
+  userEnrollment,
+}: PropType) => {
   const ticket = await prisma.ticket.create({
     data: {
       userId,
       eventId,
+      userMail,
+      eventName,
+      userEnrollment,
     },
   });
 
@@ -75,7 +92,6 @@ const htmlContent = `
 
 export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
   let res = { status: '' };
-  console.log('node mailer here');
   const mailOptions = {
     from: process.env.NODE_MAILER_MAIL_ID,
     to: mailTo,
