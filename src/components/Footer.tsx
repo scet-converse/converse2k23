@@ -20,7 +20,9 @@ const Footer = () => {
             <AiFillGithub size={'1.8rem'} />
           </Link>
         </div>
-        © Converse 2023 - All Rights Reserved
+        <p className="text-sm md:text-lg">
+          © Converse 2023 - All Rights Reserved
+        </p>
       </div>
     </div>
   );
