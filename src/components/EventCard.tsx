@@ -83,66 +83,56 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -100 }} // Initial state (hidden and off to the left)
-      animate={{ opacity: 1, x: 0 }} // Animation state (visible and at the original position)
-      transition={{ duration: 2 }} // Animation duration
+      initial={{ opacity: 0, y: 50 }} // Initial state (hidden and off to the left)
+      animate={{ opacity: 1, y: 0 }} // Animation state (visible and at the original position)
+      transition={{ duration: 1 }}
     >
-      <div
-        className={`grid-cols-12 md:max-w-[18.5rem] lg:max-w-sm xl:w-[23rem] ${
-          Number(event.eventId) % 2 !== 0 ? 'bg-[#BB86FC]' : 'bg-[#3700B3]'
-        }  text-white rounded-lg shadow-lg py-4 md:p-4 w-full transition-transform transform hover:scale-105 hover:border-2 mt-4`}
-      >
-        <div className="col-span-12 px-2 pt-2 text-[#46cf31f] text-white">
-          {event.category}
+      <div className={`w-full aspect-[9/10] bg-[#F0F0F0] p-4`}>
+        <div className="relative w-full h-4/5 bg-green-400 p-8 rounded bg-gradient-to-b from-transparent to-[#00000080]">
+          <div className="relative h-full w-full">
+            <Image
+              src={event.imgSrc}
+              alt={event.eventName}
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+
+          <div className="absolute bottom-2 left-2 text-3xl">
+            <p className="text-3xl">{event.eventName}</p>
+            <p className="text-sm">{event.category}</p>
+          </div>
         </div>
-        <div className="grid justify-center items-center h-[15rem] mt-2 col-span-12">
-          <Image src={event.imgSrc} alt="events" width={240} height={240} />
-        </div>
-        <div className="grid justify-center items-center col-span-12 text-white text-[1.75rem]">
-          {event.eventName}
-        </div>
-        <div className="col-span-12 grid gap-8 grid-cols-12 items-center mt-8 mb-8">
-          <div
-            className={`${
-              count <= 140 && event.category === 'Tech event'
-                ? 'col-span-6 w-4/5 mx-auto'
-                : 'grid  ml-[1.95rem] col-span-11'
-            }`}
+        <div className="w-full flex flex-row justify-between p-2">
+          <Link
+            href={`/events/${event.eventId}`}
+            className="pixel-border px-3 mt-6 w-2/5 text-center"
           >
-            <Link href={`events/${event.eventId}`}>
-              <button className="pixel-border px-4 text-white w-full">
-                View
+            <button>View</button>
+          </Link>
+
+          {count <= 140 &&
+            event.category === 'Tech event' &&
+            (isRegistered ? (
+              <button
+                className="pixel-border px-3 mt-6 w-2/5 text-center opacity-50"
+                disabled
+              >
+                Registered
               </button>
-            </Link>
-          </div>
-          {count <= 140 && event.category === 'Tech event' && (
-            <div className="col-span-6 w-4/5 mx-auto">
-              {isRegistered ? (
-                <button
-                  className="pixel-border text-white px-4 w-full opacity-50"
-                  disabled
-                >
-                  Registered
-                </button>
-              ) : (
-                <button
-                  onClick={handleRegistration}
-                  className="pixel-border text-white px-4 w-full"
-                  disabled={isLoading}
-                >
-                  {isLoading ? <Spinner /> : 'Participate'}
-                </button>
-              )}
-            </div>
-          )}
+            ) : (
+              <button
+                className="pixel-border px-3 mt-6 w-2/5 text-center"
+                onClick={() => {
+                  if (window.confirm(`Register for ${event.eventName}?`)) {
+                    handleRegistration();
+                  }
+                }}
+              >
+                {isLoading ? <Spinner /> : 'Register'}
+              </button>
+            ))}
         </div>
-        {event.category === 'Tech event' && (
-          <div className="col-span-12 grid justify-center text-[#ca432e] text-[1.25rem] mt-8 mb-4 ">
-            {count <= 140
-              ? `Only ${140 - count} tickets left.`
-              : 'Sorry No tickets left'}
-          </div>
-        )}
       </div>
     </motion.div>
   );

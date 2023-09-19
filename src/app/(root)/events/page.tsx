@@ -26,9 +26,9 @@ const Events = async () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-12 w-full max-w-1200 mx-auto my-0 p-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full max-w-1200 mx-auto my-0 py-4 gap-4">
         {events.map((event, index) => (
-          <div className="grid justify-center col-span-12 md:col-span-6 xl:col-span-4">
+          <div>
             <EventCard
               key={index}
               userId={user ? user.id : null}
