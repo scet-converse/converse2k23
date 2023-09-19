@@ -144,6 +144,41 @@ const teams: Team[] = [
   {
     title: 'Registration',
     slug: 'registration',
+    people: {
+      'Team Coordinator': [
+        {
+          name: 'Ravi Savaliya',
+          instagram: 'ravi___023',
+          github: 'Savaliya-Ravi',
+        },
+        {
+          name: 'Aayushi Naik',
+          instagram: 'aayushinaik__06',
+          github: 'aayushinaik05',
+        },
+        { name: 'Aneri Naik', instagram: 'irenanaik_009', github: 'anerinaik' },
+      ],
+      'Team Leader': [
+        {
+          name: 'Mitul Tariwala',
+          instagram: 'mitul_tari_',
+          github: 'MitulTari',
+        },
+        {
+          name: 'Parthiv Kevdiya',
+          instagram: 'parthiv_kevadiya',
+          github: 'parthiv8848',
+        },
+      ],
+      'Team Member': [
+        { name: 'Parthish Mehta' },
+        { name: 'Shruti Desai' },
+        { name: 'Pranami Patel' },
+        { name: 'Viraj Dapkawala' },
+        { name: 'Rishi Mistry' },
+        { name: 'Harshil Gajipara' },
+      ],
+    },
   },
   {
     title: 'Photography',
