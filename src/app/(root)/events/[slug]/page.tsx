@@ -40,8 +40,8 @@ const SingleEventPage = ({
 
   useEffect(() => {
     const gettingCountAndCheckingRegistration = async () => {
-      setCount(await howManyRegisteredForThis(event.eventId));
-      if (userId) {
+      if (userId && event) {
+        setCount(await howManyRegisteredForThis(event.eventId));
         setIsRegistered(
           await ticketAlreadyGenerated({ userId, eventId: event.eventId })
         );

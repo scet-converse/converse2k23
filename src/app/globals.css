@@ -41,6 +41,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .modal::-webkit-scrollbar-track {
   border-radius: 16px;
 }
@@ -134,6 +138,16 @@ body {
     transform: translateY(-3%);
     animation-timing-function: linear;
   }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .pixel-border {

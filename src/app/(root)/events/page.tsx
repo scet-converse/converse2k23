@@ -1,7 +1,7 @@
 import EventCard from '@/components/EventCard';
 import React from 'react';
 import events from '@/lib/data/events';
-import { currentUser } from '@clerk/nextjs';
+import { SignOutButton, SignedIn, currentUser } from '@clerk/nextjs';
 import { ToastContainer } from 'react-toastify';
 import Link from 'next/link';
 import { getRegisteredEvents } from '@/lib/actions/ticket.actions';
@@ -12,10 +12,19 @@ const Events = async () => {
 
   return (
     <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
-      <h1 className="text-3xl mb-3">
-        <Link href="/">Home </Link> {'>'} Events
-      </h1>
-      <p>Register here for all the Awesome events</p>
+      <div className="flex flex-row justify-between md:items-center">
+        <div>
+          <h1 className="text-3xl mb-3">
+            <Link href="/">Home </Link> {'>'} Events
+          </h1>
+          <p>Register here for all the Awesome events</p>
+        </div>
+        <div className="w-2/5 md:w-[10%] h-min flex mt-2 md:mt-0 items-center justify-center text-sm">
+          <SignedIn>
+            <SignOutButton />
+          </SignedIn>
+        </div>
+      </div>
 
       <div className="grid grid-cols-12 w-full max-w-1200 mx-auto my-0 p-4 ">
         {events.map((event, index) => (

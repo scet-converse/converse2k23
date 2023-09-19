@@ -7,15 +7,26 @@ interface ModalProps extends PropsWithChildren {
 }
 
 const ModalComponent: FC<ModalProps> = ({ open, children }): ReactElement => {
+  React.useEffect(() => {
+    if (open) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [open]);
+
   return open ? (
     <div
       id="defaultModal"
       tabIndex={-1}
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 bottom-0 z-10 h-screen w-screen overflow-x-hidden overflow-y-hidden md:inset-0"
+      className="fixed top-0 left-0 right-0 bottom-0 z-10 h-screen w-screen overflow-hidden md:inset-0"
     >
       <div
-        className="fixed top-0 left-0 right-0 bottom-0 z-10 h-screen w-screen overflow-x-hidden overflow-y-hidden md:inset-0 bg-opacity-20 backdrop-blur-sm rounded drop-shadow-sm hover:cursor-pointer"
+        className="h-full w-full overflow-hidden md:inset-0 bg-opacity-20 backdrop-blur-sm rounded drop-shadow-sm hover:cursor-pointer"
         data-modal-hide="defaultModal"
       />
 
