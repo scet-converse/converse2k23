@@ -1,13 +1,14 @@
 import EventCard from '@/components/EventCard';
 import React from 'react';
-import Image from 'next/image';
 import events from '@/lib/data/events';
 import { currentUser } from '@clerk/nextjs';
 import { ToastContainer } from 'react-toastify';
 import Link from 'next/link';
+import { getRegisteredEvents } from '@/lib/actions/ticket.actions';
 
 const Events = async () => {
   const user = await currentUser();
+  const regEvents = await getRegisteredEvents(user?.id);
 
   return (
     <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
@@ -23,6 +24,7 @@ const Events = async () => {
               key={index}
               userId={user ? user.id : null}
               event={event}
+              isReg={regEvents.includes(event.eventId)}
             />
           </div>
         ))}

@@ -35,13 +35,19 @@ const SingleEventPage = ({
   const userId = user.user?.id;
   const event: any = events.find((event) => event.eventId === params.slug);
   const [isLoading, setLoading] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
   const [count, setCount] = useState(140);
 
   useEffect(() => {
-    const gettingCount = async () => {
+    const gettingCountAndCheckingRegistration = async () => {
       setCount(await howManyRegisteredForThis(event.eventId));
+      if (userId) {
+        setIsRegistered(
+          await ticketAlreadyGenerated({ userId, eventId: event.eventId })
+        );
+      }
     };
-    gettingCount();
+    gettingCountAndCheckingRegistration();
   });
   if (!event) {
     router.push('/events');
@@ -62,7 +68,7 @@ const SingleEventPage = ({
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast('you have already registered for this event');
+          errorToast('You have already registered for this event');
         } else {
           const res = await generateTicket({
             userId,
@@ -72,7 +78,7 @@ const SingleEventPage = ({
             userEnrollment,
           });
           if (res.status) {
-            successToast('event registeraton successfull');
+            successToast('Event Registeration successful');
             const mailSent = callNodeMailer({
               mailTo: userMail,
               userName: userFromDB?.name,
@@ -107,15 +113,34 @@ const SingleEventPage = ({
               className="rounded-sm"
             />
           </div>
-          {count <= 140 && event.category === 'Tech event' && (
-            <button
-              type="button"
-              className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
-              onClick={handleRegistration}
-            >
-              {isLoading ? <Spinner /> : 'Participate'}
-            </button>
-          )}
+          {count <= 140 &&
+            event.category === 'Tech event' &&
+            (isRegistered ? (
+              <button
+                type="button"
+                className="PixellButton w-full min-w-full md:text-lg text-base uppercas opacity-50"
+                disabled
+              >
+                Registered
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
+                disabled={isLoading}
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      `You will be registered for the event ${event.eventName}`
+                    )
+                  ) {
+                    handleRegistration();
+                  }
+                }}
+              >
+                {isLoading ? <Spinner /> : 'Participate'}
+              </button>
+            ))}
         </div>
 
         <div className="md:mt-0 md:col-span-2 mt-4 w-full h-full">

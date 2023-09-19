@@ -26,6 +26,20 @@ export const howManyRegisteredForThis = async (eventId: string) => {
   return count;
 };
 
+export const getRegisteredEvents = async (userId: string | undefined) => {
+  if (!userId) {
+    return [];
+  }
+
+  const events = await prisma.ticket.findMany({
+    where: { userId: userId },
+    select: { eventId: true },
+  });
+
+  const registered = events.map((e) => e.eventId);
+  return registered;
+};
+
 export const ticketAlreadyGenerated = async ({
   userId,
   eventId,
