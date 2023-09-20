@@ -11,6 +11,7 @@ import departments from '@/lib/data/departments';
 import { createUser } from '@/lib/actions/user.actions';
 import { useRouter } from 'next/navigation';
 import Spinner from './ui/Spinner';
+import { SignOutButton } from '@clerk/nextjs';
 
 const OnboardForm = (props: { id: string; email: string }) => {
   type UserSchemaType = z.infer<typeof userSchema>;
@@ -55,7 +56,7 @@ const OnboardForm = (props: { id: string; email: string }) => {
         </p>
       </div>
 
-      <div>
+      <div className="relative">
         <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
           {/* full name input */}
 
@@ -163,6 +164,10 @@ const OnboardForm = (props: { id: string; email: string }) => {
             {loading ? <Spinner /> : 'Submit'}
           </button>
         </form>
+        <p className="text-base font-normal text-[#ffffffaf] mt-8">OR</p>
+        <div className="mt-8 pixel-border w-[30%] flex items-center justify-center text-sm">
+          <SignOutButton />
+        </div>
       </div>
     </div>
   );

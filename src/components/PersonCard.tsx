@@ -19,7 +19,7 @@ function PersonCard({
   github?: string;
 }) {
   return (
-    <div className="flex flex-col w-full h-full md:w-[90%] md:h-[90%] m-auto aspect-square bg-pink-500 p-10">
+    <div className="flex flex-col w-full h-full md:w-[90%] md:h-[90%] m-auto aspect-square bg-pink-500 px-10 py-4">
       <div className="w-full h-1/2 relative flex justify-center">
         <Image
           src={image ? image : '/8bit_placeholder.png'}
@@ -35,15 +35,15 @@ function PersonCard({
         </div>
         {team && <p className="text-md">{team}</p>}
       </div>
-      <div className="mt-5 my-auto flex flex-row justify-center items-center [&>*]:mx-2">
+      <div className="mt-2 my-auto flex flex-row justify-center items-center [&>*]:mx-2">
         {instagram && (
-          <a href={instagram} target="_blank">
-            <AiOutlineInstagram size="2rem" />
+          <a href={`https://instagram.com/${instagram}`} target="_blank">
+            <AiOutlineInstagram size="1.6rem" />
           </a>
         )}
         {github && (
-          <a href={github} target="_blank">
-            <AiOutlineGithub size="2rem" />
+          <a href={`https://github.com/${github}`} target="_blank">
+            <AiOutlineGithub size="1.6rem" />
           </a>
         )}
       </div>
