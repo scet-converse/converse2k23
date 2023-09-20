@@ -634,7 +634,7 @@ const events: event[] = [
     **Group Size**: 6/7 group of people are allowed(highly recommended) But if you don't have any group then also you can participate (we will adjust group for you)  
     **Winning Criteria**: One winner will be declared from each group of 6 participants  
     `,
-    imgSrc: '/events/spy_eye.gif',
+    imgSrc: '/events/spy-eye.gif',
     poster: '',
     category: 'Non Tech event',
     eventHeads: [
