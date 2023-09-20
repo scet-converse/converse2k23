@@ -87,26 +87,26 @@ export const generateTicket = async ({
   return { status: 'ticket generated', ticket };
 };
 
-const transporter = nodeMailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: process.env.NODE_MAILER_MAIL_ID,
-    pass: process.env.NODE_MAILER_PASSWORD,
-  },
-});
-
 let imageData: string;
 
 export const gettingTheImageData = (imageUrl: string) => {
   imageData = imageUrl;
 };
 
-const htmlContent = `
-  
-`;
-
-export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
+export const callNodeMailer = async ({
+  mailTo,
+  event,
+  userName,
+}: ticketProps) => {
+  const transporter = nodeMailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.NODE_MAILER_MAIL_ID,
+      pass: process.env.NODE_MAILER_PASSWORD,
+    },
+  });
   let res = { status: '' };
+
   const mailOptions = {
     from: process.env.NODE_MAILER_MAIL_ID,
     to: mailTo,
@@ -127,14 +127,18 @@ export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
     ],
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      res.status = 'Error while sending email';
-    } else {
-      console.log('Email sent:', info.response);
-      res.status = 'Success! A ticket has been emailed to you';
-    }
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        res.status = 'Error while sending email';
+        reject(error);
+      } else {
+        console.log('Email sent:', info.response);
+        res.status = 'Success! A ticket has been emailed to you';
+        resolve(error);
+      }
+    });
   });
 
   return res;

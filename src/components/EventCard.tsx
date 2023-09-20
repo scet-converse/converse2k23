@@ -63,7 +63,7 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
           });
           if (res.status) {
             successToast('event registeraton successfull');
-            const mailSent = callNodeMailer({
+            const mailSent = await callNodeMailer({
               mailTo: userMail,
               userName: userFromDB?.name,
               event,

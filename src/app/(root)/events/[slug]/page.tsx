@@ -79,7 +79,7 @@ const SingleEventPage = ({
           });
           if (res.status) {
             successToast('Event Registeration successful');
-            const mailSent = callNodeMailer({
+            const mailSent = await callNodeMailer({
               mailTo: userMail,
               userName: userFromDB?.name,
               event,
