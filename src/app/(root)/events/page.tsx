@@ -4,11 +4,15 @@ import events from '@/lib/data/events';
 import { SignOutButton, SignedIn, currentUser } from '@clerk/nextjs';
 import { ToastContainer } from 'react-toastify';
 import Link from 'next/link';
-import { getRegisteredEvents } from '@/lib/actions/ticket.actions';
+import {
+  getAllEventCounts,
+  getRegisteredEvents,
+} from '@/lib/actions/ticket.actions';
 
 const Events = async () => {
   const user = await currentUser();
   const regEvents = await getRegisteredEvents(user?.id);
+  const counts = await getAllEventCounts();
 
   return (
     <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
@@ -34,6 +38,7 @@ const Events = async () => {
               userId={user ? user.id : null}
               event={event}
               isReg={regEvents.includes(event.eventId)}
+              count={counts.get(event.eventId) || 0}
             />
           </div>
         ))}

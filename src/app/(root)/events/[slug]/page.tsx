@@ -22,6 +22,7 @@ import { ToastContainer } from 'react-toastify';
 import Spinner from '@/components/ui/Spinner';
 import Link from 'next/link';
 import { getUserById } from '@/lib/actions/user.actions';
+import Image from 'next/image';
 
 const SingleEventPage = ({
   params,
@@ -105,14 +106,18 @@ const SingleEventPage = ({
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div className="w-full h-max md:sticky relative top-10 left-0 flex flex-col pb-8">
           <div className="mb-4">
-            <img
-              src={
-                event.poster ||
-                'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
-              }
-              alt="event poster"
-              className="rounded-sm"
-            />
+            <div className="relative h-[60vh] w-full">
+              <Image
+                src={
+                  event.poster ||
+                  'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
+                }
+                alt="event poster"
+                fill
+                className="rounded-sm"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
           </div>
           {count <= 140 &&
             event.category === 'Tech event' &&

@@ -24,20 +24,21 @@ type PropType = {
     category: string;
   };
   isReg: boolean;
+  count: number;
 };
 
-const EventCard = ({ userId, event, isReg }: PropType) => {
+const EventCard = ({ userId, event, isReg, count }: PropType) => {
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
   const [isRegistered, setIsReg] = useState(isReg);
-  const [count, setCount] = useState(140);
+  // const [count, setCount] = useState(140);
 
-  useEffect(() => {
-    const gettingCount = async () => {
-      setCount(await howManyRegisteredForThis(event.eventId));
-    };
-    gettingCount();
-  });
+  // useEffect(() => {
+  //   const gettingCount = async () => {
+  //     setCount(await howManyRegisteredForThis(event.eventId));
+  //   };
+  //   gettingCount();
+  // }, []);
 
   const handleRegistration = async () => {
     try {
@@ -96,6 +97,7 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
               alt={event.eventName}
               fill
               style={{ objectFit: 'cover' }}
+              loading="lazy"
             />
           </div>
 
