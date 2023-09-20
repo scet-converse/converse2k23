@@ -42,7 +42,7 @@ const events: event[] = [
        Round 3: Personal Interview (HR-based Interview skills) (Top 12 participants)  
     **Requirements for the event**: Round 1: ALL 4 LABs, Round 2 & 3: Any Lab Space (without disturbance)/ Seminar Hall,  `,
     imgSrc: '/events/py.gif',
-    poster: '',
+    poster: '/posters/tech/py_it.png',
     category: 'Tech event',
     facultyCoordinators: [
       {
@@ -101,7 +101,7 @@ const events: event[] = [
       },
       {
         id: '6',
-        name: 'Yash Chauhan',
+        name: 'Yash Chauhan',
         number: '00000 00000',
       },
     ],
@@ -123,7 +123,7 @@ const events: event[] = [
     3. Time duration: 30 minutes  
     4. Mobile Phones are strictly prohibited.  `,
     imgSrc: '/events/pepsi.gif',
-    poster: '',
+    poster: '/posters/tech/logo_hunt.png',
     category: 'Tech event',
 
     facultyCoordinators: [
@@ -208,7 +208,7 @@ const events: event[] = [
     3. Time duration: 30 minutes  
     4. Mobile Phones are strictly prohibited.  `,
     imgSrc: '/events/quiz.gif',
-    poster: '',
+    poster: '/posters/tech/it_quiz.png',
     category: 'Tech event',
 
     facultyCoordinators: [
@@ -299,9 +299,9 @@ const events: event[] = [
     4. From Round 1, Top 5 teams will be selected on the basis of score.  
     (Vary on the basis of number of participation)  
     5. Technology: SQL   
-    **Requirements for the event**: Intranet, Internet  `,
+    **Requirements for the event**: Intranet, Internet  `,
     imgSrc: '/events/crescendo.gif',
-    poster: '',
+    poster: '/posters/tech/rise_to_crescendo.png',
     category: 'Tech event',
 
     facultyCoordinators: [
@@ -381,7 +381,7 @@ const events: event[] = [
     (vary according to no.of participants)for second round.  
     **Requirements for the event**: Intranet  `,
     imgSrc: '/events/bug.gif',
-    poster: '',
+    poster: '/posters/tech/bug_buzz.png',
     category: 'Tech event',
 
     facultyCoordinators: [
@@ -465,7 +465,7 @@ const events: event[] = [
     2. There will be relay coding where first member will code for 50 minutes  
     and then second member will continue the coding from there.`,
     imgSrc: '/events/esports.gif',
-    poster: '',
+    poster: '/posters/tech/codathon.png',
     category: 'Tech event',
 
     facultyCoordinators: [
@@ -559,7 +559,7 @@ const events: event[] = [
     - One laptop  
     - Mic (If event is scheduled in any hall)  `,
     imgSrc: '/events/mindspark.gif',
-    poster: '/events/minspark.gif',
+    poster: '/posters/tech/mind_spark.png',
     category: 'Tech event',
 
     facultyCoordinators: [
@@ -635,7 +635,7 @@ const events: event[] = [
     **Winning Criteria**: One winner will be declared from each group of 6 participants  
     `,
     imgSrc: '/events/spy-eye.gif',
-    poster: '',
+    poster: '/posters/nontech/the_spys_eye.png',
     category: 'Non Tech event',
     eventHeads: [
       {
@@ -673,7 +673,7 @@ const events: event[] = [
   **Entry Fee**: Only 20 golden coins per head
   Win cash prizes and bask in the glory of your triumph! `,
     imgSrc: '/events/capture_quest.gif',
-    poster: '',
+    poster: '/posters/nontech/capture_quest.png',
     category: 'Non Tech event',
     eventHeads: [
       {
@@ -713,7 +713,7 @@ const events: event[] = [
     **Mandatory**: carry a pen & paper & your Bollywood enthusiasm and the winner team gets rewards  
     **Entry fees**: 30 Rs`,
     imgSrc: '/events/filmy_dhoomdhadaka.gif',
-    poster: '',
+    poster: '/posters/nontech/filmy_dhoomdhadaka.jpg',
     category: 'Non Tech event',
     eventHeads: [
       {
@@ -758,7 +758,7 @@ And winner team will decided by the past IPL performance of their players
 Entry Fees : 30 /-
 `,
     imgSrc: '/events/auction.gif',
-    poster: '',
+    poster: '/posters/nontech/auction_ka_adda.jpg',
     category: 'Non Tech event',
     eventHeads: [
       {
@@ -796,7 +796,7 @@ Entry Fees : 30 /-
     - the one who hits all 3 shoots gets a prize   
 `,
     imgSrc: '/events/penalty_shootout.gif',
-    poster: '',
+    poster: '/posters/nontech/penalty_shootout.jpg',
     category: 'Non Tech event',
     eventHeads: [
       {
@@ -830,7 +830,7 @@ Entry Fees : 30 /-
     - NO ON SPOT ENTRY   
 `,
     imgSrc: '/events/esports.gif',
-    poster: '',
+    poster: '/posters/nontech/esport_revolution.jpg',
     category: 'Non Tech event',
     eventHeads: [
       {
@@ -872,7 +872,7 @@ Entry Fees : 30 /-
     5) Management's Decision will be final  
 `,
     imgSrc: '/events/cs.gif',
-    poster: '',
+    poster: '/posters/nontech/counter_strike.jpg',
     category: 'Non Tech event',
     eventHeads: [
       {

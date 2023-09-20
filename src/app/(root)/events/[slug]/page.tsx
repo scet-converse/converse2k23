@@ -107,6 +107,7 @@ const SingleEventPage = ({
           <div className="mb-4">
             <img
               src={
+                event.poster ||
                 'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
               }
               alt="event poster"
