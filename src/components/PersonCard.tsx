@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { AiOutlineInstagram, AiOutlineGithub } from 'react-icons/ai';
+import { IMG_PREFIX } from '@/lib/constants';
 
 function PersonCard({
   name,
@@ -22,7 +23,7 @@ function PersonCard({
     <div className="flex flex-col w-full h-full md:w-[90%] md:h-[90%] m-auto aspect-square bg-pink-500 px-10 py-4">
       <div className="w-full h-1/2 relative flex justify-center">
         <Image
-          src={image ? image : '/8bit_placeholder.png'}
+          src={image ? image : `${IMG_PREFIX}/8bit_placeholder.png`}
           alt="Picture"
           fill
           objectFit="contain"

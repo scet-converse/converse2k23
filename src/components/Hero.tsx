@@ -6,6 +6,7 @@ import {
   FEST_NAME,
   FEST_START_AT,
   FEST_YEAR,
+  IMG_PREFIX,
 } from '@/lib/constants';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -85,7 +86,7 @@ const Hero = () => {
                   <div className="md:h-7 md:w-7 w-6 h-6 relative flex justify-center">
                     {active === index && (
                       <Image
-                        src={'/icons/coin.png'}
+                        src={`${IMG_PREFIX}/icons/coin.png`}
                         alt="coin"
                         fill
                         objectFit="contain"
@@ -108,13 +109,13 @@ const Hero = () => {
           {/* Bottom Section */}
 
           <div className="w-full py-4 px-8 border-t-2 border-white">
-            <Marquee/>
+            <Marquee />
           </div>
         </div>
 
         <div className="md:col-span-6 col-span-12 relative rounded-md  min-h-48 flex  justify-center ">
           <Timer startDate={FEST_START_AT} endDate={FEST_END_AT} />
-          <Tv/>
+          <Tv />
         </div>
       </div>
     </div>

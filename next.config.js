@@ -5,7 +5,12 @@ const nextConfig = {
     serverComponentsExternalPackages: ['prisma', '@prisma/client'],
   },
   images: {
-    domains: ['steamuserimages-a.akamaihd.net', 'converse2k22.vercel.app', 'i.pinimg.com'],
+    domains: [
+      'steamuserimages-a.akamaihd.net',
+      'converse2k22.vercel.app',
+      'i.pinimg.com',
+      'converse2k23.s3.ap-south-1.amazonaws.com',
+    ],
   },
 };
 

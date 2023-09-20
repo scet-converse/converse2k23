@@ -1,3 +1,6 @@
+export const IMG_PREFIX = 'https://converse2k23.s3.ap-south-1.amazonaws.com'; // FOR CDN
+// export const IMG_PREFIX = ''; FOR LOCAL
+
 export const FEST_START_AT = new Date('2023-09-29T09:00:00.000Z');
 export const FEST_END_AT = new Date('2023-09-30T16:00:00.000Z');
 export const FEST_NAME = 'converse';

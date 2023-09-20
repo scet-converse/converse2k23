@@ -1,3 +1,4 @@
+import { IMG_PREFIX } from '@/lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -42,7 +43,7 @@ function Cassette({
     >
       <div className={styles.label}>
         <Image
-          src={`/teams/gif_${(Number(image) % 12) + 1}.gif`}
+          src={`${IMG_PREFIX}/teams/gif_${(Number(image) % 12) + 1}.gif`}
           alt="cassette_banner"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

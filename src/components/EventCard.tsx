@@ -13,6 +13,7 @@ import { successToast, errorToast } from './ui/Toast';
 import { motion } from 'framer-motion';
 import { getUserById } from '@/lib/actions/user.actions';
 import Spinner from '@/components/ui/Spinner';
+import { IMG_PREFIX } from '@/lib/constants';
 
 type PropType = {
   userId: string | null;
@@ -91,7 +92,7 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
         <div className="relative w-full h-4/5 bg-[#79AC78] rounded bg-gradient-to-b from-transparent to-[#00000080]">
           <div className="relative h-full w-full">
             <Image
-              src={event.imgSrc}
+              src={`${IMG_PREFIX}${event.imgSrc}`}
               alt={event.eventName}
               fill
               style={{ objectFit: 'cover' }}
