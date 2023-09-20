@@ -119,9 +119,10 @@ export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
     attachments: [
       {
         filename: 'ticket.png',
-        // content: `/tickets/${event.eventName}.png`,
-        href: 'https://drive.google.com/file/d/1-Ufrx46zQ7ds6axJU1_SiLnzaJenFiPa/view?usp=share_link',
-        // encoding: 'base64',
+        href: `https://converse2k23.s3.ap-south-1.amazonaws.com/tickets/${event.eventName.replaceAll(
+          ' ',
+          '+'
+        )}.png`,
       },
     ],
   };
@@ -138,5 +139,3 @@ export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
 
   return res;
 };
-
-// content: Buffer.from(imageData.split(',')[1], 'base64'),

@@ -41,7 +41,7 @@ const events: event[] = [
        Round 2: Group Discussion ( Top 24 Participants,  2 groups of 12 members)  
        Round 3: Personal Interview (HR-based Interview skills) (Top 12 participants)  
     **Requirements for the event**: Round 1: ALL 4 LABs, Round 2 & 3: Any Lab Space (without disturbance)/ Seminar Hall,  `,
-    imgSrc: '/py.gif',
+    imgSrc: '/events/py.gif',
     poster: '',
     category: 'Tech event',
     facultyCoordinators: [
@@ -380,7 +380,7 @@ const events: event[] = [
     3.In first round top 20 candidates will be selected based on time  
     (vary according to no.of participants)for second round.  
     **Requirements for the event**: Intranet  `,
-    imgSrc: '/bug.gif',
+    imgSrc: '/events/bug.gif',
     poster: '',
     category: 'Tech event',
 
