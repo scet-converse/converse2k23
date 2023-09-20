@@ -88,13 +88,13 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
       transition={{ duration: 1 }}
     >
       <div className={`w-full aspect-[9/10] bg-[#F4F2DE] p-4`}>
-        <div className="relative w-full h-4/5 bg-[#79AC78] p-8 rounded bg-gradient-to-b from-transparent to-[#00000080]">
+        <div className="relative w-full h-4/5 bg-[#79AC78] rounded bg-gradient-to-b from-transparent to-[#00000080]">
           <div className="relative h-full w-full">
             <Image
               src={event.imgSrc}
               alt={event.eventName}
               fill
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'cover' }}
             />
           </div>
 

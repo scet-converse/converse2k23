@@ -228,7 +228,7 @@ const teams: Team[] = [
           name: 'Kuldip Khuman ',
           instagram: 'kuldip_darbar_7191',
         },
-        { name: 'Vedanti Paul' },
+        { name: 'Daraksha Nasirwala' },
         { name: 'Yash Chauhan' },
         { name: 'Sujal Ghadiya', instagram: 'sujal_ghadiya' },
       ],

@@ -86,7 +86,7 @@ const events: event[] = [
       },
       {
         id: '3',
-        name: 'Vedanti Paul',
+        name: 'Daraksha Nasirwala',
         number: '00000 00000',
       },
       {
@@ -122,7 +122,7 @@ const events: event[] = [
     2. Any brand/company/product logos will be given  
     3. Time duration: 30 minutes  
     4. Mobile Phones are strictly prohibited.  `,
-    imgSrc: '/events/logo_hunt_2.gif',
+    imgSrc: '/events/pepsi.gif',
     poster: '',
     category: 'Tech event',
 
@@ -207,7 +207,7 @@ const events: event[] = [
     2. Any brand/company/product logos will be given  
     3. Time duration: 30 minutes  
     4. Mobile Phones are strictly prohibited.  `,
-    imgSrc: '/mario.gif',
+    imgSrc: '/events/quiz.gif',
     poster: '',
     category: 'Tech event',
 
@@ -300,7 +300,7 @@ const events: event[] = [
     (Vary on the basis of number of participation)  
     5. Technology: SQL   
     **Requirements for the event**: Intranet, Internet  `,
-    imgSrc: '/eventspic.png',
+    imgSrc: '/events/crescendo.gif',
     poster: '',
     category: 'Tech event',
 
@@ -757,7 +757,7 @@ And winner team will decided by the past IPL performance of their players
 - One Registered Team will be of 3 Members   
 Entry Fees : 30 /-
 `,
-    imgSrc: '/eventspic.png',
+    imgSrc: '/events/auction.gif',
     poster: '',
     category: 'Non Tech event',
     eventHeads: [

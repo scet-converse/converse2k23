@@ -1,4 +1,5 @@
 'use server';
+import {} from 'fs';
 import prisma from '../prisma';
 import nodeMailer from 'nodemailer';
 type PropType = {
@@ -109,14 +110,18 @@ export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
   const mailOptions = {
     from: process.env.NODE_MAILER_MAIL_ID,
     to: mailTo,
-    subject: `Successfull registration for ${event.eventName}`,
-    text: `Hello ${userName} you have successfully registered for this converse event ${event.eventName}`,
-
+    subject: `Successful registration for ${event.eventName}`,
+    html: `<h3>Dear ${userName},</h3> \
+      <h3>You have successfully registered for ${event.eventName}</h3> \
+      <p>Hope to see you soon</p>
+      <a href="https://converse2k23.tech">Team Converse</a>
+    `,
     attachments: [
       {
         filename: 'ticket.png',
-        path: 'C:/Users/krishna/Desktop/converse23/converse2k23/public/Ticket.jpg',
-        encoding: 'base64',
+        // content: `/tickets/${event.eventName}.png`,
+        href: 'https://drive.google.com/file/d/1-Ufrx46zQ7ds6axJU1_SiLnzaJenFiPa/view?usp=share_link',
+        // encoding: 'base64',
       },
     ],
   };
@@ -124,10 +129,10 @@ export const callNodeMailer = ({ mailTo, event, userName }: ticketProps) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error('Error sending email:', error);
-      res.status = 'error while sending mail';
+      res.status = 'Error while sending email';
     } else {
       console.log('Email sent:', info.response);
-      res.status = 'success! a ticket has been send to you on your mail';
+      res.status = 'Success! A ticket has been emailed to you';
     }
   });
 
