@@ -160,23 +160,26 @@ const SingleEventPage = ({
 
           <div className="mt-4" />
 
-          <h3 className="md:text-2xl text-lg text-[#de8e0c]">
-            Faculty Coordinators
-          </h3>
-
-          {event.facultyCoordinators.map(
-            (
-              coordinator: { id: string; name: string; no: string },
-              index: number
-            ) => (
-              <p
-                key={index}
-                className={`${montserrat.className} md:text-base text-sm mt-2`}
-              >
-                {coordinator.name}
-              </p>
-            )
+          {event.facultyCoordinators && (
+            <h3 className="md:text-2xl text-lg text-[#de8e0c]">
+              Faculty Coordinators
+            </h3>
           )}
+
+          {event.facultyCoordinators &&
+            event.facultyCoordinators.map(
+              (
+                coordinator: { id?: string; name: string; number?: string },
+                index: number
+              ) => (
+                <p
+                  key={index}
+                  className={`${montserrat.className} md:text-base text-sm mt-2`}
+                >
+                  {coordinator.name}
+                </p>
+              )
+            )}
 
           <div className="mt-4" />
 
@@ -184,7 +187,7 @@ const SingleEventPage = ({
 
           {event.eventHeads.map(
             (
-              head: { id: string; name: string; number: string },
+              head: { id?: string; name: string; number?: string },
               index: number
             ) => (
               <p
@@ -205,7 +208,7 @@ const SingleEventPage = ({
 
           {event.eventVolunteers.map(
             (
-              volunteer: { id: string; name: string; no: string },
+              volunteer: { id?: string; name: string; number?: string },
               index: number
             ) => (
               <p
@@ -213,7 +216,6 @@ const SingleEventPage = ({
                 className={`${montserrat.className} md:text-base text-sm mt-2`}
               >
                 {volunteer.name}
-                {/* <a href={`tel:${volunteer.number}`}>{volunteer.number}</a> */}
               </p>
             )
           )}

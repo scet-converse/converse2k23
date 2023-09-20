@@ -87,8 +87,8 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
       animate={{ opacity: 1, y: 0 }} // Animation state (visible and at the original position)
       transition={{ duration: 1 }}
     >
-      <div className={`w-full aspect-[9/10] bg-[#F0F0F0] p-4`}>
-        <div className="relative w-full h-4/5 bg-green-400 p-8 rounded bg-gradient-to-b from-transparent to-[#00000080]">
+      <div className={`w-full aspect-[9/10] bg-[#F4F2DE] p-4`}>
+        <div className="relative w-full h-4/5 bg-[#79AC78] p-8 rounded bg-gradient-to-b from-transparent to-[#00000080]">
           <div className="relative h-full w-full">
             <Image
               src={event.imgSrc}
@@ -106,7 +106,9 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
         <div className="w-full flex flex-row justify-between p-2">
           <Link
             href={`/events/${event.eventId}`}
-            className="pixel-border px-3 mt-6 w-2/5 text-center"
+            className={`pixel-border px-3 mt-6 w-2/5 text-center ${
+              event.category !== 'Tech event' ? 'w-full' : 'w-2/5'
+            }`}
           >
             <button>View</button>
           </Link>
