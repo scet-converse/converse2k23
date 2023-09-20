@@ -285,6 +285,95 @@ const events: event[] = [
     venue: 'IT Lab - 1, 2, 3',
   },
   {
+    eventId: '7',
+    eventName: 'MindSpark',
+    description: `**Event Name**: MindSpark  
+    (Ignite your inner entrepreneur)  
+    **Event Time Duration**: 3 Hrs. 30 Min Approx.  
+    **No. of rounds**: 2  
+    **Time Duration of each round**: Round 1: 1 Hr. Approx. Round 2: 2 Hrs. 30 Min Approx.  
+    **Guidelines and Rules of Event**:  
+    **Team Size**: Minimum: 2 Maximum: 3  
+    **Round 1**:  
+    - Pitch your idea within 1 Minute (without PPT or any supportive material).  
+    - Shortlisted top 10 teams will go to the Round 2.  
+    **Round 2**:  
+    - Power Point Presentation (PPT) of your idea.  
+    - Time for presentation: 5-7 Minutes   
+    - Presentation should include various parameters like Idea, Roadmap for execution, Budget required to execute idea, Risk Factors, Feasibility, Scalability, Technology, etc.  
+    - After presentation, Question/Answer session will be there.  
+    **Requirements for the event**  
+    - Projector Enabled Room  
+    - One laptop  
+    - Mic (If event is scheduled in any hall)  `,
+    imgSrc: '/events/mindspark.gif',
+    poster: '/events/minspark.gif',
+    category: 'Tech event',
+
+    facultyCoordinators: [
+      {
+        id: '1',
+        name: 'Prof. Palak Desai',
+        number: '00000 00000',
+      },
+      {
+        id: '2',
+        name: 'Prof. Zalak Desai',
+        number: '00000 00000',
+      },
+    ],
+
+    eventHeads: [
+      {
+        id: '1',
+        name: 'Harsh Bardolia',
+        number: '83203 39742',
+      },
+      {
+        id: '2',
+        name: 'Jashn Jain',
+        number: '70439 87683',
+      },
+    ],
+
+    eventVolunteers: [
+      {
+        id: '1',
+        name: 'Jayesh Parmar',
+        number: '00000 00000',
+      },
+      {
+        id: '2',
+        name: 'Joshi virali Amitbhai',
+        number: '00000 00000',
+      },
+      {
+        id: '3',
+        name: 'Nidhi Patel',
+        number: '00000 00000',
+      },
+      {
+        id: '4',
+        name: 'Hitakshi Dholakiya',
+        number: '00000 00000',
+      },
+      {
+        id: '5',
+        name: 'Arham Sheth',
+        number: '00000 00000',
+      },
+      {
+        id: '6',
+        name: 'Abhishek Dhanani',
+        number: '00000 00000',
+      },
+    ],
+
+    date: '30/09/2022',
+    time: '09:15 AM - 10:15 AM',
+    venue: 'IT Lab - 1, 2, 3',
+  },
+  {
     eventId: '4',
     eventName: 'Rise to Crescendo',
     description: `**Event Name**: Rise to Crescendo (Break the Query)    
@@ -528,95 +617,6 @@ const events: event[] = [
       {
         id: '6',
         name: 'Chodvadiya Aryan',
-        number: '00000 00000',
-      },
-    ],
-
-    date: '30/09/2022',
-    time: '09:15 AM - 10:15 AM',
-    venue: 'IT Lab - 1, 2, 3',
-  },
-  {
-    eventId: '7',
-    eventName: 'MindSpark',
-    description: `**Event Name**: MindSpark  
-    (Ignite your inner entrepreneur)  
-    **Event Time Duration**: 3 Hrs. 30 Min Approx.  
-    **No. of rounds**: 2  
-    **Time Duration of each round**: Round 1: 1 Hr. Approx. Round 2: 2 Hrs. 30 Min Approx.  
-    **Guidelines and Rules of Event**:  
-    **Team Size**: Minimum: 2 Maximum: 3  
-    **Round 1**:  
-    - Pitch your idea within 1 Minute (without PPT or any supportive material).  
-    - Shortlisted top 10 teams will go to the Round 2.  
-    **Round 2**:  
-    - Power Point Presentation (PPT) of your idea.  
-    - Time for presentation: 5-7 Minutes   
-    - Presentation should include various parameters like Idea, Roadmap for execution, Budget required to execute idea, Risk Factors, Feasibility, Scalability, Technology, etc.  
-    - After presentation, Question/Answer session will be there.  
-    **Requirements for the event**  
-    - Projector Enabled Room  
-    - One laptop  
-    - Mic (If event is scheduled in any hall)  `,
-    imgSrc: '/events/mindspark.gif',
-    poster: '/events/minspark.gif',
-    category: 'Tech event',
-
-    facultyCoordinators: [
-      {
-        id: '1',
-        name: 'Prof. Palak Desai',
-        number: '00000 00000',
-      },
-      {
-        id: '2',
-        name: 'Prof. Zalak Desai',
-        number: '00000 00000',
-      },
-    ],
-
-    eventHeads: [
-      {
-        id: '1',
-        name: 'Harsh Bardolia',
-        number: '83203 39742',
-      },
-      {
-        id: '2',
-        name: 'Jashn Jain',
-        number: '70439 87683',
-      },
-    ],
-
-    eventVolunteers: [
-      {
-        id: '1',
-        name: 'Jayesh Parmar',
-        number: '00000 00000',
-      },
-      {
-        id: '2',
-        name: 'Joshi virali Amitbhai',
-        number: '00000 00000',
-      },
-      {
-        id: '3',
-        name: 'Nidhi Patel',
-        number: '00000 00000',
-      },
-      {
-        id: '4',
-        name: 'Hitakshi Dholakiya',
-        number: '00000 00000',
-      },
-      {
-        id: '5',
-        name: 'Arham Sheth',
-        number: '00000 00000',
-      },
-      {
-        id: '6',
-        name: 'Abhishek Dhanani',
         number: '00000 00000',
       },
     ],

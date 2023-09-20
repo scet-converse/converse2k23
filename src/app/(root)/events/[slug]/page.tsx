@@ -22,6 +22,7 @@ import { ToastContainer } from 'react-toastify';
 import Spinner from '@/components/ui/Spinner';
 import Link from 'next/link';
 import { getUserById } from '@/lib/actions/user.actions';
+import { CLOSE_DATE, FEST_COUNT } from '@/lib/constants';
 
 const SingleEventPage = ({
   params,
@@ -113,34 +114,58 @@ const SingleEventPage = ({
               className="rounded-sm"
             />
           </div>
-          {count <= 140 &&
-            event.category === 'Tech event' &&
-            (isRegistered ? (
-              <button
-                type="button"
-                className="PixellButton w-full min-w-full md:text-lg text-base uppercas opacity-50"
-                disabled
-              >
-                Registered
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
-                disabled={isLoading}
-                onClick={() => {
-                  if (
-                    window.confirm(
-                      `You will be registered for the event ${event.eventName}`
-                    )
-                  ) {
-                    handleRegistration();
-                  }
-                }}
-              >
-                {isLoading ? <Spinner /> : 'Participate'}
-              </button>
-            ))}
+          {(() => {
+            if (count > FEST_COUNT) {
+              return (
+                <button
+                  className="PixellButton w-full min-w-full md:text-lg text-base uppercase opacity-50"
+                  disabled
+                >
+                  Full
+                </button>
+              );
+            }
+
+            if (
+              event.category === 'Tech event' &&
+              Date.parse(CLOSE_DATE) - Date.now() <= 0
+            ) {
+              return (
+                <button
+                  className="PixellButton w-full min-w-full md:text-lg text-base uppercase opacity-50"
+                  disabled
+                >
+                  Closed
+                </button>
+              );
+            }
+
+            if (isRegistered) {
+              return (
+                <button
+                  className="PixellButton w-full min-w-full md:text-lg text-base uppercase opacity-50"
+                  disabled
+                >
+                  Registered
+                </button>
+              );
+            }
+
+            if (event.category === 'Tech event') {
+              return (
+                <button
+                  className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
+                  onClick={() => {
+                    if (window.confirm(`Register for ${event.eventName}?`)) {
+                      handleRegistration();
+                    }
+                  }}
+                >
+                  {isLoading ? <Spinner /> : 'Register'}
+                </button>
+              );
+            }
+          })()}
         </div>
 
         <div className="md:mt-0 md:col-span-2 mt-4 w-full h-full">

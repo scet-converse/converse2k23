@@ -13,6 +13,7 @@ import { successToast, errorToast } from './ui/Toast';
 import { motion } from 'framer-motion';
 import { getUserById } from '@/lib/actions/user.actions';
 import Spinner from '@/components/ui/Spinner';
+import { CLOSE_DATE, FEST_COUNT } from '@/lib/constants';
 
 type PropType = {
   userId: string | null;
@@ -113,7 +114,60 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
             <button>View</button>
           </Link>
 
-          {count <= 140 &&
+          {(() => {
+            if (count > FEST_COUNT) {
+              return (
+                <button
+                  className="pixel-border px-3 mt-6 w-2/5 text-center opacity-50"
+                  disabled
+                >
+                  Full
+                </button>
+              );
+            }
+
+            if (
+              event.category === 'Tech event' &&
+              Date.parse(CLOSE_DATE) - Date.now() <= 0
+            ) {
+              return (
+                <button
+                  className="pixel-border px-3 mt-6 w-2/5 text-center opacity-50"
+                  disabled
+                >
+                  Closed
+                </button>
+              );
+            }
+
+            if (isRegistered) {
+              return (
+                <button
+                  className="pixel-border px-3 mt-6 w-2/5 text-center opacity-50"
+                  disabled
+                >
+                  Registered
+                </button>
+              );
+            }
+
+            if (event.category === 'Tech event') {
+              return (
+                <button
+                  className="pixel-border px-3 mt-6 w-2/5 text-center"
+                  onClick={() => {
+                    if (window.confirm(`Register for ${event.eventName}?`)) {
+                      handleRegistration();
+                    }
+                  }}
+                >
+                  {isLoading ? <Spinner /> : 'Register'}
+                </button>
+              );
+            }
+          })()}
+
+          {/* {count <= 140 &&
             event.category === 'Tech event' &&
             (isRegistered ? (
               <button
@@ -133,7 +187,7 @@ const EventCard = ({ userId, event, isReg }: PropType) => {
               >
                 {isLoading ? <Spinner /> : 'Register'}
               </button>
-            ))}
+            ))} */}
         </div>
       </div>
     </motion.div>
