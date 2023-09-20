@@ -1,4 +1,4 @@
-import { HOD_NAME } from '@/lib/constants';
+import { HOD_NAME, IMG_PREFIX } from '@/lib/constants';
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ const page = () => {
       <div className="grid grid-cols-12 md:gap-9 gap-4 mt-4 items-center justify-center">
         <div className="col-span-12 h-full md:h-3/4 items-start justify-center my-4 flex overflow-hidden">
           <video autoPlay loop muted>
-            <source src="/spacecraft.mp4" type="video/mp4" />
+            <source src={`${IMG_PREFIX}/spacecraft.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

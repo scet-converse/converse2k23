@@ -27,6 +27,21 @@ export const howManyRegisteredForThis = async (eventId: string) => {
   return count;
 };
 
+export const getAllEventCounts = async () => {
+  const events = await prisma.ticket.findMany({ select: { eventId: true } });
+  let counts: Map<string, number> = new Map();
+
+  events.forEach((event) => {
+    if (!Object.hasOwn(counts, event.eventId)) {
+      counts.set(event.eventId, 0);
+    } else {
+      counts.set(event.eventId, counts.get(event.eventId)! + 1);
+    }
+  });
+
+  return counts;
+};
+
 export const getRegisteredEvents = async (userId: string | undefined) => {
   if (!userId) {
     return [];
