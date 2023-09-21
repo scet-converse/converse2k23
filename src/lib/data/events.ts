@@ -26,28 +26,22 @@ const events: event[] = [
     eventId: '1',
     eventName: 'PY-IT',
     description: `**Event Name**: PYIT (Practice Your Interview Techniques)  
-    **Event Time Duration**: (90min+60min+60 min)  
     **No. of rounds**: 3  
-    **Time Duration of each round**:  
-    **Round 1**: (Stage I: 30min, Stage II: 30min at 30 minutes Interval,  
-    **Round 2**: (20+20+20 extra, Round 3: 50-60 min)  
     **Guidelines and Rules of Event**:  
-    1. Any Student ( From any branch/any semester ) can take part individually.  
-    2. Final Winners will be declared from Round 3,  
-    3. Round 1-Aptitude Test has two stages of 30 minutes each. ( It will be moodle based Quiz( online/Intranet based)  
-       Round 1: Aptitude Test  
-       (Stage I: General Aptitude, Current Affairs, GK etc) (all Participants)  
-       (Stage II: Logical and Verbal Reasoning etc) ( Top 48 Participants)  
-       Round 2: Group Discussion ( Top 24 Participants,  2 groups of 12 members)  
-       Round 3: Personal Interview (HR-based Interview skills) (Top 12 participants)  
-    **Requirements for the event**: Round 1: ALL 4 LABs, Round 2 & 3: Any Lab Space (without disturbance)/ Seminar Hall,  `,
+    1. Any Student (From any branch/any semester ) can take part individually.  
+    2. Final Winners will be declared from Round 3  
+    3. Round 1-Aptitude Test, two stages of 30 minutes each. (Intranet Quiz)  
+    -Stage I: General Aptitude, Current Affairs, GK etc(all Participants)  
+    -Stage II: Logical Reasoning, Verbal Reasoning etc (Selected participants from Stage I)  
+    Round 2: Group Discussion (20 minutes per group)  
+    Round 3: Personal Interview (5-7 minutes per participant) (HR-based Interview skills)`,
     imgSrc: '/events/py.gif',
     poster: '/posters/tech/py_it.png',
     category: 'Tech event',
     facultyCoordinators: [
       {
         id: '1',
-        name: 'Dr. Viveksha Jariwala',
+        name: 'Dr. Vivaksha Jariwala',
         number: '00000 00000',
       },
       {
@@ -64,7 +58,7 @@ const events: event[] = [
     eventHeads: [
       {
         id: '1',
-        name: 'Ayushi Garach',
+        name: 'Ayushi Garachh',
         number: '90810 20358',
       },
       {
@@ -112,11 +106,10 @@ const events: event[] = [
   {
     eventId: '2',
     eventName: 'Logo Hunt',
-    description: `**Event Name**: LogoHunt  
+    description: `**Event Name**: Logo Hunt  
     **Event Time Duration**: 1 hour  
     **Number of Rounds**: 2  
-    **Time Duration of each round**: 30 minutes  
-    **Requirements**:  
+    **Time Duration of each round**: 30 minutes   
     **Rules**:  
     1. Individual Participation  
     2. Any brand/company/product logos will be given  
@@ -147,7 +140,7 @@ const events: event[] = [
       },
       {
         id: '2',
-        name: 'Suhani Patel',
+        name: 'Suhani Mehta',
         number: '94281 44682',
       },
       {
@@ -197,16 +190,14 @@ const events: event[] = [
   {
     eventId: '3',
     eventName: 'IT Quiz',
-    description: `**Event Name**: LogoHunt  
-    **Event Time Duration**: 1 hour  
-    **Number of Rounds**: 2  
-    **Time Duration of each round**: 30 minutes  
-    **Requirements**:  
-    **Rules**:  
-    1. Individual Participation  
-    2. Any brand/company/product logos will be given  
-    3. Time duration: 30 minutes  
-    4. Mobile Phones are strictly prohibited.  `,
+    description: `**Event Name**: IT-QUIZ  
+    It is an MCQ-based quiz that includes questions about information technology and computer fundamentals   
+    **Rules**:   
+    1. Individual participation   
+    2. **No. Of Questions**: 40   
+    3. **Time limit**: 30 mins  
+    4. Single round   
+    5. Mobile phones are strictly prohibited  `,
     imgSrc: '/events/quiz.gif',
     poster: '/posters/tech/it_quiz.png',
     category: 'Tech event',
@@ -285,6 +276,91 @@ const events: event[] = [
     venue: 'IT Lab - 1, 2, 3',
   },
   {
+    eventId: '7',
+    eventName: 'MindSpark',
+    description: `**Event Name**: MindSpark    
+    **Event Time Duration**: 3 Hrs. 30 Min Approx.  
+    **No. of rounds**: 2  
+    **Time Duration of each round**: Round 1: (~60 minutes) Round 2: (~150 minutes)  
+    **Guidelines and Rules of Event**:  
+    **Team Size**: Minimum: 2 Maximum: 3  
+    **Round 1**:  
+    - Pitch your idea within 1 Minute (without PPT or any supportive material).  
+    - Shortlisted top 10 teams will go to the Round 2.  
+    **Round 2**:  
+    - Power Point Presentation (PPT) of your idea.  
+    - Time for presentation: 5-7 Minutes   
+    - Presentation should include various parameters like Idea, Roadmap for execution, Budget required to execute idea, Risk Factors, Feasibility, Scalability, Technology, etc.  
+    - After presentation, Question/Answer session will be there.  
+    `,
+    imgSrc: '/events/mindspark.gif',
+    poster: '/posters/tech/mind_spark.png',
+    category: 'Tech event',
+
+    facultyCoordinators: [
+      {
+        id: '1',
+        name: 'Prof. Palak Desai',
+        number: '00000 00000',
+      },
+      {
+        id: '2',
+        name: 'Prof. Zalak Desai',
+        number: '00000 00000',
+      },
+    ],
+
+    eventHeads: [
+      {
+        id: '1',
+        name: 'Harsh Bardolia',
+        number: '83203 39742',
+      },
+      {
+        id: '2',
+        name: 'Jashn Jain',
+        number: '70439 87683',
+      },
+    ],
+
+    eventVolunteers: [
+      {
+        id: '1',
+        name: 'Jayesh Parmar',
+        number: '00000 00000',
+      },
+      {
+        id: '2',
+        name: 'Joshi virali Amitbhai',
+        number: '00000 00000',
+      },
+      {
+        id: '3',
+        name: 'Nidhi Patel',
+        number: '00000 00000',
+      },
+      {
+        id: '4',
+        name: 'Hitakshi Dholakiya',
+        number: '00000 00000',
+      },
+      {
+        id: '5',
+        name: 'Arham Sheth',
+        number: '00000 00000',
+      },
+      {
+        id: '6',
+        name: 'Abhishek Dhanani',
+        number: '00000 00000',
+      },
+    ],
+
+    date: '30/09/2022',
+    time: '09:15 AM - 10:15 AM',
+    venue: 'IT Lab - 1, 2, 3',
+  },
+  {
     eventId: '4',
     eventName: 'Rise to Crescendo',
     description: `**Event Name**: Rise to Crescendo (Break the Query)    
@@ -299,7 +375,7 @@ const events: event[] = [
     4. From Round 1, Top 5 teams will be selected on the basis of score.  
     (Vary on the basis of number of participation)  
     5. Technology: SQL   
-    **Requirements for the event**: Intranet, Internet  `,
+    `,
     imgSrc: '/events/crescendo.gif',
     poster: '/posters/tech/rise_to_crescendo.png',
     category: 'Tech event',
@@ -333,7 +409,7 @@ const events: event[] = [
     eventVolunteers: [
       {
         id: '1',
-        name: 'Vaghasiya Kashyapbhai',
+        name: 'Mili Chanchpara',
         number: '00000 00000',
       },
       {
@@ -374,12 +450,11 @@ const events: event[] = [
     **Event Time Duration**:  1:15 hr  
     **No. of rounds**: 2    
     **Time Duration of each round**: 30 minutes(per round)  
-    **Guidelines and Rules of Event**:  
-    1.There are two rounds of BugBuzz.  
-    2. Individual participation.  
-    3.In first round top 20 candidates will be selected based on time  
-    (vary according to no.of participants)for second round.  
-    **Requirements for the event**: Intranet  `,
+    **Guidelines and Rules of Event**:   
+    1. Individual participation.  
+    3. In first round top 20 candidates will be selected based on time  
+    (vary according to no.of participants) for second round.  
+    `,
     imgSrc: '/events/bug.gif',
     poster: '/posters/tech/bug_buzz.png',
     category: 'Tech event',
@@ -456,13 +531,10 @@ const events: event[] = [
     eventId: '6',
     eventName: 'Codathon',
     description: `**Event Name**: Codathon  
-    **Event Time Duration**: 2 hours  
+    **Event Time Duration**: 2 hours (50mins for first participation and second member will continue the coding from there.)  
     **Number of Rounds**: 1  
-    **Time Duration of each round**: 2 hours  
-    **Requirements**: IT Lab  
-    **Rules**:  
-    1. Maximum of 2 people allowed in one team  
-    2. There will be relay coding where first member will code for 50 minutes  
+    Maximum of 2 people allowed in one team  
+    There will be relay coding where first member will code for 50 minutes
     and then second member will continue the coding from there.`,
     imgSrc: '/events/esports.gif',
     poster: '/posters/tech/codathon.png',
@@ -528,95 +600,6 @@ const events: event[] = [
       {
         id: '6',
         name: 'Chodvadiya Aryan',
-        number: '00000 00000',
-      },
-    ],
-
-    date: '30/09/2022',
-    time: '09:15 AM - 10:15 AM',
-    venue: 'IT Lab - 1, 2, 3',
-  },
-  {
-    eventId: '7',
-    eventName: 'MindSpark',
-    description: `**Event Name**: MindSpark  
-    (Ignite your inner entrepreneur)  
-    **Event Time Duration**: 3 Hrs. 30 Min Approx.  
-    **No. of rounds**: 2  
-    **Time Duration of each round**: Round 1: 1 Hr. Approx. Round 2: 2 Hrs. 30 Min Approx.  
-    **Guidelines and Rules of Event**:  
-    **Team Size**: Minimum: 2 Maximum: 3  
-    **Round 1**:  
-    - Pitch your idea within 1 Minute (without PPT or any supportive material).  
-    - Shortlisted top 10 teams will go to the Round 2.  
-    **Round 2**:  
-    - Power Point Presentation (PPT) of your idea.  
-    - Time for presentation: 5-7 Minutes   
-    - Presentation should include various parameters like Idea, Roadmap for execution, Budget required to execute idea, Risk Factors, Feasibility, Scalability, Technology, etc.  
-    - After presentation, Question/Answer session will be there.  
-    **Requirements for the event**  
-    - Projector Enabled Room  
-    - One laptop  
-    - Mic (If event is scheduled in any hall)  `,
-    imgSrc: '/events/mindspark.gif',
-    poster: '/posters/tech/mind_spark.png',
-    category: 'Tech event',
-
-    facultyCoordinators: [
-      {
-        id: '1',
-        name: 'Prof. Palak Desai',
-        number: '00000 00000',
-      },
-      {
-        id: '2',
-        name: 'Prof. Zalak Desai',
-        number: '00000 00000',
-      },
-    ],
-
-    eventHeads: [
-      {
-        id: '1',
-        name: 'Harsh Bardolia',
-        number: '83203 39742',
-      },
-      {
-        id: '2',
-        name: 'Jashn Jain',
-        number: '70439 87683',
-      },
-    ],
-
-    eventVolunteers: [
-      {
-        id: '1',
-        name: 'Jayesh Parmar',
-        number: '00000 00000',
-      },
-      {
-        id: '2',
-        name: 'Joshi virali Amitbhai',
-        number: '00000 00000',
-      },
-      {
-        id: '3',
-        name: 'Nidhi Patel',
-        number: '00000 00000',
-      },
-      {
-        id: '4',
-        name: 'Hitakshi Dholakiya',
-        number: '00000 00000',
-      },
-      {
-        id: '5',
-        name: 'Arham Sheth',
-        number: '00000 00000',
-      },
-      {
-        id: '6',
-        name: 'Abhishek Dhanani',
         number: '00000 00000',
       },
     ],
@@ -703,14 +686,14 @@ const events: event[] = [
   {
     eventId: '10',
     eventName: 'Filmy Dhumdhadaka',
-    description: `**Event Name**: FILMY DHUN DHAMAKA  
+    description: `**Event Name**: FILMY DHUM DHAMAKA  
     **Team tukdi**: 3 members per team  
     Three obstacles to your win  
       1. Jab koi clue mil jaye, to baat ban jaye - Guess the songs from emojis  
-      2. Aree deewano mujhe pehchano - List out your favourite bollywood idol’s movie names  
+      2. Aree deewano mujhe pehchano - List out your favourite bollywood idol's movie names  
       3. Hum saath saath hai - SURPRISE!!!![For Bollywood hunterss]  
     There will be time limits for each round  
-    **Mandatory**: carry a pen & paper & your Bollywood enthusiasm and the winner team gets rewards  
+    **Mandatory**: Carry a pen & paper & your Bollywood enthusiasm and the winner team gets rewards  
     **Entry fees**: 30 Rs`,
     imgSrc: '/events/filmy_dhoomdhadaka.gif',
     poster: '/posters/nontech/filmy_dhoomdhadaka.jpg',
@@ -750,12 +733,12 @@ const events: event[] = [
     eventName: 'Auction Ka Adda',
     description: `**Event Name**: Auction Ka Adda  
 - Registered team have to Bid and make team of 4 Players  
-- Each team have to buy One Wicketkeeper,Batsmen,Bowler,All-Rounder   
+- Each team have to buy One Wicketkeeper, Batsmen, Bowler and All-Rounder   
 - 1,00,000 credits will be given   
 - Best team will be declared as winner   
 And winner team will decided by the past IPL performance of their players   
 - One Registered Team will be of 3 Members   
-Entry Fees : 30 /-
+**Entry Fees** : 30 /-
 `,
     imgSrc: '/events/auction.gif',
     poster: '/posters/nontech/auction_ka_adda.jpg',
@@ -790,6 +773,7 @@ Entry Fees : 30 /-
     eventName: 'Penalty Shootout',
     description: `**Event Name**: PENALTY SHOOTOUT     
     **Registration fee**: Rs 20  
+    **Rules**   
     - penalty would be taken from 20 meter  
     - no goalkeeper   
     - 3 chance would be given per player  
@@ -823,8 +807,9 @@ Entry Fees : 30 /-
   {
     eventId: '13',
     eventName: 'Esports Revolution',
-    description: `**Event name**: Esports Revolution  
-    **Entry fee**: 60 Rs.  
+    description: `**Event name**: Esports Revolution   
+    **Entry fee**: 60 Rs.   
+    **Rules**:  
     - IF WE CATCH ANY HACKER, HACKER TEAM WILL BE BANNED ON THE SPOT   
     - EVERYONE HAVE TO TAKE SCREENSHOT OF RESULT AT THE END OF THE MATCH   
     - NO ON SPOT ENTRY   
@@ -865,6 +850,7 @@ Entry Fees : 30 /-
     **Cash Prizes**: Winner & Runners Up  
     **Maps**: $2000, de_dust2 , de_inferno
     **Version**: CS 1.6  
+    **Rules**:   
     1) Tournament Format - Knockout  
     2) First Few rounds will be played in $2000 map  
     3) Semi-final and Final Will be played in de_dust2 & de_inferno  

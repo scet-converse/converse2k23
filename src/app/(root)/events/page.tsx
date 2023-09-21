@@ -38,7 +38,7 @@ const Events = async () => {
               userId={user ? user.id : null}
               event={event}
               isReg={regEvents.includes(event.eventId)}
-              count={counts.get(event.eventId) || 0}
+              count={counts[event.eventId] || 0}
             />
           </div>
         ))}
