@@ -54,7 +54,7 @@ const SingleEventPage = async ({
 
           <RegisterButton
             userId={user ? user.id : null}
-            count={counts.get(event.eventId) || 0}
+            count={counts[event.eventId] || 0}
             event={event}
             isSlug
             isReg={regEvents.includes(event.eventId)}

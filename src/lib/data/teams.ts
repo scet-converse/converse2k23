@@ -112,6 +112,8 @@ const teams: Team[] = [
       ],
       'Team Leader': [
         { name: 'Nandni Patel', instagram: '_.nandni.patel._' },
+        { name: 'Dhaivat Barot' },
+
         { name: 'Kenil Avaiya', instagram: 'kenil_avaiya' },
       ],
       'Team Member': [
@@ -133,7 +135,6 @@ const teams: Team[] = [
         { name: 'Pratham Patel ', instagram: 'prathampatel15_' },
       ],
       'Team Leader': [
-        { name: 'Dhaivat Barot' },
         { name: 'Khushi Patel' },
         { name: 'Bhavya Bavisi' },
         { name: 'Disha Bhatia' },

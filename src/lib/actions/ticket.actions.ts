@@ -28,15 +28,14 @@ export const howManyRegisteredForThis = async (eventId: string) => {
 };
 
 export const getAllEventCounts = async () => {
-  const events = await prisma.ticket.findMany({ select: { eventId: true } });
-  let counts: Map<string, number> = new Map();
+  const events = await prisma.ticket.groupBy({
+    by: ['eventId'],
+    _count: { eventId: true },
+  });
 
+  let counts: any = {};
   events.forEach((event) => {
-    if (!Object.hasOwn(counts, event.eventId)) {
-      counts.set(event.eventId, 0);
-    } else {
-      counts.set(event.eventId, counts.get(event.eventId)! + 1);
-    }
+    counts[event.eventId] = event._count.eventId;
   });
 
   return counts;

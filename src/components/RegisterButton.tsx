@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import Spinner from './ui/Spinner';
 import { errorToast, successToast } from './ui/Toast';
+import { FEST_COUNT, FEST_END_AT } from '@/lib/constants';
 
 type PropType = {
   userId: string | null;
@@ -34,6 +35,8 @@ function RegisterButton({
   const [isLoading, setLoading] = useState(false);
   const [isRegistered, setIsRegistered] = useState(isReg);
 
+  console.log(event.eventName + ' ' + count);
+
   const handleRegistration = async () => {
     try {
       if (!userId) {
@@ -48,7 +51,7 @@ function RegisterButton({
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast('you have already registered for this event');
+          errorToast('You have already registered for this event');
         } else {
           const res = await generateTicket({
             userId,
@@ -58,7 +61,7 @@ function RegisterButton({
             userEnrollment,
           });
           if (res.status) {
-            successToast('event registeraton successfull');
+            successToast('Event registeraton successful');
             const mailSent = await callNodeMailer({
               mailTo: userMail,
               userName: userFromDB?.name,
@@ -79,31 +82,66 @@ function RegisterButton({
 
   return (
     <>
-      {count <= 140 &&
-        event.category === 'Tech event' &&
-        (isRegistered ? (
-          <button
-            className={`${isSlug ? 'PixellButton' : 'pixel-border'} px-3 mt-6 ${
-              isSlug ? 'w-full' : 'w-2/5'
-            } text-center opacity-50`}
-            disabled
-          >
-            Registered
-          </button>
-        ) : (
-          <button
-            className={`${isSlug ? 'PixellButton' : 'pixel-border'} px-3 mt-6 ${
-              isSlug ? 'w-full' : 'w-2/5'
-            } text-center`}
-            onClick={() => {
-              if (window.confirm(`Register for ${event.eventName}?`)) {
-                handleRegistration();
-              }
-            }}
-          >
-            {isLoading ? <Spinner /> : 'Register'}
-          </button>
-        ))}
+      {(() => {
+        if (count > FEST_COUNT) {
+          return (
+            <button
+              className={`${
+                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+              } md:text-lg text-base opacity-50`}
+              disabled
+            >
+              Full
+            </button>
+          );
+        }
+
+        if (
+          event.category === 'Tech event' &&
+          Date.parse(FEST_END_AT) - Date.now() <= 0
+        ) {
+          return (
+            <button
+              className={`${
+                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+              } md:text-lg text-base  opacity-50`}
+              disabled
+            >
+              Closed
+            </button>
+          );
+        }
+
+        if (isRegistered) {
+          return (
+            <button
+              className={`${
+                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+              } md:text-lg text-base  opacity-50`}
+              disabled
+            >
+              Registered
+            </button>
+          );
+        }
+
+        if (event.category === 'Tech event') {
+          return (
+            <button
+              className={`${
+                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+              } px-3 md:text-lg text-base`}
+              onClick={() => {
+                if (window.confirm(`Register for ${event.eventName}?`)) {
+                  handleRegistration();
+                }
+              }}
+            >
+              {isLoading ? <Spinner /> : 'Register'}
+            </button>
+          );
+        }
+      })()}
     </>
   );
 }
