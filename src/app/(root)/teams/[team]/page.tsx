@@ -16,8 +16,8 @@ export default async function Team({ params }: { params: { team: string } }) {
   const people = team?.people;
 
   return (
-    <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
-      <h1 className="text-3xl mb-8">
+    <div className="flex flex-col w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
+      <h1 className="md:text-3xl mb-3 text-xl">
         <Link href="/">Home </Link> {'>'} <Link href="/teams">Teams </Link>{' '}
         {'>'} {team?.title}
       </h1>

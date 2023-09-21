@@ -5,7 +5,9 @@ import Link from 'next/link';
 
 const page = () => {
   return (
-    <div className="flex flex-col  w-full min-h-screen max-w-1200 mx-auto my-0 p-4 mt-8">
+
+    <div className="flex flex-col items-center w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
+
       <h1 className="text-3xl mb-3 text-left">
         <Link href="/">Home </Link> {'>'} About
       </h1>
@@ -47,7 +49,6 @@ const page = () => {
             of IT, or let your creativity soar in non-technical domains like
             art, sports, and entrepreneurship.
           </p>
-
           <h2 className="md:text-xl text-lg text-green-500">
             🤖 Ignite Your Passion
           </h2>

@@ -15,7 +15,7 @@ const Events = async () => {
   const counts = await getAllEventCounts();
 
   return (
-    <div className="flex flex-col w-full min-h-[90vh] mx-auto mt-8">
+    <div className="flex flex-col w-full min-h-screen max-w-1200 mx-auto mt-8">
       <div className="flex flex-row justify-between md:items-center">
         <div>
           <h1 className="text-3xl mb-3">

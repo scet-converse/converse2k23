@@ -78,6 +78,7 @@ const SingleEventPage = async ({
 
           <div className="mt-4" />
 
+
           {event.facultyCoordinators && (
             <h3 className="md:text-2xl text-lg text-[#de8e0c]">
               Faculty Coordinators
@@ -103,6 +104,7 @@ const SingleEventPage = async ({
 
           <h3 className="md:text-2xl text-lg text-[#de8e0c]">Event Heads</h3>
 
+
           {event.eventHeads.map(
             (
               head: { id?: string; name: string; number?: string },
@@ -117,12 +119,12 @@ const SingleEventPage = async ({
               </p>
             )
           )}
-
           <div className="mt-4" />
 
           <h3 className="md:text-2xl text-lg text-[#de8e0c]">
             Event Volunteers
           </h3>
+
 
           {event.eventVolunteers.map(
             (
