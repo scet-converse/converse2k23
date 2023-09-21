@@ -16,26 +16,27 @@ export default function SponsorsPage() {
       </h1>
       <p>Meet the organizations that make this event possible.</p>
 
-      <div className="grid grid-cols-12 gap-4 mt-8">
+      <div className="grid grid-cols-12 gap-8 mt-8 py-10">
         {sponsors &&
           sponsors.map((sponsor, index) => (
-            <div className="border-2 border-gray-200 rounded-lg p-4 col-span-12 flex gap-6 items-center md:flex-row flex-col">
+            <div className="border-2 border-gray-200 rounded-lg p-4 py-10 col-span-12 flex gap-6 items-center md:flex-row flex-col bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">
               <Image
                 src={sponsor.logo}
                 alt={sponsor.name}
-                width={240}
-                height={240}
+                width={180}
+                height={180}
               />
 
               <div>
                 <h2 className="text-white md:text-xl text-lg mb-2">
                   {sponsor.name}
                 </h2>
-
                 <ReactMarkdown className={montserrat.className}>
                   {sponsor.description}
                 </ReactMarkdown>
-
+                {sponsor.phone && (
+                  <a href={`tel:${sponsor.phone}`}>&#128222; {sponsor.phone}</a>
+                )}
                 <Link
                   href={sponsor.link}
                   className="block mt-4"
