@@ -1,4 +1,5 @@
 'use client';
+import { IMG_PREFIX } from '@/lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -10,12 +11,12 @@ function NotFound() {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center  p-8 md:p-1/5">
       <div className="w-full md:w-2/5 aspect-[3/2] relative mb-8">
-        <Image src={'/loading.gif'} fill alt="not found" />
+        <Image src={`${IMG_PREFIX}/loading.gif`} fill alt="not found" />
       </div>
       <h1 className="text-3xl">Not found 👻</h1>
       <div
         onClick={(e) => {
-          e.preventDefault()
+          e.preventDefault();
           router.back();
         }}
         className="text-black my-8 px-4 bg-yellow-400 rounded-full pixel-border cursor-pointer"

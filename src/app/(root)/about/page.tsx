@@ -1,19 +1,29 @@
-import { HOD_NAME } from '@/lib/constants';
+import { HOD_NAME, IMG_PREFIX } from '@/lib/constants';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 const page = () => {
   return (
+
     <div className="flex flex-col items-center w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
+
+      <h1 className="text-3xl mb-3 text-left">
+        <Link href="/">Home </Link> {'>'} About
+      </h1>
+      <p>
+        Don't know about <span className="text-pink-600">CONVERSE</span> ? ,
+        here you go.
+      </p>
+
       <h1 className="mt-8 md:text-4xl text-xl text-center text-amber-400 font-extrabold ">
         🚀 Experience the Future at Converse 2K23 -{' '}
         <br className="hidden md:flex" /> Where Innovation Meets Inspiration! 🛸
       </h1>
       <div className="grid grid-cols-12 md:gap-9 gap-4 mt-4 items-center justify-center">
         <div className="col-span-12 h-full md:h-3/4 items-start justify-center my-4 flex overflow-hidden">
-          {/* <Image src={tv} width={500} height={500} alt='image'/> */}
           <video autoPlay loop muted>
-            <source src="/spacecraft.mp4" type="video/mp4" />
+            <source src={`${IMG_PREFIX}/spacecraft.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -39,7 +49,6 @@ const page = () => {
             of IT, or let your creativity soar in non-technical domains like
             art, sports, and entrepreneurship.
           </p>
-
           <h2 className="md:text-xl text-lg text-green-500">
             🤖 Ignite Your Passion
           </h2>

@@ -1,9 +1,6 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import events from '@/lib/data/events';
-import { useRouter } from 'next/navigation';
-import { useUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs';
 import ReactMarkdown from 'react-markdown';
 import { Montserrat } from 'next/font/google';
 
@@ -12,60 +9,25 @@ const montserrat = Montserrat({
 });
 
 import {
-  generateTicket,
-  ticketAlreadyGenerated,
+  getAllEventCounts,
+  getRegisteredEvents,
 } from '@/lib/actions/ticket.actions';
-import { errorToast, successToast } from '@/components/ui/Toast';
 import { ToastContainer } from 'react-toastify';
-import Spinner from '@/components/ui/Spinner';
 import Link from 'next/link';
+import Image from 'next/image';
+import RegisterButton from '@/components/RegisterButton';
 
-const SingleEventPage = ({
+const SingleEventPage = async ({
   params,
 }: {
   params: {
     slug: string;
   };
 }) => {
-  const router = useRouter();
-  const user = useUser();
-  const userId = user.user?.id;
-  // console.log(userId);
-  const event = events.find((event) => event.eventId === params.slug);
-  const [isLoading, setLoading] = useState(false);
-
-  if (!event) {
-    router.push('/events');
-    return null;
-  }
-
-  const handleRegistration = async () => {
-    console.log('hello');
-    try {
-      if (!userId) {
-        router.push('/sign-in');
-      } else {
-        setLoading(true);
-        let ticketCheck = await ticketAlreadyGenerated({
-          userId,
-          eventId: event.eventId,
-        });
-
-        if (ticketCheck) {
-          errorToast('you have already registered for this event');
-        } else {
-          const res = await generateTicket({
-            userId,
-            eventId: event.eventId,
-          });
-          if (res.status) {
-            successToast('event registeraton successfull');
-          }
-        }
-        setLoading(false);
-      }
-    } catch (err) {}
-  };
+  const user = await currentUser();
+  const regEvents = await getRegisteredEvents(user?.id);
+  const counts = await getAllEventCounts();
+  const event: any = events.find((event) => event.eventId === params.slug);
 
   return (
     <div className="w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
@@ -76,22 +38,27 @@ const SingleEventPage = ({
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div className="w-full h-max md:sticky relative top-10 left-0 flex flex-col pb-8">
           <div className="mb-4">
-            <img
-              src={
-                'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
-              }
-              alt="event poster"
-              className="rounded-sm"
-            />
+            <div className="relative h-[60vh] w-full">
+              <Image
+                src={
+                  event.poster ||
+                  'https://converse2k22.vercel.app/assets/posters/Logo%20Hunt.png'
+                }
+                alt="event poster"
+                fill
+                className="rounded-sm"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
           </div>
 
-          <button
-            type="button"
-            className="PixellButton w-full min-w-full md:text-lg text-base uppercase"
-            onClick={handleRegistration}
-          >
-            {isLoading ? <Spinner /> : 'Participate'}
-          </button>
+          <RegisterButton
+            userId={user ? user.id : null}
+            count={counts[event.eventId] || 0}
+            event={event}
+            isSlug
+            isReg={regEvents.includes(event.eventId)}
+          />
         </div>
 
         <div className="md:mt-0 md:col-span-2 mt-4 w-full h-full">
@@ -111,48 +78,67 @@ const SingleEventPage = ({
 
           <div className="mt-4" />
 
-          <h3 className="md:text-2xl text-lg text-[#de8e0c]">
-            Faculty Coordinators
-          </h3>
 
-          {event.facultyCoordinators.map((coordinator, index) => (
-            <p
-              key={index}
-              className={`${montserrat.className} md:text-base text-sm mt-2`}
-            >
-              {coordinator.name}
-            </p>
-          ))}
+          {event.facultyCoordinators && (
+            <h3 className="md:text-2xl text-lg text-[#de8e0c]">
+              Faculty Coordinators
+            </h3>
+          )}
+
+          {event.facultyCoordinators &&
+            event.facultyCoordinators.map(
+              (
+                coordinator: { id?: string; name: string; number?: string },
+                index: number
+              ) => (
+                <p
+                  key={index}
+                  className={`${montserrat.className} md:text-base text-sm mt-2`}
+                >
+                  {coordinator.name}
+                </p>
+              )
+            )}
 
           <div className="mt-4" />
 
           <h3 className="md:text-2xl text-lg text-[#de8e0c]">Event Heads</h3>
 
-          {event.eventHeads.map((head, index) => (
-            <p
-              key={index}
-              className={`${montserrat.className} md:text-base text-sm mt-2`}
-            >
-              {head.name}&nbsp;-&nbsp;
-              <a href={`tel:${head.number}`}>{head.number}</a>
-            </p>
-          ))}
 
+          {event.eventHeads.map(
+            (
+              head: { id?: string; name: string; number?: string },
+              index: number
+            ) => (
+              <p
+                key={index}
+                className={`${montserrat.className} md:text-base text-sm mt-2`}
+              >
+                {head.name}&nbsp;-&nbsp;
+                <a href={`tel:${head.number}`}>{head.number}</a>
+              </p>
+            )
+          )}
           <div className="mt-4" />
 
           <h3 className="md:text-2xl text-lg text-[#de8e0c]">
             Event Volunteers
           </h3>
 
-          {event.eventVolunteers.map((volunteer, index) => (
-            <p
-              key={index}
-              className={`${montserrat.className} md:text-base text-sm mt-2`}
-            >
-              {volunteer.name}
-              {/* <a href={`tel:${volunteer.number}`}>{volunteer.number}</a> */}
-            </p>
-          ))}
+
+          {event.eventVolunteers.map(
+            (
+              volunteer: { id?: string; name: string; number?: string },
+              index: number
+            ) => (
+              <p
+                key={index}
+                className={`${montserrat.className} md:text-base text-sm mt-2`}
+              >
+                {volunteer.name}
+              </p>
+            )
+          )}
         </div>
         <ToastContainer />
       </div>

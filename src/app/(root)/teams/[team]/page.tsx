@@ -27,13 +27,15 @@ export default async function Team({ params }: { params: { team: string } }) {
             <div key={key}>
               <h1 className="text-2xl md:text-4xl mb-4">{key}s</h1>
               <div className="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-y-16 ">
-                {people[key].map((name) => {
+                {people[key].map((obj) => {
                   return (
                     <PersonCard
-                      key={name}
-                      name={name}
+                      key={obj.name}
+                      name={obj.name}
                       position={key}
                       team={team.title}
+                      github={obj.github}
+                      instagram={obj.instagram}
                     />
                   );
                 })}

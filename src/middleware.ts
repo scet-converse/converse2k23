@@ -9,8 +9,10 @@ export default authMiddleware({
     '/api/webhook/clerk',
     '/about',
     '/events',
+    '/events/:path*',
     '/sponsors',
     '/teams',
+    '/teams/:path*',
   ],
   ignoredRoutes: ['/api/webhook/clerk'],
 });
