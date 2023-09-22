@@ -52,13 +52,13 @@ export default [
     Peace of Mind". `,
     link: 'https://www.aumispl.com/',
   },
-  {
-    id: '7',
-    logo: '/sponsors/farmhousehub.png',
-    name: 'FarmHouseHub',
-    description: `Modern farmhouse decor ideas and inspiration. We enjoy everything farmhouse, from old rustic style 
-    farmhouses to clean, modern style farmhouse decor. We use this blog 
-    to share our passion with our readers and help them find inspiration on how to decorate their homes.`,
-    link: 'https://farmhousehub.in/',
-  },
+  // {
+  //   id: '7',
+  //   logo: '/sponsors/farmhousehub.png',
+  //   name: 'FarmHouseHub',
+  //   description: `Modern farmhouse decor ideas and inspiration. We enjoy everything farmhouse, from old rustic style
+  //   farmhouses to clean, modern style farmhouse decor. We use this blog
+  //   to share our passion with our readers and help them find inspiration on how to decorate their homes.`,
+  //   link: 'https://farmhousehub.in/',
+  // },
 ];

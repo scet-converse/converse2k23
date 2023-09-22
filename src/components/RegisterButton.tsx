@@ -1,15 +1,15 @@
-'use client';
+"use client";
 import {
   callNodeMailer,
   generateTicket,
   ticketAlreadyGenerated,
-} from '@/lib/actions/ticket.actions';
-import { getUserById } from '@/lib/actions/user.actions';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-import Spinner from './ui/Spinner';
-import { errorToast, successToast } from './ui/Toast';
-import { FEST_COUNT, FEST_END_AT } from '@/lib/constants';
+} from "@/lib/actions/ticket.actions";
+import { getUserById } from "@/lib/actions/user.actions";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import Spinner from "./ui/Spinner";
+import { errorToast, successToast } from "./ui/Toast";
+import { FEST_COUNT, FEST_END_AT } from "@/lib/constants";
 
 type PropType = {
   userId: string | null;
@@ -35,12 +35,12 @@ function RegisterButton({
   const [isLoading, setLoading] = useState(false);
   const [isRegistered, setIsRegistered] = useState(isReg);
 
-  console.log(event.eventName + ' ' + count);
+  //console.log(event.eventName + " " + count);
 
   const handleRegistration = async () => {
     try {
       if (!userId) {
-        router.push('/sign-in');
+        router.push("/sign-in");
       } else {
         setLoading(true);
         const userFromDB = await getUserById(userId);
@@ -51,7 +51,7 @@ function RegisterButton({
           eventId: event.eventId,
         });
         if (ticketCheck) {
-          errorToast('You have already registered for this event');
+          errorToast("You have already registered for this event");
         } else {
           const res = await generateTicket({
             userId,
@@ -61,14 +61,14 @@ function RegisterButton({
             userEnrollment,
           });
           if (res.status) {
-            successToast('Event registeraton successful');
+            successToast("Event registeraton successful");
             const mailSent = await callNodeMailer({
               mailTo: userMail,
               userName: userFromDB?.name,
               event,
             });
             if (mailSent) {
-              successToast('Check Your Mail');
+              successToast("Check Your Mail");
             }
           }
           setIsRegistered(true);
@@ -87,7 +87,7 @@ function RegisterButton({
           return (
             <button
               className={`${
-                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+                isSlug ? "PixellButton w-[80%] mt-6" : "pixel-border w-2/5 mt-6"
               } md:text-lg text-base opacity-50`}
               disabled
             >
@@ -97,13 +97,13 @@ function RegisterButton({
         }
 
         if (
-          event.category === 'Tech event' &&
+          event.category === "Tech event" &&
           Date.parse(FEST_END_AT) - Date.now() <= 0
         ) {
           return (
             <button
               className={`${
-                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+                isSlug ? "PixellButton w-[80%] mt-6" : "pixel-border w-2/5 mt-6"
               } md:text-lg text-base  opacity-50`}
               disabled
             >
@@ -116,7 +116,7 @@ function RegisterButton({
           return (
             <button
               className={`${
-                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+                isSlug ? "PixellButton w-[80%] mt-6" : "pixel-border w-2/5 mt-6"
               } md:text-lg text-base  opacity-50`}
               disabled
             >
@@ -125,11 +125,13 @@ function RegisterButton({
           );
         }
 
-        if (event.category === 'Tech event') {
+        if (event.category === "Tech event") {
           return (
             <button
               className={`${
-                isSlug ? 'PixellButton w-full mt-8' : 'pixel-border w-2/5 mt-6'
+                isSlug
+                  ? "PixellButton  w-[80%] mt-6"
+                  : "pixel-border w-2/5 mt-6"
               } px-3 md:text-lg text-base`}
               onClick={() => {
                 if (window.confirm(`Register for ${event.eventName}?`)) {
@@ -137,7 +139,7 @@ function RegisterButton({
                 }
               }}
             >
-              {isLoading ? <Spinner /> : 'Register'}
+              {isLoading ? <Spinner /> : "Register"}
             </button>
           );
         }
