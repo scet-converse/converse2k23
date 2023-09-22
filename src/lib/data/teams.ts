@@ -1,5 +1,3 @@
-// TODO: Remove optional people after data filling is complete
-
 type MemberProps = {
   name: string;
   instagram?: string;
@@ -13,7 +11,7 @@ type Member = {
 type Team = {
   title: string;
   slug: string;
-  people?: Member;
+  people: Member;
 };
 
 const teams: Team[] = [
@@ -46,22 +44,21 @@ const teams: Team[] = [
         },
       ],
       'Team Member': [
-        {
-          name: 'Darshil Laskari',
-          instagram: 'darshil.04',
-          github: 'Darshil320',
-        },
         { name: 'Rohit Sonvane' },
-        { name: 'Uttam Moradiya', instagram: 'uttam_moradiya' },
         { name: 'Vanshika Kapadia' },
+        { name: 'Uttam Moradiya', instagram: 'uttam_moradiya' },
         { name: 'Sanchi Savani' },
-        { name: 'Tanvi Chovatiya' },
         {
           name: 'Vinay Adatiya',
           instagram: 'vinay_adatiya',
           github: 'Vinay94278',
         },
-        { name: 'Manav Desai', instagram: '17_s_e_v_e_n_t_e_e_n' },
+        {
+          name: 'Darshil Laskari',
+          instagram: '_darshil.04_',
+          github: 'Darshil320',
+        },
+        { name: 'Tanvi Chovatiya' },
       ],
     },
   },
@@ -82,7 +79,6 @@ const teams: Team[] = [
         { name: 'Dency Desai' },
         { name: 'Tanisha Agarwal' },
         { name: 'Amee Pansuriya' },
-        { name: 'Nupur Athvaiya' },
         { name: 'Aakankshya Das' },
         { name: 'Pinal Paladiya' },
         { name: 'Kena Sutariya' },
@@ -114,10 +110,18 @@ const teams: Team[] = [
         { name: 'Nandni Patel', instagram: '_.nandni.patel._' },
         { name: 'Dhaivat Barot' },
 
-        { name: 'Kenil Avaiya', instagram: 'kenil_avaiya' },
+        {
+          name: 'Kenil Avaiya',
+          instagram: 'kenil_avaiya',
+          github: 'kenilavaiya',
+        },
       ],
       'Team Member': [
-        { name: 'Darshil Lashkari' },
+        {
+          name: 'Darshil Lashkari',
+          instagram: '_darshil.04_',
+          github: 'Darshil320',
+        },
         { name: 'Shruti Desai' },
         { name: 'Jay Reshamwala' },
         { name: 'Ishika Desai' },
@@ -177,7 +181,7 @@ const teams: Team[] = [
         { name: 'Pranami Patel' },
         { name: 'Viraj Dapkawala' },
         { name: 'Rishi Mistry' },
-        { name: 'Harshil Gajipara' },
+        { name: 'Nupur Athvaiya' },
       ],
     },
   },
