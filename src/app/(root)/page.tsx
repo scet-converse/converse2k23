@@ -4,6 +4,7 @@ import { User } from '@prisma/client';
 import Modal from '@/components/ui/Modal';
 import OnboardForm from '@/components/OnboardForm';
 import Hero from '@/components/Hero';
+import Map from '@/components/Map';
 
 export default async function Home() {
   const user = await currentUser();
@@ -17,7 +18,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen  py-6">
       {user && (
         <Modal open={!isOnboard}>
           <OnboardForm
@@ -27,6 +28,8 @@ export default async function Home() {
         </Modal>
       )}
       <Hero />
+
+      <Map />
     </main>
   );
 }
