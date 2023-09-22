@@ -48,6 +48,7 @@ const SingleEventPage = async ({
                 fill
                 className="rounded-sm"
                 style={{ objectFit: "contain" }}
+                loading="lazy"
               />
             </div>
           </div>
