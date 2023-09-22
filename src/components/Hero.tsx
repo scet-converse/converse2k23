@@ -141,4 +141,8 @@ const routes = [
     name: 'teams',
     path: '/teams',
   },
+  {
+    name: 'schedule',
+    path: '/schedule',
+  },
 ];
