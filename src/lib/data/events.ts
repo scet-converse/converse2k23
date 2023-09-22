@@ -685,8 +685,8 @@ const events: event[] = [
   },
   {
     eventId: '10',
-    eventName: 'Filmy Dhundhamaka',
-    description: `**Event Name**: FILMY DHUN DHAMAKA  
+    eventName: 'Filmy Dhumdhadaka',
+    description: `**Event Name**: FILMY DHUM DHAMAKA  
     **Team tukdi**: 3 members per team  
     Three obstacles to your win  
       1. Jab koi clue mil jaye, to baat ban jaye - Guess the songs from emojis  
