@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { IMG_PREFIX } from '@/lib/constants';
-import RegisterButton from './RegisterButton';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { IMG_PREFIX } from "@/lib/constants";
+import RegisterButton from "./RegisterButton";
 
 type PropType = {
   userId: string | null;
@@ -25,7 +25,7 @@ const EventCard = ({ userId, event, isReg, count }: PropType) => {
             src={`${IMG_PREFIX}${event.imgSrc}`}
             alt={event.eventName}
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             loading="lazy"
           />
         </div>
@@ -38,8 +38,8 @@ const EventCard = ({ userId, event, isReg, count }: PropType) => {
       <div className="w-full flex flex-row justify-between p-2">
         <Link
           href={`/events/${event.eventId}`}
-          className={`pixel-border px-3 mt-6 w-2/5 text-center ${
-            event.category !== 'Tech event' ? 'w-full' : 'w-2/5'
+          className={`pixel-border px-3 mt-6 w-2/5 text-center md:text-lg text-base ${
+            event.category !== "Tech event" ? "w-full" : "w-2/5"
           }`}
         >
           <button>View</button>
