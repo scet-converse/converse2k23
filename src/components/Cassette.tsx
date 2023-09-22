@@ -51,7 +51,6 @@ function Cassette({
           priority={false}
           className="rounded-md object-[50%_40%]"
           loading="lazy"
-          placeholder="blur"
         />
       </div>
       <h3 className="self-start text-2xl mb-2 text-black">{title}</h3>
