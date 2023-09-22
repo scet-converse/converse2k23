@@ -44,6 +44,7 @@ function RegisterButton({
       } else {
         setLoading(true);
         const userFromDB = await getUserById(userId);
+        const userName: any = userFromDB?.name;
         const userEnrollment: any = userFromDB?.enroll;
         const userMail: any = userFromDB?.email;
         let ticketCheck = await ticketAlreadyGenerated({
@@ -59,6 +60,7 @@ function RegisterButton({
             eventName: event.eventName,
             userMail,
             userEnrollment,
+            userName,
           });
           if (res.status) {
             successToast("Event registeraton successful");

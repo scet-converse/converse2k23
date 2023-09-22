@@ -8,6 +8,7 @@ type PropType = {
   eventName: string;
   userMail: string;
   userEnrollment: string;
+  userName: string;
 };
 
 type ticketProps = {
@@ -87,6 +88,7 @@ export const generateTicket = async ({
   userMail,
   eventName,
   userEnrollment,
+  userName,
 }: PropType) => {
   const ticket = await prisma.ticket.create({
     data: {
@@ -95,6 +97,7 @@ export const generateTicket = async ({
       userMail,
       eventName,
       userEnrollment,
+      userName,
     },
   });
 
