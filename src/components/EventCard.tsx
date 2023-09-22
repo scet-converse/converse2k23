@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IMG_PREFIX } from "@/lib/constants";
 import RegisterButton from "./RegisterButton";
-import EventCardWrapper from "./EventCardWrapper";
+import AnimationWrapper from "./AnimationWrapper";
 
 type PropType = {
   userId: string | null;
@@ -19,7 +19,7 @@ type PropType = {
 
 const EventCard = ({ userId, event, isReg, count }: PropType) => {
   return (
-    <EventCardWrapper>
+    <AnimationWrapper>
       <div className={`w-full aspect-[9/10] bg-[#F4F2DE] p-4`}>
         <div className="relative w-full h-4/5 bg-[#79AC78] rounded bg-gradient-to-b from-transparent to-[#00000080]">
           <div className="relative h-full w-full">
@@ -54,7 +54,7 @@ const EventCard = ({ userId, event, isReg, count }: PropType) => {
           />
         </div>
       </div>
-    </EventCardWrapper>
+    </AnimationWrapper>
   );
 };
 
