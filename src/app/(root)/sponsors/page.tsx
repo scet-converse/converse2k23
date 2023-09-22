@@ -19,7 +19,7 @@ export default function SponsorsPage() {
       <div className="grid grid-cols-12 gap-8 mt-8 py-10">
         {sponsors &&
           sponsors.map((sponsor, index) => (
-            <div className="border-2 border-gray-200 rounded-lg p-4 py-10 col-span-12 flex gap-6 items-center md:flex-row flex-col bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">
+            <div className="gradient border-2 border-gray-200 rounded-lg p-4 py-10 col-span-12 flex gap-6 items-center md:flex-row flex-col bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">
               <Image
                 src={sponsor.logo}
                 alt={sponsor.name}
@@ -39,7 +39,7 @@ export default function SponsorsPage() {
                 )}
                 <Link
                   href={sponsor.link}
-                  className="block mt-4"
+                  className="block mt-4 hover:underline text-pink-500"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

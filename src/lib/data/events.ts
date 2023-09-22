@@ -163,7 +163,7 @@ const events: event[] = [
       },
       {
         id: '3',
-        name: 'Deputy Disha',
+        name: 'Disha Deputy',
         number: '00000 00000',
       },
       {
@@ -197,7 +197,7 @@ const events: event[] = [
     2. **No. Of Questions**: 40   
     3. **Time limit**: 30 mins  
     4. Single round   
-    5. Mobile phones are strictly prohibited  `,
+    5. Mobile phones are strictly prohibited`,
     imgSrc: '/events/quiz.gif',
     poster: '/posters/tech/it_quiz.png',
     category: 'Tech event',
@@ -685,8 +685,8 @@ const events: event[] = [
   },
   {
     eventId: '10',
-    eventName: 'Filmy Dhumdhadaka',
-    description: `**Event Name**: FILMY DHUM DHAMAKA  
+    eventName: 'Filmy Dhundhamaka',
+    description: `**Event Name**: FILMY DHUN DHAMAKA  
     **Team tukdi**: 3 members per team  
     Three obstacles to your win  
       1. Jab koi clue mil jaye, to baat ban jaye - Guess the songs from emojis  
