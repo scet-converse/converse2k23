@@ -64,10 +64,10 @@ const Hero = () => {
   return (
     <div
       ref={parallaxRef}
-      className={`bg-cover bg-center bg-no-repeat bg-fixed flex flex-col  bg-['/mview.png'] sm:bg-['/mview.png'] md:bg-[url('/tab.png')] items-center lg:bg-[url('/bg.png')] justify-center w-full min-h-screen mx-auto my-0 py-6 z-10`}
+      className={`bg-cover bg-center bg-no-repeat bg-fixed flex flex-col bg-['/mview.png'] sm:bg-[url('/tab.png')] items-center md:bg-[url('/bg.png')] lg:bg-[url('/bg.png')] justify-center w-full min-h-screen mx-auto my-0 py-6 z-10`}
     >
       <div className="max-w-1200 justify-center flex flex-col items-center z-1">
-        <h1 className="text-6xl md:text-9xl font-bold italic text-transparent uppercase converse">
+        <h1 className="text-6xl md:text-8xl font-bold italic text-transparent uppercase converse">
           {FEST_NAME}
         </h1>
         <h2

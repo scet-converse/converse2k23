@@ -27,7 +27,7 @@ async function Layout({ children }: any) {
           />
         </Modal>
       )}
-      <div className="px-4">
+      <div className="px-4>
         <div>{children}</div>
       </div>
       <Footer />
