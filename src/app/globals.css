@@ -279,3 +279,11 @@ body {
     transform: translateX(calc(-100% - 34px));
   }
 }
+
+.gradient {
+  background: linear-gradient(
+    109.6deg,
+    rgb(0, 0, 0) 11.2%,
+    rgb(11, 132, 145) 91.1%
+  );
+}
