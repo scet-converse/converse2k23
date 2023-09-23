@@ -4,7 +4,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 const AnimationWrapper = ({ children }: any) => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
   }, []);
   return (
     <div data-aos="fade-up" data-aos-duration="1500">
