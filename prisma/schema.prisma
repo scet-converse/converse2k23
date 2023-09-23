@@ -36,6 +36,7 @@ model Ticket {
   userMail       String
   eventName      String
   userEnrollment String
+  userName       String?
 
   @@unique([userId, eventId])
 }
