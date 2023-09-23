@@ -70,3 +70,8 @@ export const WEB_COORDINATORS = [
   'Jaimin Kapopara',
   'Rohit Sonvane',
 ];
+export const WEB_HEADS = [
+  'Kritik Jiyaviya',
+  'Krishna Kalani',
+  'Jaimin Kapopara',
+];
