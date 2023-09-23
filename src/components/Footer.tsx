@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         <div className="col-span-12 md:col-span-3">
-          <h1 className="text-xl mb-2 text-secondary">Graphics and Web Heads</h1>
+          <h1 className="text-xl mb-2 text-secondary">Web Developers</h1>
 
           {WEB_HEADS.map((head) => (
             <p>{head}</p>
