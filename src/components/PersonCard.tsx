@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { AiOutlineInstagram, AiOutlineGithub } from 'react-icons/ai';
+import photos from '@/lib/data/photos';
 import { IMG_PREFIX } from '@/lib/constants';
 
 function PersonCard({
@@ -20,13 +21,28 @@ function PersonCard({
   github?: string;
 }) {
   return (
-    <div className="flex flex-col w-full h-full md:w-[90%] md:h-[90%] m-auto aspect-square bg-pink-500 px-10 py-4">
-      <div className="w-full h-1/2 relative flex justify-center">
+    <div className="flex flex-col items-center w-full h-full md:w-[90%] md:h-[90%] m-auto aspect-[9/10] bg-pink-500 px-10 py-4">
+      <div className="w-3/5 aspect-square relative flex justify-center rounded-ful overflow-hidden">
         <Image
-          src={image ? image : `${IMG_PREFIX}/8bit_placeholder.png`}
+          // src={image ? image : `${IMG_PREFIX}/8bit_placeholder.png`}
+          src={
+            photos[name]
+              ? `/people/trans/IMG_${photos[name].trim()}.png`
+              : `${IMG_PREFIX}/8bit_placeholder.png`
+          }
           alt="Picture"
           fill
-          objectFit="contain"
+          style={
+            photos[name]
+              ? {
+                  objectFit: 'contain',
+                  // objectPosition: '50% 10%',
+                  // borderRadius: '50%',
+                  scale: 1.2,
+                  rotate: '-90deg',
+                }
+              : { objectFit: 'contain' }
+          }
         />
       </div>
       <div className="flex flex-col items-center justify-between flex-1 text-center">
