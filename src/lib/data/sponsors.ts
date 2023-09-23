@@ -12,8 +12,8 @@ export default [
     id: '2',
     logo: '/sponsors/leafdrive2.png',
     name: 'Leaf Drive',
-    description: `Leaf Drive Software is an IT solutions company that provides a wide range of services to businesses of all sizes.`,
-    link: 'https://leafdrive.co.in/',
+    description: `Get Personalized Learning Outcomes for everyone. An in-depth performance analysis, where you can know your strong and weak points, your all India rank, your state rank etc. You will also get a virtual tutor who is completely dedicated to bringing out the best in you. It will prioritize your concepts, chapters, topics, and questions through machine learning. Get this innovative learning experience only on Leafdrive Academy Test Series!!`,
+    link: 'https://www.leafdriveacademy.co.in/',
   },
   {
     id: '3',

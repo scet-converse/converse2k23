@@ -13,6 +13,7 @@ export default authMiddleware({
     '/sponsors',
     '/teams',
     '/teams/:path*',
+    '/schedule'
   ],
   ignoredRoutes: ['/api/webhook/clerk'],
 });

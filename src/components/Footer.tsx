@@ -1,11 +1,41 @@
+import {
+  FACULTY_COORDINATORS,
+  HOD_DESIGNATION,
+  HOD_NAME,
+  STUDENT_COORDINATORS,
+} from '@/lib/constants';
 import Link from 'next/link';
 import React from 'react';
 import { AiFillGithub, AiOutlineInstagram } from 'react-icons/ai';
 
 const Footer = () => {
   return (
-    <div className="w-full mx-auto my-0 p-4 pt-10 md:px-[10%] bg-gradient-to-b from-transparent  ">
-      <div className="flex flex-col justify-center items-center mb-4">
+    <div className="bg-neutral-900 w-full mx-auto my-0 p-4 pt-10 md:px-[10%] bg-gradient-to-b from-transparent">
+      <div className="grid grid-cols-12 gap-6">
+        <div className="col-span-12 md:col-span-4">
+          <h1 className="text-xl mb-2 text-secondary">{HOD_DESIGNATION}</h1>
+
+          <p>{HOD_NAME}</p>
+        </div>
+
+        <div className="col-span-12 md:col-span-4">
+          <h1 className="text-xl mb-2 text-secondary">Faculty Coordinators</h1>
+
+          {FACULTY_COORDINATORS.map((coordinator) => (
+            <p>{coordinator}</p>
+          ))}
+        </div>
+
+        <div className="col-span-12 md:col-span-4">
+          <h1 className="text-xl mb-2 text-secondary">Student Coordinators</h1>
+
+          {STUDENT_COORDINATORS.map((coordinator) => (
+            <p>{coordinator.name}</p>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex flex-col justify-center items-center mt-8 mb-6">
         <div className="flex gap-4 mb-4">
           <Link
             href={'https://www.instagram.com/converse_2k23/'}
