@@ -86,7 +86,7 @@ const Hero = () => {
                   <div className="md:h-7 md:w-7 w-6 h-6 relative flex justify-center">
                     {active === index && (
                       <Image
-                        src={`${IMG_PREFIX}/icons/coin.png`}
+                        src={`/icons/coin.png`}
                         alt="coin"
                         fill
                         objectFit="contain"

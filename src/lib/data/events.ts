@@ -80,7 +80,7 @@ const events: event[] = [
       },
       {
         id: '3',
-        name: 'Daraksha Nasirwala',
+        name: 'Daraksha Ahmednasirwala',
         number: '00000 00000',
       },
       {

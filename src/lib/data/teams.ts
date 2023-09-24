@@ -16,6 +16,42 @@ type Team = {
 
 const teams: Team[] = [
   {
+    title: 'Converse',
+    slug: 'converse',
+    people: {
+      'Faculty Coordinator': [
+        {
+          name: 'Dr. Dhruti Sharma',
+        },
+        {
+          name: 'Prof. Bhumika Patel',
+        },
+        {
+          name: 'Dr. Ankit Kharwar',
+        },
+        {
+          name: 'Prof. Shivani Patel',
+        },
+      ],
+      'Student Coordinator': [
+        {
+          name: 'Bhagya Patel',
+          instagram: 'maybe_its_bhagya',
+          github: 'Code-Knightt',
+        },
+        { name: 'Vaishnavi Patel', instagram: 'vaiishu__3153' },
+        { name: 'Pratham Patel', instagram: 'prathampatel15_' },
+        { name: 'Jinal Bavadiya' },
+        {
+          name: 'Ravi Savaliya',
+          instagram: 'ravi___023',
+          github: 'Savaliya-Ravi',
+        },
+        { name: 'Neel Katrodiya', instagram: 'nee__il.07' },
+      ],
+    },
+  },
+  {
     title: 'Graphics and Web',
     slug: 'graphics_and_web',
     people: {
@@ -54,7 +90,7 @@ const teams: Team[] = [
           github: 'Vinay94278',
         },
         {
-          name: 'Darshil Laskari',
+          name: 'Darshil Lashkari',
           instagram: '_darshil.04_',
           github: 'Darshil320',
         },
@@ -104,7 +140,7 @@ const teams: Team[] = [
     people: {
       'Team Coordinator': [
         { name: 'Neel Katrodiya', instagram: 'nee__il.07' },
-        { name: 'Pratham Patel ', instagram: 'prathampatel15_' },
+        { name: 'Pratham Patel', instagram: 'prathampatel15_' },
       ],
       'Team Leader': [
         { name: 'Nandni Patel', instagram: '_.nandni.patel._' },
@@ -125,7 +161,7 @@ const teams: Team[] = [
         { name: 'Shruti Desai' },
         { name: 'Jay Reshamwala' },
         { name: 'Ishika Desai' },
-        { name: 'Krishna Desai ' },
+        { name: 'Krishna Desai' },
         { name: 'Prit Mehta' },
       ],
     },
@@ -136,7 +172,7 @@ const teams: Team[] = [
     people: {
       'Team Coordinator': [
         { name: 'Neel Katrodiya', instagram: 'nee__il.07' },
-        { name: 'Pratham Patel ', instagram: 'prathampatel15_' },
+        { name: 'Pratham Patel', instagram: 'prathampatel15_' },
       ],
       'Team Leader': [
         { name: 'Khushi Patel' },
@@ -191,12 +227,12 @@ const teams: Team[] = [
     people: {
       'Team Coordinator': [
         { name: 'Neel Katrodiya', instagram: 'nee__il.07' },
-        { name: 'Pratham Patel ', instagram: 'prathampatel15_' },
+        { name: 'Pratham Patel', instagram: 'prathampatel15_' },
       ],
-      'Team Leader': [{ name: 'Aryan Prajapati' }, { name: 'Nishit Patel' }],
+      'Team Leader': [{ name: 'Aryan Prajapati' }, { name: 'Nisit Patel' }],
       'Team Member': [
         { name: 'Neel Doctor' },
-        { name: 'Karan ' },
+        { name: 'Karan' },
         { name: 'Harsingh' },
       ],
     },
@@ -217,7 +253,7 @@ const teams: Team[] = [
           github: 'Taashna9703',
         },
         {
-          name: 'Ayushi Garach',
+          name: 'Ayushi Garachh',
           instagram: 'ayushi_garachh',
           github: 'Ayushi-16',
         },
@@ -228,12 +264,12 @@ const teams: Team[] = [
           instagram: 'harsh_1_panchal',
           github: 'Harsh29004',
         },
-        { name: 'Hasti Gondaliya ' },
+        { name: 'Hasti Gondaliya' },
         {
-          name: 'Kuldip Khuman ',
+          name: 'Kuldip Khuman',
           instagram: 'kuldip_darbar_7191',
         },
-        { name: 'Daraksha Nasirwala' },
+        { name: 'Daraksha Ahmednasirwala' },
         { name: 'Yash Chauhan' },
         { name: 'Sujal Ghadiya', instagram: 'sujal_ghadiya' },
       ],
@@ -256,7 +292,7 @@ const teams: Team[] = [
       Volunteer: [
         { name: 'Kena Sutariya' },
         { name: 'Aarchi Chhayaani' },
-        { name: 'Anand Palan ' },
+        { name: 'Anand Palan' },
         { name: 'Divayang Tank' },
         { name: 'Heer Patel' },
         { name: 'Krish Patel' },
@@ -289,10 +325,10 @@ const teams: Team[] = [
         { name: 'Om Chimna', instagram: 'om.chimna', github: 'Omchimna' },
         { name: 'Amaan Payak', instagram: 'amaanpayak' },
         {
-          name: 'Tanisha Agarwal ',
+          name: 'Tanisha Agarwal',
           instagram: 'tanishaagarwal_28',
         },
-        { name: 'Mili Chanchpara ', instagram: 'mili_chanchpara' },
+        { name: 'Mili Chanchpara', instagram: 'mili_chanchpara' },
       ],
     },
   },
@@ -333,7 +369,7 @@ const teams: Team[] = [
         { name: 'Prof. Bhargavi Rani' },
       ],
       'Student Event Head': [
-        { name: 'Smit Gabani ', instagram: '__smit.11', github: 'smitg11' },
+        { name: 'Smit Gabani', instagram: '__smit.11', github: 'smitg11' },
         {
           name: 'Jeel Patel',
           instagram: 'mr_jeel_patel_2811',
@@ -342,11 +378,11 @@ const teams: Team[] = [
       ],
       Volunteer: [
         { name: 'Kruti Kikani', instagram: '__krutikikani__' },
-        { name: 'Parth Gabani ', github: 'Parthh-gabanniii' },
-        { name: 'Tanvi Vaghasiya ', instagram: 'tanvivaghasiya04' },
+        { name: 'Parth Gabani', github: 'Parthh-gabanniii' },
+        { name: 'Tanvi Vaghasiya', instagram: 'tanvivaghasiya04' },
         { name: 'Jenish Makwana' },
-        { name: 'Parth Tarsariya ' },
-        { name: 'Sonvane Nupur ' },
+        { name: 'Parth Tarsariya' },
+        { name: 'Nupur Sonvane' },
       ],
     },
   },
@@ -405,9 +441,9 @@ const teams: Team[] = [
           instagram: 'nidhi.patel15',
           github: 'nidhi-158',
         },
-        { name: 'virali joshi ', instagram: 'virali_joshi3110' },
+        { name: 'Virali Joshi', instagram: 'virali_joshi3110' },
         {
-          name: 'Abhishek Dhanani ',
+          name: 'Abhishek Dhanani',
           instagram: 'abhishek__dhanani',
         },
       ],
@@ -468,14 +504,14 @@ const teams: Team[] = [
     slug: 'capture_quest',
     people: {
       'Student Event Head': [
-        { name: 'Prapti Mehta ', instagram: 'prapti_1324' },
+        { name: 'Prapti Mehta', instagram: 'prapti_1324' },
         { name: 'Disha Bhatia', instagram: 'dishab5772' },
       ],
       Volunteer: [
         { name: 'Arham Sheth', instagram: 'arham_shah._' },
-        { name: 'Bhavya Bavisi ', instagram: 'bhavya_040' },
-        { name: 'Nisit Patel ', instagram: 'nisit_a_patel' },
-        { name: 'Vidhi Doctor ', instagram: 'vidhidoctor' },
+        { name: 'Bhavya Bavisi', instagram: 'bhavya_040' },
+        { name: 'Nisit Patel', instagram: 'nisit_a_patel' },
+        { name: 'Vidhi Doctor', instagram: 'vidhidoctor' },
         { name: 'Viraj Dapkawala' },
         { name: 'Kunj Desai', instagram: 'kunj_2834' },
       ],
