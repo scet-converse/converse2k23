@@ -4,7 +4,7 @@ type Photo = {
 
 const photos: Photo = {
   'Taashna Jariwala': '5256',
-  'Ayushi Garach': '5285',
+  'Ayushi Garachh': '5285',
   'Harsh Panchal': '5299',
   'Hasti Gondaliya': '5288',
   'Daraksha Ahmednasirwala': '5267',
@@ -16,7 +16,7 @@ const photos: Photo = {
   'Tanvi Vaghasiya': '5292',
   'Jenish Makwana': '5306',
   'Parth Tarsariya': '5290',
-  'Sonvane Nupur': '5253',
+  'Nupur Sonvane': '5253',
   'Yesha Dobariya': '5244',
   'Yash Shah': '5250',
   'Kena Sutariya': '5258',
@@ -51,7 +51,7 @@ const photos: Photo = {
   'Jayesh Parmar': '2885',
   'Arham Sheth': '5265',
   'Nidhi Patel': '5278',
-  'Virali joshi': '5294',
+  'Virali Joshi': '5294',
   'Abhishek Dhanani': '5283',
   'Bhavya Bavisi': '5344',
   'Nisit Patel': '5346',
