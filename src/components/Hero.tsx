@@ -23,10 +23,10 @@ const Hero = () => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setActive((prev) => (prev === 0 ? 3 : prev - 1));
+        setActive((prev) => (prev === 0 ? routes.length - 1 : prev - 1));
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setActive((prev) => (prev === 3 ? 0 : prev + 1));
+        setActive((prev) => (prev === routes.length - 1 ? 0 : prev + 1));
       }
     };
 
