@@ -18,7 +18,7 @@ const Events = async () => {
     <div className="flex flex-col w-full min-h-screen max-w-1200 mx-auto mt-8">
       <div className="flex flex-row justify-between md:items-center">
         <div>
-          <h1 className="text-3xl mb-3">
+          <h1 className="md:text-3xl mb-3 text-xl">
             <Link href="/">Home </Link> {'>'} Events
           </h1>
           <p>Register here for all the Awesome events</p>

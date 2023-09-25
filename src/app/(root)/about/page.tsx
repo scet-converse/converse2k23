@@ -6,7 +6,7 @@ import Link from 'next/link';
 const page = () => {
   return (
     <div className="flex flex-col w-full min-h-screen max-w-1200 mx-auto my-0 py-6">
-      <h1 className="text-3xl mb-3">
+      <h1 className="md:text-3xl mb-3 text-xl">
         <Link href="/">Home </Link> {'>'} About
       </h1>
       <p>
