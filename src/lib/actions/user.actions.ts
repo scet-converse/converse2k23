@@ -43,3 +43,18 @@ export async function createUser({
     },
   });
 }
+
+export async function searchUser({ email }: { email: string }) {
+  return await prisma.user.findFirst({
+    where: {
+      AND: [{ email }, { onboarded: true }],
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      enroll: true,
+      // mobile: true,
+    },
+  });
+}

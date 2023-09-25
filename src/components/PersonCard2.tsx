@@ -32,6 +32,7 @@ function PersonCard({
             className="object-contain scale-[1.6] md:scale-[1.7] translate-x-[3%] translate-y-[4%] md:translate-y-[3%]"
             placeholder="empty"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
           />
         ) : (
           <Image
