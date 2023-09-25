@@ -21,6 +21,7 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
     email: string;
     enroll: string;
   } | null>(null);
+  const [searchLoading, setSearchLoading] = useState(false);
 
   useEffect(() => {
     console.log(userId);
@@ -82,12 +83,12 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
           successToast('Event registration successful');
           const mailSentOne = await callNodeMailer({
             mailTo: userMail,
-            userName: userFromDB?.name,
+            userName: `${userFromDB?.name} and ${secondUserInfo.name}`,
             event,
           });
           const mailSentTwo = await callNodeMailer({
             mailTo: secondUserInfo.email,
-            userName: secondUserInfo.name,
+            userName: `${secondUserInfo.name} and ${userFromDB?.name}`,
             event,
           });
           if (mailSentOne && mailSentTwo) {
@@ -130,7 +131,9 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
             {/* search input */}
 
             <div className="flex flex-col gap-1">
-              <label className={styles.label}>Search User</label>
+              <label className={styles.label}>
+                Enter their registered email
+              </label>
 
               <div className="flex flex-row justify-between gap-2">
                 <input
@@ -142,6 +145,7 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
                   className={`${styles.button}`}
                   onClick={async (e) => {
                     e.preventDefault();
+                    setSearchLoading(true);
                     const searchMail = userRef.current && userRef.current.value;
                     console.log(searchMail);
                     if (searchMail === null) {
@@ -158,6 +162,7 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
                     } else {
                       setSecondUserInfo(secondUser);
                     }
+                    setSearchLoading(false);
                   }}
                 >
                   <AiOutlineSearch className="text-xl" />
@@ -167,18 +172,22 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
 
             {/* list of user */}
 
-            <div className="space-y-2 text-sm my-4">
-              {secondUserInfo &&
-                (secondUserInfo.name !== '' ? (
-                  <>
-                    <p>Name: {secondUserInfo.name}</p>
-                    <p>Email: {secondUserInfo.email}</p>
-                    <p>Enrollment: {secondUserInfo.enroll}</p>
-                  </>
-                ) : (
-                  <p>User not found</p>
-                ))}
-            </div>
+            {searchLoading ? (
+              <Spinner />
+            ) : (
+              <div className="space-y-2 text-sm my-4">
+                {secondUserInfo &&
+                  (secondUserInfo.name !== '' ? (
+                    <>
+                      <p>Name: {secondUserInfo.name}</p>
+                      <p>Email: {secondUserInfo.email}</p>
+                      <p>Enrollment: {secondUserInfo.enroll}</p>
+                    </>
+                  ) : (
+                    <p>User not found</p>
+                  ))}
+              </div>
+            )}
           </div>
 
           {/* submit button */}
