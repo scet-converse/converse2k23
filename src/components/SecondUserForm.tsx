@@ -41,6 +41,13 @@ function SecondUserForm({ toggleModal, userId, event }: any) {
       const userName: any = userFromDB?.name;
       const userEnrollment: any = userFromDB?.enroll;
       const userMail: any = userFromDB?.email;
+
+      if (userMail === secondUserInfo.email) {
+        errorToast('You cannot be the second user');
+        setLoading(false);
+        return;
+      }
+
       let ticketCheckOne = await ticketAlreadyGenerated({
         userId,
         eventId: event.eventId,
