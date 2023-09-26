@@ -685,7 +685,7 @@ const events: event[] = [
   },
   {
     eventId: '10',
-    eventName: 'Filmy Dhundhamaka',
+    eventName: 'Filmy Dhun Dhamaka',
     description: `**Event Name**: FILMY DHUN DHAMAKA  
     **Team tukdi**: 3 members per team  
     Three obstacles to your win  

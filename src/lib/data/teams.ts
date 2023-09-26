@@ -179,7 +179,10 @@ const teams: Team[] = [
         { name: 'Bhavya Bavisi' },
         { name: 'Disha Bhatia' },
       ],
-      'Team Member': [{ name: 'Vishva Gadhiya' }, { name: 'Vidhi Doctor' }],
+      'Team Member': [
+        { name: 'Vishv Gadhiya', instagram: 'v_ishv' },
+        { name: 'Vidhi Doctor' },
+      ],
     },
   },
   {
@@ -205,19 +208,17 @@ const teams: Team[] = [
           instagram: 'mitul_tari_',
           github: 'MitulTari',
         },
-        {
-          name: 'Parthiv Kevdiya',
-          instagram: 'parthiv_kevadiya',
-          github: 'parthiv8848',
-        },
+        // {
+        //   name: 'Parthiv Kevdiya',
+        //   instagram: 'parthiv_kevadiya',
+        //   github: 'parthiv8848',
+        // },
+        { name: 'Parthish Mehta' },
       ],
       'Team Member': [
-        { name: 'Parthish Mehta' },
-        { name: 'Shruti Desai' },
         { name: 'Pranami Patel' },
         { name: 'Viraj Dapkawala' },
-        { name: 'Rishi Mistry' },
-        { name: 'Nupur Athvaiya' },
+        { name: 'Ruchita Jain' },
       ],
     },
   },
@@ -518,8 +519,8 @@ const teams: Team[] = [
     },
   },
   {
-    title: 'Filmy Dhum Dhadaka',
-    slug: 'filmy_dhum_dhamaka',
+    title: 'Filmy Dhun Dhamaka',
+    slug: 'filmy_dhun_dhamaka',
     people: {
       'Student Event Head': [
         { name: 'Vedanshi Ponkia', instagram: 'vedanshi._' },

@@ -13,6 +13,7 @@ const photos: Photo = {
   'Jeel Patel': '5251',
   'Kruti Kikani': '5291',
   'Parth Gabani': '5257',
+  'Vishv Gadhiya': '2213',
   'Tanvi Vaghasiya': '5292',
   'Jenish Makwana': '5306',
   'Parth Tarsariya': '5280',

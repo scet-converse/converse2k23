@@ -45,7 +45,7 @@ export default [
   },
   {
     id: '6',
-    logo: '/sponsors/aum.png',
+    logo: '/sponsors/aum_logo.png',
     name: 'AUM Insure & Secure',
     description: `AUM INSURE & SECURE was founded in 2004 with the goal of providing 
     world-class services to customers in order to help them achieve their financial independence with "Complete 
