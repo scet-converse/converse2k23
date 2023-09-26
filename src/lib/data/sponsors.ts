@@ -26,7 +26,7 @@ export default [
   },
   {
     id: '4',
-    logo: '/sponsors/R.png',
+    logo: '/sponsors/Rejoice.png',
     name: 'Rejoicehub Solutions',
     description: `Our vision has led Rejoicehub Solutions to become a top IT company in India 
     & USA for delivering various industry-led mobility solutions. The goal is to 

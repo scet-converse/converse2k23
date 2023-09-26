@@ -23,7 +23,7 @@ const Footer = () => {
           <h1 className="text-xl mb-2 text-secondary">Faculty Coordinators</h1>
 
           {FACULTY_COORDINATORS.map((coordinator) => (
-            <p>{coordinator}</p>
+            <p key={coordinator}>{coordinator}</p>
           ))}
         </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
           <h1 className="text-xl mb-2 text-secondary">Student Coordinators</h1>
 
           {STUDENT_COORDINATORS.map((coordinator) => (
-            <p>{coordinator.name}</p>
+            <p key={coordinator.name}>{coordinator.name}</p>
           ))}
         </div>
 
@@ -39,7 +39,7 @@ const Footer = () => {
           <h1 className="text-xl mb-2 text-secondary">Web Developers</h1>
 
           {WEB_HEADS.map((head) => (
-            <p>{head}</p>
+            <p key={head}>{head}</p>
           ))}
         </div>
       </div>
